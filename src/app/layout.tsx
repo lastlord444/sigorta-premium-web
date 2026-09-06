@@ -21,7 +21,7 @@ const serif = Playfair_Display({
 export const metadata: Metadata = {
   title: `${siteConfig.name} | Kasko, Trafik, Sağlık ve Konut Sigortası`,
   description:
-    "Kasko, trafik, sağlık, konut, DASK ve işyeri sigortalarında 20+ lider sigorta şirketinden tek tıkla karşılaştırmalı teklif alın. Bağımsız uzman danışmanlık ve 7/24 hasar desteği.",
+    "Kasko, trafik, sağlık, konut, DASK ve işyeri sigortalarında birden fazla sigorta şirketinden karşılaştırmalı teklif alın. İhtiyacınıza uygun teminat seçenekleri ve danışmanlık desteği.",
   keywords: [
     "sigorta acentesi",
     "kasko teklifi",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${siteConfig.name} | Premium Sigorta Çözümleri`,
     description:
-      "Kasko, trafik, sağlık ve konut sigortalarında 20+ şirketten anında karşılaştırma.",
+      "Kasko, trafik, sağlık ve konut sigortalarında birden fazla şirketten anında karşılaştırma.",
   },
   robots: {
     index: true,
@@ -67,7 +67,7 @@ export default function RootLayout({
     "@type": "InsuranceAgency",
     name: siteConfig.name,
     description:
-      "Türkiye genelinde 20+ lider sigorta şirketinden karşılaştırmalı kasko, trafik, sağlık, konut, DASK ve işyeri teklifleri sunan bağımsız sigorta acentesi.",
+      "Birden fazla sigorta şirketinden karşılaştırmalı kasko, trafik, sağlık, konut, DASK ve işyeri teklifleri sunan bağımsız sigorta danışmanlığı.",
     url: "https://sigorta-premium-web.vercel.app",
     telephone: siteConfig.phone,
     email: siteConfig.email,

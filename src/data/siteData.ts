@@ -39,7 +39,7 @@ export interface FaqItem {
 export const siteConfig = {
   name: "AURA SİGORTA",
   tagline: "Bağımsız & Premium Sigorta Danışmanlığı",
-  licenseNo: "SEDDK Acente Sicil: G1204-8931",
+  licenseNo: "Bağımsız Sigorta Danışmanlığı",
   phone: "+90 (850) 308 44 20",
   phoneRaw: "+908503084420",
   whatsapp: "+90 (532) 100 20 20",
@@ -76,12 +76,12 @@ export const productsData: InsuranceProduct[] = [
     order: "02",
     name: "TRAFİK SİGORTASI",
     headline: "Yola çıktığınız her anda yanınızda.",
-    description: "Zorunlu mali sorumluluk sigortanızı sadece yasal zorunluluk olarak görmeyin. 20'den fazla sigorta şirketinden saniyeler içinde karşılaştırma yaparak en iyi prim ve ek yol yardım teminatlarına ulaşın.",
+    description: "Zorunlu mali sorumluluk sigortanızı sadece yasal zorunluluk olarak görmeyin. Birden fazla sigorta şirketinden teklifleri karşılaştırarak bütçenize en uygun teminatlara ulaşın.",
     highlights: [
       "Yasal üst limitlerle tam uyumlu koruma",
       "7/24 ücretsiz yol yardım ve çekici",
       "Maddi ve bedeni üçüncü şahıs teminatı",
-      "Tek tıkla anında poliçe yenileme"
+      "Hızlı poliçe tanzimi"
     ],
     metaBadge: "Zorunlu Mali Sorumluluk",
     formType: "trafik"
@@ -91,12 +91,12 @@ export const productsData: InsuranceProduct[] = [
     order: "03",
     name: "ÖZEL SAĞLIK SİGORTASI",
     headline: "Sağlığınız söz konusu olduğunda beklemeyin.",
-    description: "Türkiye'nin en seçkin A+ özel hastane ağlarında sıra beklemeden, doktorunuzu özgürce seçerek tedavi olun. Tamamlayıcı ve Özel Sağlık planlarıyla ailenizin geleceğini koruyun.",
+    description: "Geniş anlaşmalı özel hastane ağlarında sıra beklemeden, doktorunuzu özgürce seçerek tedavi olun. Tamamlayıcı ve Özel Sağlık planlarıyla ailenizin geleceğini koruyun.",
     highlights: [
-      "Seçkin A+ özel hastane ağları",
-      "Limitsiz yatarak tedavi güvencesi",
-      "Yıllık check-up ve diş bakım hediyesi",
-      "Doğum ve yurtdışı tedavi opsiyonları"
+      "Geniş özel hastane ağları",
+      "Yatarak ve ayakta tedavi güvencesi",
+      "Yıllık check-up ve diş bakım seçenekleri",
+      "Doğum ve ek tedavi opsiyonları"
     ],
     metaBadge: "Bireysel & Aile Planı",
     formType: "saglik"
@@ -121,12 +121,12 @@ export const productsData: InsuranceProduct[] = [
     order: "05",
     name: "DASK",
     headline: "Beklenmeyene karşı hazırlıklı olun.",
-    description: "Zorunlu Deprem Sigortası ile binanızı deprem ve deprem kaynaklı yangın, patlama, tsunami tehlikelerine karşı güvenceye alın. En güncel metrekare teminatlarıyla poliçenizi yenileyin.",
+    description: "Zorunlu Deprem Sigortası ile binanızı deprem ve deprem kaynaklı risklere karşı güvenceye alın. En güncel metrekare teminatlarıyla poliçenizi yenileyin.",
     highlights: [
       "Yasal DASK teminat tavanı koruması",
       "Deprem sonrası doğrudan hasar tazmini",
       "Elektrik, su, doğalgaz abonelik uyumlu",
-      "Hızlı ve resmi sistem sorgulama"
+      "Hızlı sorgulama ve tanzim"
     ],
     metaBadge: "Zorunlu Deprem Teminatı",
     formType: "dask"
@@ -141,7 +141,7 @@ export const productsData: InsuranceProduct[] = [
       "İş durması & ciro kaybı telafisi",
       "Demirbaş, makine kırılması ve emtia",
       "Üçüncü şahıs & işveren mali mesuliyet",
-      "Sektöre özel risk analizi ve muafiyet optimizasyonu"
+      "Sektöre özel risk analizi"
     ],
     metaBadge: "Kurumsal Risk Yönetimi",
     formType: "isyeri"
@@ -152,75 +152,75 @@ export const whyUsAdvantages: AdvantageItem[] = [
   {
     id: "multi-quote",
     number: "01",
-    tag: "OBJEKTİF KARŞILAŞTIRMA",
-    title: "Birden fazla sigorta şirketinden teklif",
-    description: "Tek bir şirkete bağlı kalmadan, 20'yi aşkın lider sigorta şirketinin tekliflerini aynı tabloda tarafsızca karşılaştırır, bütçenize en uygun en geniş teminatı sunarız."
+    tag: "ÇOKLU SEÇENEK",
+    title: "Birden fazla şirketten teklif",
+    description: "Tek bir şirkete bağlı kalmadan, birden fazla güvenilir sigorta şirketinin tekliflerini karşılaştırır, bütçenize ve ihtiyacınıza en uygun teminatı sunarız."
   },
   {
     id: "tailored-coverage",
     number: "02",
-    tag: "HASSAS MİMARİ",
-    title: "İhtiyaca özel teminat",
-    description: "Size hiçbir fayda sağlamayacak şişirilmiş maddeler yerine, yaşam tarzınıza ve gerçek risklerinize odaklanan, terzi dikimi poliçe tasarlarız."
+    tag: "ÖZEL KORUMA",
+    title: "İhtiyacınıza uygun teminat seçenekleri",
+    description: "Gereksiz maddeler yerine yaşam tarzınıza ve gerçek risklerinize odaklanan, size özel teminat seçenekleri tasarlarız."
   },
   {
     id: "full-lifecycle",
     number: "03",
-    tag: "KESİNTİSİZ DESTEK",
-    title: "Poliçe öncesi ve sonrası destek",
-    description: "İlişkimiz poliçeyi imzaladığınızda bitmez. Vade takibi, zeyil işlemleri, poliçe yenileme dönemleri ve teminat revizyonlarında daima yanınızdayız."
+    tag: "KESİNTİSİZ İLETİŞİM",
+    title: "Poliçe sürecinde destek",
+    description: "Teklif aşamasından poliçe tanzimine, vade takibinden yenileme dönemlerine kadar sürecin her adımında yanınızdayız."
   },
   {
     id: "human-claim",
     number: "04",
-    tag: "GERÇEK DANIŞMANLIK",
-    title: "Hasar sürecinde gerçek insan desteği",
-    description: "Kaza ve hasar anında robotik çağrı merkezi menüleriyle değil; dosyanızı bizzat takip eden, eksper ve servis sürecini yöneten lisanslı uzmanınızla muhatap olursunuz."
+    tag: "DOĞRUDAN YÖNLENDİRME",
+    title: "Hasar anında kesintisiz danışmanlık",
+    description: "Kaza ve hasar anında dosyanızı baştan sona takip eden ve gerekli adımları koordine eden uzman danışmanınızla irtibatta olursunuz."
   }
 ];
 
 export const metricsData: MetricItem[] = [
   {
-    value: "20+",
-    label: "Sigorta Şirketi",
-    sublabel: "Lisanslı yetkili acentelik"
+    value: "Çoklu",
+    label: "Şirket Karşılaştırması",
+    sublabel: "Birden fazla şirketten teklif"
   },
   {
-    value: "10.000+",
-    label: "Aktif Poliçe",
-    sublabel: "Bireysel ve kurumsal portföy"
+    value: "Esnek",
+    label: "Teminat Seçenekleri",
+    sublabel: "İhtiyacınıza uygun koruma"
   },
   {
-    value: "15+",
-    label: "Yıllık Deneyim",
-    sublabel: "Sektörde güvenilir tecrübe"
+    value: "Birebir",
+    label: "Danışmanlık Desteği",
+    sublabel: "Poliçe sürecinde destek"
   },
   {
-    value: "%99.4",
-    label: "Müşteri Memnuniyeti",
-    sublabel: "Hasar çözümlerinde hızlı sonuç"
+    value: "Kesintisiz",
+    label: "Hasar Yönlendirmesi",
+    sublabel: "Adım adım dosya takibi"
   }
 ];
 
 export const partnerCompanies: PartnerCompany[] = [
-  { id: "allianz", name: "Allianz Sigorta", shortName: "ALLIANZ", category: "Global Lider" },
-  { id: "anadolu", name: "Anadolu Sigorta", shortName: "ANADOLU", category: "Köklü Güvence" },
-  { id: "axa", name: "Axa Sigorta", shortName: "AXA", category: "Uluslararası" },
-  { id: "aksigorta", name: "Aksigorta", shortName: "AK SİGORTA", category: "Sabancı Grubu" },
-  { id: "turkiye", name: "Türkiye Sigorta", shortName: "TÜRKİYE SİGORTA", category: "Güçlü Kamu" },
-  { id: "sompo", name: "Sompo Sigorta", shortName: "SOMPO", category: "Japon Güvencesi" },
-  { id: "mapfre", name: "Mapfre Sigorta", shortName: "MAPFRE", category: "Global Acente" },
-  { id: "hdi", name: "HDI Sigorta", shortName: "HDI", category: "Alman Finans" },
+  { id: "allianz", name: "Allianz Sigorta", shortName: "ALLIANZ", category: "Sigorta Şirketi" },
+  { id: "anadolu", name: "Anadolu Sigorta", shortName: "ANADOLU", category: "Sigorta Şirketi" },
+  { id: "axa", name: "Axa Sigorta", shortName: "AXA", category: "Sigorta Şirketi" },
+  { id: "aksigorta", name: "Aksigorta", shortName: "AK SİGORTA", category: "Sigorta Şirketi" },
+  { id: "turkiye", name: "Türkiye Sigorta", shortName: "TÜRKİYE SİGORTA", category: "Sigorta Şirketi" },
+  { id: "sompo", name: "Sompo Sigorta", shortName: "SOMPO", category: "Sigorta Şirketi" },
+  { id: "mapfre", name: "Mapfre Sigorta", shortName: "MAPFRE", category: "Sigorta Şirketi" },
+  { id: "hdi", name: "HDI Sigorta", shortName: "HDI", category: "Sigorta Şirketi" },
   { id: "neova", name: "Neova Katılım", shortName: "NEOVA", category: "Katılım Sigortacılığı" },
-  { id: "quick", name: "Quick Sigorta", shortName: "QUICK", category: "Dijital Hızlı" },
-  { id: "ray", name: "Ray Sigorta", shortName: "RAY SİGORTA", category: "VIG Grubu" },
-  { id: "zurich", name: "Zurich Sigorta", shortName: "ZURICH", category: "İsviçre Standardı" },
+  { id: "quick", name: "Quick Sigorta", shortName: "QUICK", category: "Sigorta Şirketi" },
+  { id: "ray", name: "Ray Sigorta", shortName: "RAY SİGORTA", category: "Sigorta Şirketi" },
+  { id: "zurich", name: "Zurich Sigorta", shortName: "ZURICH", category: "Sigorta Şirketi" },
 ];
 
 export const faqItems: FaqItem[] = [
   {
     question: "Kasko fiyatı nasıl belirlenir?",
-    answer: "Kasko primi; aracınızın marka, model ve kasko değer listesindeki bedeli, sürücünün hasarsızlık kademesi, ikamet edilen il/ilçe, poliçede seçilen muafiyet ve ikame araç gibi ek teminat seçenekleri doğrultusunda algoritmik olarak belirlenir. Acentemiz 20 farklı şirketin risk primlerini anlık tarayarak en avantajlı teklifi sunar.",
+    answer: "Kasko primi; aracınızın marka, model ve kasko değer listesindeki bedeli, sürücünün hasarsızlık kademesi, ikamet edilen il/ilçe, poliçede seçilen muafiyet ve ikame araç gibi ek teminat seçenekleri doğrultusunda belirlenir. Acentemiz birden fazla şirketin tekliflerini tarayarak en avantajlı seçeneği sunar.",
     category: "Araç Sigortaları"
   },
   {

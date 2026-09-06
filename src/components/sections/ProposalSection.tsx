@@ -180,7 +180,7 @@ export default function ProposalSection({ initialProduct = "kasko" }: ProposalPr
         <div className="text-center mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs font-mono uppercase tracking-[0.2em] text-silver-300 mb-5">
             <Clock className="w-3.5 h-3.5 text-electric-light" />
-            <span>3 Dakikada Çoklu Şirket Karşılaştırması</span>
+            <span>Birden Fazla Şirketten Teklif</span>
           </div>
 
           <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-medium text-white mb-4">
@@ -188,7 +188,7 @@ export default function ProposalSection({ initialProduct = "kasko" }: ProposalPr
           </h2>
 
           <p className="text-silver-400 text-base sm:text-lg max-w-xl mx-auto font-sans">
-            İhtiyacınız olan güvenceyi seçin; danışmanlarımız 20'yi aşkın şirketin
+            İhtiyacınız olan güvenceyi seçin; danışmanlarımız birden fazla şirketin
             tekliflerini sizin için hazırlasın.
           </p>
         </div>
@@ -411,8 +411,8 @@ export default function ProposalSection({ initialProduct = "kasko" }: ProposalPr
                 </h3>
 
                 <p className="text-silver-300 text-base max-w-lg mb-8 font-sans leading-relaxed">
-                  En kısa sürede sizinle iletişime geçeceğiz. Lisanslı danışmanımız
-                  seçtiğiniz <span className="text-electric-light font-medium uppercase">{selectedType}</span> için 20 farklı sigorta şirketinden en avantajlı teminat ve prim seçeneklerini derlemektedir.
+                  En kısa sürede sizinle iletişime geçeceğiz. Danışmanımız
+                  seçtiğiniz <span className="text-electric-light font-medium uppercase">{selectedType}</span> için birden fazla sigorta şirketinden en avantajlı teminat ve prim seçeneklerini derlemektedir.
                 </p>
 
                 {/* FAST DIRECT ACTIONS */}

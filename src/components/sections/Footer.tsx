@@ -60,8 +60,8 @@ export default function Footer() {
             </a>
 
             <p className="text-sm text-silver-400 font-sans leading-relaxed mb-6 max-w-sm">
-              Gereksiz maddelerden arındırılmış, ihtiyaca özel teminat mimarisi.
-              20'den fazla sigorta şirketinin kurumsal güvencesiyle yanınızdayız.
+              Gereksiz maddelerden arındırılmış, ihtiyaca özel teminat seçenekleri.
+              Birden fazla sigorta şirketinin teklifleriyle yanınızdayız.
             </p>
 
             <div className="flex items-center gap-3">

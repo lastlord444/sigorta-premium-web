@@ -38,21 +38,21 @@ export default function AboutSection() {
           sigorta acentesidir. Risklerinizi analiz eder, poliçenizi optimize ederiz.
         </p>
 
-        {/* OFFICIAL ACCREDITATIONS */}
+        {/* GUIDING PRINCIPLES */}
         <div className="pt-8 border-t border-white/[0.08] flex flex-wrap items-center justify-center gap-8 sm:gap-14 text-silver-400 font-mono text-xs">
           <div className="flex items-center gap-2">
             <Award className="w-4 h-4 text-electric-light" />
-            <span>SEDDK Yetkili Acente Ruhsatı</span>
+            <span>Birden Fazla Şirketten Teklif</span>
           </div>
 
           <div className="flex items-center gap-2">
             <FileCheck className="w-4 h-4 text-accent-violet" />
-            <span>TOBB Levha Kayıtlı</span>
+            <span>İhtiyacınıza Uygun Teminat Seçenekleri</span>
           </div>
 
           <div className="flex items-center gap-2">
             <CheckCircle className="w-4 h-4 text-emerald-400" />
-            <span>%100 Bağımsız Temsil</span>
+            <span>Poliçe Sürecinde Destek</span>
           </div>
         </div>
       </div>

@@ -20,9 +20,9 @@ export default function Home() {
   };
 
   return (
-    <main className="relative min-h-screen bg-background overflow-x-hidden">
+    <main className="relative min-h-screen bg-background overflow-x-clip">
       <Navbar />
-      <Hero />
+      <Hero onSelectProductForQuote={handleSelectProduct} />
       <ScrollStorytelling onSelectProductForQuote={handleSelectProduct} />
       <WhyUs />
       <PartnersMarquee />

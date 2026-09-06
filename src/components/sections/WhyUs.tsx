@@ -38,7 +38,7 @@ export default function WhyUs() {
 
           <p className="mt-6 text-silver-400 text-base sm:text-lg font-sans leading-relaxed">
             Klasik acentelerin komisyon odaklı ezberlerinden ayrılıyoruz. Sizin risk haritanızı çıkarıyor, 
-            20'yi aşkın sigorta şirketinin tekliflerini inceleyerek gerçekten ihtiyaç duyduğunuz korumayı inşa ediyoruz.
+            birden fazla sigorta şirketinin tekliflerini inceleyerek gerçekten ihtiyaç duyduğunuz korumayı inşa ediyoruz.
           </p>
         </div>
 
