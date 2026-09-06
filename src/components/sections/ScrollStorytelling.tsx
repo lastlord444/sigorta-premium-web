@@ -1,276 +1,205 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import React from "react";
 import {
   Car,
+  Home,
   ShieldAlert,
   HeartPulse,
-  Home,
   Building2,
   Briefcase,
-  CheckCircle2,
-  ArrowRight,
-  Shield,
-  Activity,
   Sparkles
 } from "lucide-react";
-import { productsData } from "@/data/siteData";
+import CinematicInsuranceScene from "@/components/sections/CinematicInsuranceScene";
 import { useLenis } from "@/components/providers/SmoothScrollProvider";
 
-function getProductIcon(id: string, className: string = "w-5 h-5") {
-  switch (id) {
-    case "kasko":
-      return <Car className={className} />;
-    case "trafik":
-      return <ShieldAlert className={className} />;
-    case "saglik":
-      return <HeartPulse className={className} />;
-    case "konut":
-      return <Home className={className} />;
-    case "dask":
-      return <Building2 className={className} />;
-    case "isyeri":
-      return <Briefcase className={className} />;
-    default:
-      return <Shield className={className} />;
-  }
+interface ScrollStorytellingProps {
+  onSelectProductForQuote?: (productId: string) => void;
 }
 
 export default function ScrollStorytelling({
   onSelectProductForQuote,
-}: {
-  onSelectProductForQuote?: (productId: string) => void;
-}) {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const stageRef = useRef<HTMLDivElement>(null);
+}: ScrollStorytellingProps) {
   const { scrollTo } = useLenis();
 
-  useEffect(() => {
-    if (typeof window === "undefined" || !containerRef.current) return;
-
-    gsap.registerPlugin(ScrollTrigger);
-
-    // Create ScrollTrigger to smoothly update active index based on scroll position
-    const totalSteps = productsData.length;
-    const trigger = ScrollTrigger.create({
-      trigger: containerRef.current,
-      start: "top top",
-      end: `+=${totalSteps * 80}%`,
-      pin: stageRef.current,
-      pinSpacing: true,
-      scrub: 0.8,
-      onUpdate: (self) => {
-        const progress = self.progress;
-        const index = Math.min(
-          Math.floor(progress * totalSteps),
-          totalSteps - 1
-        );
-        setActiveIndex(index);
-      },
-    });
-
-    return () => {
-      trigger.kill();
-    };
-  }, []);
-
-  const activeProduct = productsData[activeIndex];
-
-  const handleProductSelect = (id: string) => {
+  const handleQuoteClick = (productId: string) => {
     if (onSelectProductForQuote) {
-      onSelectProductForQuote(id);
+      onSelectProductForQuote(productId);
     }
     scrollTo("#teklif-al");
   };
 
+  const scenes = [
+    {
+      id: "kasko",
+      order: "01",
+      eyebrow: "01 / KASKO",
+      title: "Hareket özgürlüğünüzü güvence altına alın.",
+      description:
+        "Kaza, çarpma, doğal afet, yangın ve hırsızlığa karşı aracınızı tam güvenceye alın. İkame araç, orijinal cam değişimi ve yetkili servis güvencesiyle standart poliçelerin ötesine geçin.",
+      videoSrc: "/videos/kasko-car.mp4",
+      alignment: "right" as const,
+      badge: "Genişletilmiş Kasko",
+      icon: <Car className="w-4 h-4 text-electric-light" />,
+      highlights: [
+        "Orijinal parça & yetkili servis garantisi",
+        "Sınırsız ikame araç seçeneği",
+        "Mini onarım ve 7/24 çekici asistanı",
+        "Yurtdışı ek teminat olanağı",
+      ],
+      ctaText: "Kasko İçin Teklif Al",
+    },
+    {
+      id: "konut",
+      order: "02",
+      eyebrow: "02 / KONUT",
+      title: "Eviniz dört duvardan fazlasıdır.",
+      description:
+        "Evinizi, değerli eşyalarınızı ve anılarınızı yangın, hırsızlık, dahili su sızıntıları ve komşu sorumluluğuna karşı eksiksiz teminat altına alın. Çilingir ve kombi bakım asistanı dahil.",
+      // Ready for public/videos/konut-home.mp4 when user adds it
+      videoSrc: undefined, // Seamlessly activates once public/videos/konut-home.mp4 is provided
+      pendingVideoNotice:
+        "public/videos/konut-home.mp4 dosyası için sinematik sahne altyapısı hazırlandı. Video yüklendiğinde otomatik olarak oynatılacaktır.",
+      alignment: "left" as const,
+      badge: "Tam Kapsamlı Yuva",
+      icon: <Home className="w-4 h-4 text-emerald-400" />,
+      highlights: [
+        "Bina ve eşya tam değer koruması",
+        "Komşu ve kiracı mali sorumluluğu",
+        "7/24 çilingir, camcı ve tesisatçı asistanı",
+        "Elektronik cihaz arıza güvencesi",
+      ],
+      ctaText: "Konut Sigortası Teklifi Al",
+    },
+    {
+      id: "trafik",
+      order: "03",
+      eyebrow: "03 / TRAFİK SİGORTASI",
+      title: "Yola çıktığınız her anda yanınızda.",
+      description:
+        "Zorunlu mali sorumluluk sigortanızı yalnızca yasal zorunluluk olarak görmeyin. 20'den fazla sigorta şirketinden saniyeler içinde karşılaştırma yaparak en iyi prim ve ek yol yardım teminatlarına ulaşın.",
+      videoSrc: undefined,
+      alignment: "right" as const,
+      badge: "Zorunlu Mali Mesuliyet",
+      icon: <ShieldAlert className="w-4 h-4 text-amber-400" />,
+      highlights: [
+        "Yasal üst limitlerle tam uyumlu koruma",
+        "7/24 ücretsiz yol yardım ve çekici",
+        "Maddi ve bedeni üçüncü şahıs teminatı",
+        "Tek tıkla anında poliçe yenileme",
+      ],
+      ctaText: "Trafik Sigortası Teklifi Al",
+    },
+    {
+      id: "saglik",
+      order: "04",
+      eyebrow: "04 / ÖZEL SAĞLIK",
+      title: "Sağlığınız söz konusu olduğunda beklemeyin.",
+      description:
+        "Türkiye'nin en seçkin A+ özel hastane ağlarında sıra beklemeden, doktorunuzu özgürce seçerek tedavi olun. Tamamlayıcı ve Özel Sağlık planlarıyla ailenizin geleceğini koruyun.",
+      videoSrc: undefined,
+      alignment: "left" as const,
+      badge: "Bireysel & Aile Sağlığı",
+      icon: <HeartPulse className="w-4 h-4 text-rose-400" />,
+      highlights: [
+        "Seçkin A+ özel hastane ağları",
+        "Limitsiz yatarak tedavi güvencesi",
+        "Yıllık check-up ve diş bakım hediyesi",
+        "Doğum ve yurtdışı tedavi opsiyonları",
+      ],
+      ctaText: "Sağlık Sigortası Teklifi Al",
+    },
+    {
+      id: "dask",
+      order: "05",
+      eyebrow: "05 / DASK",
+      title: "Beklenmeyene karşı hazırlıklı olun.",
+      description:
+        "Zorunlu Deprem Sigortası ile binanızı deprem ve deprem kaynaklı yangın, patlama ve hasar risklerine karşı resmi güvenceye alın. En güncel metrekare teminatlarıyla poliçenizi yenileyin.",
+      videoSrc: undefined,
+      alignment: "right" as const,
+      badge: "Zorunlu Deprem Teminatı",
+      icon: <Building2 className="w-4 h-4 text-sky-400" />,
+      highlights: [
+        "Yasal DASK teminat tavanı koruması",
+        "Deprem sonrası doğrudan hasar tazmini",
+        "Abonelik işlemleri için resmi kayıt",
+        "Hızlı ve resmi sistem sorgulama",
+      ],
+      ctaText: "DASK Poliçesi Sorgula",
+    },
+    {
+      id: "isyeri",
+      order: "06",
+      eyebrow: "06 / İŞYERİ SİGORTASI",
+      title: "Yıllarca kurduğunuz işi tek poliçeyle riske bırakmayın.",
+      description:
+        "İşletmenizin demirbaşlarını, emtiasını, çalışanlarını ve iş durması risklerini çok yönlü teminat paketiyle koruyun. Butik ofislerden büyük ölçekli tesislere özel çözümler.",
+      videoSrc: undefined,
+      alignment: "left" as const,
+      badge: "Kurumsal Risk Yönetimi",
+      icon: <Briefcase className="w-4 h-4 text-accent-violet" />,
+      highlights: [
+        "İş durması & ciro kaybı telafisi",
+        "Demirbaş, makine kırılması ve emtia",
+        "Üçüncü şahıs & işveren mali mesuliyet",
+        "Sektöre özel risk analizi",
+      ],
+      ctaText: "İşyeri Sigortası Teklifi Al",
+    },
+  ];
+
   return (
-    <section
-      id="sigortalar"
-      ref={containerRef}
-      className="relative w-full bg-navy-950 text-silver-100 overflow-hidden"
-    >
-      {/* BACKGROUND AMBIENT GLOWS */}
-      <div className="absolute top-1/4 -left-40 w-96 h-96 bg-electric/10 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-1/4 -right-40 w-96 h-96 bg-accent-violet/10 rounded-full blur-[140px] pointer-events-none" />
-
-      {/* PINNED STAGE CONTAINER */}
-      <div
-        ref={stageRef}
-        className="w-full min-h-screen flex flex-col justify-center py-12 px-6 sm:px-10 lg:px-16"
-      >
-        <div className="max-w-7xl mx-auto w-full">
-          {/* SECTION HEADER & QUICK NAVIGATION TABS */}
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10 pb-6 border-b border-white/[0.08]">
-            <div>
-              <div className="inline-flex items-center gap-2 text-xs font-mono tracking-[0.25em] text-electric-light uppercase mb-2">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>Sinematik Ürün Vitrini</span>
-              </div>
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-white font-medium">
-                Kapsamlı Güvence Portföyü
-              </h2>
+    <section id="sigortalar" className="relative w-full bg-navy-950 text-white">
+      {/* SECTION ANCHOR HEADER */}
+      <div className="pt-20 pb-10 px-6 sm:px-10 lg:px-16 border-b border-white/[0.06] bg-gradient-to-b from-background to-navy-950">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div>
+            <div className="inline-flex items-center gap-2 text-xs font-mono tracking-[0.25em] text-electric-light uppercase mb-2">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Sinematik Güvence Portföyü</span>
             </div>
-
-            {/* PRODUCT SELECTOR TABS */}
-            <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
-              {productsData.map((item, idx) => (
-                <button
-                  key={item.id}
-                  onClick={() => setActiveIndex(idx)}
-                  className={`px-3.5 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider transition-all duration-300 whitespace-nowrap cursor-pointer ${
-                    activeIndex === idx
-                      ? "bg-white/15 text-white border border-white/30 shadow-[0_0_15px_rgba(255,255,255,0.15)]"
-                      : "bg-white/[0.03] text-silver-400 hover:text-silver-200 border border-white/[0.05]"
-                  }`}
-                >
-                  <span className="text-electric-light mr-1.5">{item.order}</span>
-                  {item.name}
-                </button>
-              ))}
-            </div>
+            <h2 className="font-serif text-3xl sm:text-5xl font-medium text-white">
+              Değerlerinizi Doğru Teminatla Koruyun
+            </h2>
           </div>
 
-          {/* MAIN TWO-COLUMN CINEMATIC SHOWCASE */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
-            {/* LEFT COLUMN: NARRATIVE & SPECS */}
-            <div className="lg:col-span-6 flex flex-col justify-center">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeProduct.id}
-                  initial={{ opacity: 0, y: 24 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -24 }}
-                  transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-                  className="flex flex-col"
-                >
-                  {/* ORDER & BADGE */}
-                  <div className="flex items-center gap-4 mb-4">
-                    <span className="font-mono text-4xl sm:text-5xl font-light text-electric-light/80 tracking-tighter">
-                      {activeProduct.order}
-                    </span>
-                    <div className="h-4 w-px bg-white/20" />
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-white/[0.06] border border-white/10 text-xs font-mono uppercase tracking-wider text-silver-300">
-                      {getProductIcon(activeProduct.id, "w-4 h-4 text-electric-light")}
-                      {activeProduct.metaBadge}
-                    </span>
-                  </div>
-
-                  {/* HEADLINE */}
-                  <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-white font-medium leading-[1.25] mb-5">
-                    “{activeProduct.headline}”
-                  </h3>
-
-                  {/* DESCRIPTION */}
-                  <p className="text-silver-400 text-sm sm:text-base leading-relaxed mb-6 font-sans">
-                    {activeProduct.description}
-                  </p>
-
-                  {/* COVERAGE HIGHLIGHTS */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
-                    {activeProduct.highlights.map((h, i) => (
-                      <div
-                        key={i}
-                        className="flex items-start gap-2.5 p-3 rounded-xl bg-white/[0.02] border border-white/[0.06]"
-                      >
-                        <CheckCircle2 className="w-4 h-4 text-electric-light shrink-0 mt-0.5" />
-                        <span className="text-xs text-silver-300 font-sans leading-snug">
-                          {h}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* ACTION BUTTON */}
-                  <div className="flex items-center gap-4">
-                    <button
-                      onClick={() => handleProductSelect(activeProduct.id)}
-                      className="group inline-flex items-center gap-3 px-6 py-3.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold text-xs tracking-wider uppercase shadow-[0_0_20px_rgba(0,102,255,0.35)] hover:shadow-[0_0_30px_rgba(0,102,255,0.6)] transition-all cursor-pointer"
-                    >
-                      <span>{activeProduct.name} İçin Teklif Al</span>
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </button>
-                    <span className="text-[11px] text-silver-500 font-mono">
-                      Ortalama 3 dakikada sonuç
-                    </span>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-
-            {/* RIGHT COLUMN: CINEMATIC VISUAL VIEWPORT */}
-            <div className="lg:col-span-6 relative">
-              <div className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-br from-white/[0.05] to-white/[0.01] backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.6)] p-6 flex flex-col justify-between">
-                {/* AMBIENT INNER GLOW */}
-                <div className="absolute inset-0 bg-radial-glow opacity-30 pointer-events-none" />
-
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={activeProduct.id}
-                    initial={{ opacity: 0, scale: 0.96 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 1.04 }}
-                    transition={{ duration: 0.4, ease: "easeOut" }}
-                    className="relative z-10 w-full h-full flex flex-col justify-between"
-                  >
-                    {/* TOP HUD BAR */}
-                    <div className="flex items-center justify-between pb-4 border-b border-white/[0.08]">
-                      <div className="flex items-center gap-2 font-mono text-[11px] text-silver-400">
-                        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-                        <span>SİSTEM AKTİF • 20+ ŞİRKET TARAMASI</span>
-                      </div>
-                      <span className="font-mono text-xs text-electric-light">
-                        PORTFÖY {activeProduct.order} / 06
-                      </span>
-                    </div>
-
-                    {/* DYNAMIC SCENIC GRAPHIC / TELEMETRY CARD */}
-                    <div className="my-auto py-6 flex flex-col items-center text-center">
-                      <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-blue-500/20 to-indigo-600/20 border border-white/15 flex items-center justify-center mb-5 shadow-[0_0_30px_rgba(0,102,255,0.3)]">
-                        {getProductIcon(activeProduct.id, "w-12 h-12 stroke-[1.5] text-electric-light")}
-                      </div>
-
-                      <span className="font-mono text-xs text-silver-400 uppercase tracking-widest mb-1">
-                        STANDART DIŞI KORUMA DÜZEYİ
-                      </span>
-                      <h4 className="font-serif text-2xl text-white font-medium mb-3">
-                        {activeProduct.name} Güvence Protokolü
-                      </h4>
-
-                      {/* STAT PILLS */}
-                      <div className="flex flex-wrap justify-center gap-2 mt-2">
-                        <span className="px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 text-[11px] font-mono text-silver-300">
-                          ✓ Genişletilmiş Muafiyet
-                        </span>
-                        <span className="px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 text-[11px] font-mono text-silver-300">
-                          ✓ 7/24 Kesintisiz Asistan
-                        </span>
-                        <span className="px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 text-[11px] font-mono text-silver-300">
-                          ✓ Gerçek Kişi Danışman
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* BOTTOM HUD STATUS */}
-                    <div className="pt-4 border-t border-white/[0.08] flex items-center justify-between text-[11px] font-mono text-silver-400">
-                      <div className="flex items-center gap-2">
-                        <Shield className="w-3.5 h-3.5 text-electric-light" />
-                        <span>SEDDK Lisanslı Teminat Mimarlığı</span>
-                      </div>
-                      <div className="flex items-center gap-1.5 text-emerald-400">
-                        <Activity className="w-3.5 h-3.5" />
-                        <span>Anlık Fiyatlandırma</span>
-                      </div>
-                    </div>
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-            </div>
+          {/* QUICK JUMP NAVIGATION PILLS */}
+          <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+            {scenes.map((s) => (
+              <button
+                key={s.id}
+                onClick={() => scrollTo(`#scene-${s.id}`)}
+                className="px-3.5 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider bg-white/[0.03] hover:bg-white/[0.08] text-silver-400 hover:text-white border border-white/[0.06] transition-all whitespace-nowrap cursor-pointer"
+              >
+                <span className="text-electric-light mr-1.5">{s.order}</span>
+                {s.eyebrow.split("/")[1]?.trim() || s.id}
+              </button>
+            ))}
           </div>
         </div>
+      </div>
+
+      {/* REUSABLE CINEMATIC SCENES */}
+      <div className="divide-y divide-white/[0.04]">
+        {scenes.map((scene) => (
+          <CinematicInsuranceScene
+            key={scene.id}
+            id={scene.id}
+            order={scene.order}
+            eyebrow={scene.eyebrow}
+            title={scene.title}
+            description={scene.description}
+            videoSrc={scene.videoSrc}
+            pendingVideoNotice={scene.pendingVideoNotice}
+            alignment={scene.alignment}
+            badge={scene.badge}
+            highlights={scene.highlights}
+            ctaText={scene.ctaText}
+            icon={scene.icon}
+            onQuoteClick={() => handleQuoteClick(scene.id)}
+          />
+        ))}
       </div>
     </section>
   );
