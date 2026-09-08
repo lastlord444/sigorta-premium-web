@@ -71,7 +71,7 @@ require_once get_template_directory() . '/inc/meta-boxes.php';
 require_once get_template_directory() . '/inc/admin-dashboard.php';
 require_once get_template_directory() . '/inc/admin-settings.php';
 require_once get_template_directory() . '/inc/seo.php';
-// 5. Enforce HTTPS 301 Redirect for Insecure Requests
+// 5. Enforce HTTPS 301 Redirect for Insecure Requests & Favicon
 function plused_enforce_https() {
     $is_ssl = is_ssl() || (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && strtolower($_SERVER['HTTP_X_FORWARDED_PROTO']) === 'https');
     if (!$is_ssl && !is_admin() && isset($_SERVER['HTTP_HOST']) && isset($_SERVER['REQUEST_URI'])) {
@@ -80,4 +80,13 @@ function plused_enforce_https() {
     }
 }
 add_action('template_redirect', 'plused_enforce_https', 1);
+
+function plused_favicon_fallback() {
+    if (isset($_SERVER['REQUEST_URI']) && strpos($_SERVER['REQUEST_URI'], '/favicon.ico') !== false) {
+        wp_redirect(get_template_directory_uri() . '/favicon.ico', 301);
+        exit;
+    }
+}
+add_action('init', 'plused_favicon_fallback', 1);
+
 
