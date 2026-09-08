@@ -86,10 +86,10 @@ $categories = array(
         </div>
 
         <!-- 6 CATEGORIES GRID -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:1.5rem;">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap:1.5rem;">
             <?php foreach ($categories as $cat) : ?>
-            <a href="<?php echo esc_url($cat['url']); ?>" class="group block text-decoration-none" style="text-decoration:none;">
-                <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.08); border-radius:1.25rem; padding:1.75rem; height:100%; display:flex; flex-direction:column; justify-content:space-between; transition:all 0.3s cubic-bezier(0.16, 1, 0.3, 1);" class="hover:border-blue-500/50 hover:bg-white/[0.04]">
+            <a href="<?php echo esc_url($cat['url']); ?>" class="group block text-decoration-none" style="text-decoration:none; min-width:0;">
+                <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.08); border-radius:1.25rem; padding:clamp(1.25rem, 3vw, 1.75rem); min-width:0; height:100%; display:flex; flex-direction:column; justify-content:space-between; transition:all 0.3s cubic-bezier(0.16, 1, 0.3, 1);" class="hover:border-blue-500/50 hover:bg-white/[0.04]">
                     <div>
                         <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:1.25rem;">
                             <div style="width:44px; height:44px; border-radius:12px; background:rgba(0,102,255,0.1); border:1px solid rgba(0,102,255,0.25); display:flex; align-items:center; justify-content:center; color:#38BDF8;">

@@ -64,14 +64,16 @@ if (!empty($corp_phone))   $corporate_fields[] = array('label' => 'Telefon', 'va
                 Geleneksel ve karmaşık sigortacılığı sadeleştiriyoruz. Müşterimizin gerçek risklerini analiz eder, Türkiye'nin önde gelen sigorta şirketlerinin tekliflerini masaya yatırır ve en doğru teminatı birlikte seçeriz.
             </p>
         </div>
+    </div>
 
-        <!-- REUSE WHY-US & ABOUT CONTENT -->
-        <?php get_template_part('template-parts/section', 'why-us'); ?>
+    <!-- REUSE WHY-US & ABOUT CONTENT -->
+    <?php get_template_part('template-parts/section', 'why-us'); ?>
 
-        <div style="margin-top:4rem;">
-            <?php get_template_part('template-parts/section', 'about'); ?>
-        </div>
+    <div>
+        <?php get_template_part('template-parts/section', 'about'); ?>
+    </div>
 
+    <div class="container-custom relative z-10">
         <!-- CORPORATE CREDENTIALS & TRUST (ONLY SHOWN IF CONFIGURED) -->
         <?php if (!empty($corporate_fields)) : ?>
         <div style="margin-top:4.5rem; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.08); border-radius:1.5rem; padding:clamp(1.5rem, 4vw, 3rem);">

@@ -130,7 +130,7 @@ $announcement_on   = !empty($options['announcement_active']);
 
 <!-- FULLSCREEN MOBILE MENU OVERLAY -->
 <div id="mobile-menu-overlay" class="modal-overlay" style="z-index:90;">
-    <div style="width:100%; max-width:440px; max-height:90vh; overflow-y:auto; background:#060D1F; border:1px solid rgba(255,255,255,0.15); border-radius:1.5rem; padding:1.75rem; margin:1rem;">
+    <div style="width:100%; max-width:440px; max-height:90vh; overflow-y:auto; background:#060D1F; border:1px solid rgba(255,255,255,0.15); border-radius:1.5rem; padding:clamp(1.25rem, 4vw, 1.75rem); box-sizing:border-box;">
         
         <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:1.5rem; padding-bottom:1rem; border-bottom:1px solid rgba(255,255,255,0.1);">
             <div class="flex items-center gap-2.5">

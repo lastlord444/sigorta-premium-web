@@ -118,8 +118,11 @@ body::before {
   max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+@media (min-width: 480px) {
+  .container-custom { padding-left: 1.25rem; padding-right: 1.25rem; }
 }
 @media (min-width: 640px) {
   .container-custom { padding-left: 2rem; padding-right: 2rem; }
@@ -321,7 +324,7 @@ body::before {
 /* CUSTOM CURSOR */
 .custom-cursor-dot {
   position: fixed;
-  top: 0; left: 0;
+  top: -100px; left: -100px;
   width: 8px; height: 8px;
   margin-top: -4px; margin-left: -4px;
   background-color: var(--electric-neon);
@@ -329,20 +332,26 @@ body::before {
   pointer-events: none;
   z-index: 9999;
   box-shadow: 0 0 8px #00F0FF;
-  transition: opacity 0.15s ease, transform 0.1s ease;
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.1s ease;
   will-change: transform;
 }
 .custom-cursor-ring {
   position: fixed;
-  top: 0; left: 0;
+  top: -100px; left: -100px;
   width: 32px; height: 32px;
   margin-top: -16px; margin-left: -16px;
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
   pointer-events: none;
   z-index: 9998;
-  transition: width 0.2s ease, height 0.2s ease, margin 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+  opacity: 0;
+  transition: opacity 0.2s ease, width 0.2s ease, height 0.2s ease, margin 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
   will-change: transform;
+}
+body.cursor-active .custom-cursor-dot,
+body.cursor-active .custom-cursor-ring {
+  opacity: 1;
 }
 .cursor-hover .custom-cursor-dot {
   opacity: 0;
@@ -1067,7 +1076,15 @@ img, video {
   height: auto;
 }
 
-/* TOUCH TARGETS FOR MOBILE (390px, 430px) */
+.flex > *, .grid > * {
+  min-width: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p, span, a, label {
+  overflow-wrap: break-word;
+}
+
+/* TOUCH TARGETS & ADAPTIVE PADDING FOR MOBILE (360px - 768px) */
 @media (max-width: 768px) {
   .site-header {
     padding: 0.75rem 0;
@@ -1077,11 +1094,26 @@ img, video {
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
   .container-custom {
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
   h1 {
     word-break: break-word;
     overflow-wrap: break-word;
+  }
+}
+
+@media (max-width: 640px) {
+  .px-6 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  .py-28 {
+    padding-top: 4.5rem !important;
+    padding-bottom: 4.5rem !important;
+  }
+  .py-20 {
+    padding-top: 3.5rem !important;
+    padding-bottom: 3.5rem !important;
   }
 }

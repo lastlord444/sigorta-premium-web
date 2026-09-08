@@ -65,9 +65,9 @@ $claim_steps = array(
         </div>
 
         <!-- 3 STEPS GRID -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:1.5rem; margin-bottom:4rem;">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap:1.5rem; margin-bottom:4rem;">
             <?php foreach ($claim_steps as $step) : ?>
-            <div style="padding:2rem; border-radius:1.5rem; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.07); backdrop-filter:blur(10px); display:flex; flex-direction:column; justify-content:space-between;">
+            <div style="padding:clamp(1.25rem, 3vw, 2rem); min-width:0; border-radius:1.5rem; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.07); backdrop-filter:blur(10px); display:flex; flex-direction:column; justify-content:space-between;">
                 <div>
                     <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:1.5rem;">
                         <div style="width:48px; height:48px; border-radius:14px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center; color:#38BDF8;">

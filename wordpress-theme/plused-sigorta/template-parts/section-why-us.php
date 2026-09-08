@@ -65,9 +65,9 @@ $metrics = array(
         </div>
 
         <!-- 4 ADVANTAGES GRID -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:1.5rem; margin-bottom:5rem;">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap:1.5rem; margin-bottom:5rem;">
             <?php foreach ($advantages as $adv) : ?>
-            <div class="group relative p-8 sm:p-10 rounded-3xl" style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.07); border-radius:1.5rem; padding:2.5rem; transition:all 0.3s ease;">
+            <div class="group relative rounded-3xl" style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.07); border-radius:1.5rem; padding:clamp(1.25rem, 3.5vw, 2.5rem); min-width:0; transition:all 0.3s ease;">
                 <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:2rem;">
                     <div style="width:48px; height:48px; border-radius:14px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center; color:#38BDF8;">
                         <?php echo plused_icon('shield', 'w-5 h-5'); ?>
@@ -93,9 +93,9 @@ $metrics = array(
         </div>
 
         <!-- TRUST METRICS BANNER -->
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 p-8 sm:p-10 rounded-3xl" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1.5rem; padding:2.5rem; border-radius:1.5rem; background:linear-gradient(to bottom, rgba(255,255,255,0.04), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.1); backdrop-filter:blur(16px);">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 rounded-3xl" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 140px), 1fr)); gap:1.25rem; padding:clamp(1.25rem, 3vw, 2.5rem); min-width:0; border-radius:1.5rem; background:linear-gradient(to bottom, rgba(255,255,255,0.04), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.1); backdrop-filter:blur(16px);">
             <?php foreach ($metrics as $metric) : ?>
-            <div style="display:flex; flex-direction:column;">
+            <div style="display:flex; flex-direction:column; min-width:0;">
                 <span class="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-white tracking-tight mb-2 gradient-silver-text" style="font-size:clamp(1.75rem, 3vw, 2.5rem); margin-bottom:0.5rem;">
                     <?php echo esc_html($metric['value']); ?>
                 </span>

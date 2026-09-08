@@ -227,9 +227,9 @@ $teklif_url    = home_url('/teklif-al/?urun=' . urlencode($data['form_type']));
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:1.25rem;">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap:1.25rem;">
                 <?php foreach ($data['main_coverages'] as $cov) : ?>
-                <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.08); border-radius:1.25rem; padding:1.75rem; transition:all 0.3s ease; display:flex; flex-direction:column; justify-content:space-between;" class="hover:border-white/20">
+                <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.08); border-radius:1.25rem; padding:clamp(1.25rem, 3vw, 1.75rem); min-width:0; transition:all 0.3s ease; display:flex; flex-direction:column; justify-content:space-between;" class="hover:border-white/20">
                     <div>
                         <div style="width:40px; height:40px; border-radius:10px; background:rgba(0,102,255,0.1); border:1px solid rgba(0,102,255,0.25); display:flex; align-items:center; justify-content:center; color:#38BDF8; margin-bottom:1.25rem;">
                             <?php echo plused_icon($cov['icon'] ?? 'shield', 'w-5 h-5'); ?>
@@ -263,9 +263,9 @@ $teklif_url    = home_url('/teklif-al/?urun=' . urlencode($data['form_type']));
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:1.25rem;">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap:1.25rem;">
                 <?php foreach ($data['optional_coverages'] as $cov) : ?>
-                <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(139,92,246,0.15); border-radius:1.25rem; padding:1.75rem; display:flex; flex-direction:column; justify-content:space-between;">
+                <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(139,92,246,0.15); border-radius:1.25rem; padding:clamp(1.25rem, 3vw, 1.75rem); min-width:0; display:flex; flex-direction:column; justify-content:space-between;">
                     <div>
                         <div style="width:40px; height:40px; border-radius:10px; background:rgba(139,92,246,0.1); border:1px solid rgba(139,92,246,0.25); display:flex; align-items:center; justify-content:center; color:#A78BFA; margin-bottom:1.25rem;">
                             <?php echo plused_icon($cov['icon'] ?? 'shield', 'w-5 h-5'); ?>
@@ -295,9 +295,9 @@ $teklif_url    = home_url('/teklif-al/?urun=' . urlencode($data['form_type']));
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-5" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:1.25rem;">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-5" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap:1.25rem;">
                 <?php foreach ($data['who_is_it_for'] as $target) : ?>
-                <div style="padding:1.5rem; border-radius:1.25rem; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.07); text-align:left;">
+                <div style="padding:clamp(1.25rem, 3vw, 1.5rem); min-width:0; border-radius:1.25rem; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.07); text-align:left;">
                     <div style="display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:8px; background:rgba(56,189,248,0.1); color:#38BDF8; margin-bottom:1rem;">
                         <?php echo plused_icon($target['icon'] ?? 'check-circle', 'w-4 h-4'); ?>
                     </div>

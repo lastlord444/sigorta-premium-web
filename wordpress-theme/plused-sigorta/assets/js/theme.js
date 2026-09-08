@@ -258,6 +258,7 @@ document.addEventListener("DOMContentLoaded", function () {
       mouseY = e.clientY;
       if (!isCursorVisible) {
         isCursorVisible = true;
+        document.body.classList.add("cursor-active");
         cursorDot.style.opacity = "1";
         cursorRing.style.opacity = "1";
       }
@@ -283,6 +284,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.addEventListener("mouseleave", function () {
       cursorDot.style.opacity = "0";
       cursorRing.style.opacity = "0";
+      document.body.classList.remove("cursor-active");
       isCursorVisible = false;
     });
 

@@ -74,8 +74,8 @@ $whatsapp_url  = plused_build_whatsapp_link('Merhaba, hasar bildirimi yapmak ist
                 Trafik Kazası Durumunda Adım Adım Ne Yapmalısınız?
             </h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:1.5rem;">
-                <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.08); border-radius:1.25rem; padding:1.75rem;">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap:1.5rem;">
+                <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.08); border-radius:1.25rem; padding:clamp(1.25rem, 3vw, 1.75rem); min-width:0;">
                     <div style="display:inline-block; font-family:var(--font-mono); font-size:12px; color:#FB7185; padding:0.25rem 0.6rem; border-radius:6px; background:rgba(244,63,94,0.1); margin-bottom:1rem; font-weight:600;">
                         ADIM 01
                     </div>
@@ -85,7 +85,7 @@ $whatsapp_url  = plused_build_whatsapp_link('Merhaba, hasar bildirimi yapmak ist
                     </p>
                 </div>
 
-                <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.08); border-radius:1.25rem; padding:1.75rem;">
+                <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.08); border-radius:1.25rem; padding:clamp(1.25rem, 3vw, 1.75rem); min-width:0;">
                     <div style="display:inline-block; font-family:var(--font-mono); font-size:12px; color:#FB7185; padding:0.25rem 0.6rem; border-radius:6px; background:rgba(244,63,94,0.1); margin-bottom:1rem; font-weight:600;">
                         ADIM 02
                     </div>
@@ -95,7 +95,7 @@ $whatsapp_url  = plused_build_whatsapp_link('Merhaba, hasar bildirimi yapmak ist
                     </p>
                 </div>
 
-                <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.08); border-radius:1.25rem; padding:1.75rem;">
+                <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.08); border-radius:1.25rem; padding:clamp(1.25rem, 3vw, 1.75rem); min-width:0;">
                     <div style="display:inline-block; font-family:var(--font-mono); font-size:12px; color:#FB7185; padding:0.25rem 0.6rem; border-radius:6px; background:rgba(244,63,94,0.1); margin-bottom:1rem; font-weight:600;">
                         ADIM 03
                     </div>
@@ -122,7 +122,7 @@ $whatsapp_url  = plused_build_whatsapp_link('Merhaba, hasar bildirimi yapmak ist
                 Mevzuat gereğince aşağıdaki hallerden en az birinin bulunması durumunda tarafların kendi aralarında kaza tespit tutanağı düzenlemesi <strong>geçerli değildir</strong>:
             </p>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:0.75rem;">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap:0.75rem;">
                 <div style="display:flex; align-items:flex-start; gap:0.6rem; padding:0.85rem 1rem; border-radius:0.75rem; background:rgba(0,0,0,0.35); border:1px solid rgba(244,63,94,0.2);">
                     <span style="color:#FB7185; font-weight:bold; line-height:1; font-size:16px;">&bull;</span>
                     <span class="text-xs sm:text-sm text-silver-200">Yaralanma veya ölüm varsa</span>

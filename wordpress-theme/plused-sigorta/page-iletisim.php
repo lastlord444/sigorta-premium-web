@@ -61,7 +61,7 @@ $has_meta_info      = (!empty($address) || !empty($email) || !empty($working_hou
                         </div>
                     </div>
 
-                    <a href="<?php echo esc_attr($phone_url); ?>" class="font-mono text-white font-bold block mb-4 hover:text-electric-light transition-colors" style="text-decoration:none; display:block; font-size:clamp(1.75rem, 2.75vw, 2.5rem); letter-spacing:0.04em; line-height:1.2;">
+                    <a href="<?php echo esc_attr($phone_url); ?>" class="font-mono text-white font-bold block mb-4 hover:text-electric-light transition-colors" style="text-decoration:none; display:block; font-size:clamp(1.35rem, 5vw, 2.5rem); letter-spacing:0.02em; line-height:1.2; overflow-wrap:break-word; word-break:break-word;">
                         <?php echo esc_html($phone_display); ?>
                     </a>
 
@@ -113,7 +113,7 @@ $has_meta_info      = (!empty($address) || !empty($email) || !empty($working_hou
 
         <!-- OPTIONAL METADATA (Address, Email, Working Hours - ONLY SHOWN IF CONFIGURED) -->
         <?php if ($has_meta_info) : ?>
-        <div style="margin-bottom:3.5rem; display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:1.25rem;">
+        <div style="margin-bottom:3.5rem; display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap:1.25rem;">
             <?php if (!empty($address)) : ?>
             <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.08); border-radius:1.25rem; padding:1.5rem;">
                 <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
