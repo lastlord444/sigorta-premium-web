@@ -55,7 +55,7 @@ $announcement_on   = !empty($options['announcement_active']);
         </a>
 
         <!-- DESKTOP NAV LINKS (>=1200px) -->
-        <nav class="site-nav-desktop nav-pill-container" aria-label="Ana Menü">
+        <nav class="site-nav-desktop nav-pill-container" id="desktop-nav" aria-label="Ana Menü">
             
             <!-- SIGORTALAR DROPDOWN -->
             <div class="nav-dropdown-wrapper relative" style="position:relative;">

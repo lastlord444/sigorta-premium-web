@@ -133,7 +133,7 @@ $x_twitter     = plused_get_option('x_twitter', '');
         <!-- BOTTOM LEGAL -->
         <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-silver-500 font-sans" style="padding-top:2rem; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:1rem;">
             <div>
-                &copy; <?php echo date('Y'); ?> <?php echo esc_html($company_name); ?>. Tüm hakları saklıdır. Bağımsız Sigorta Acentesi.
+                &copy; <?php echo date('Y'); ?> <?php echo esc_html($company_name); ?>. Tüm hakları saklıdır.
             </div>
             <div style="display:flex; align-items:center; gap:1.5rem;">
                 <a href="<?php echo esc_url(home_url('/sss/')); ?>" style="color:#64748B; text-decoration:none;">Sıkça Sorulan Sorular</a>

@@ -14,7 +14,7 @@ if (!defined('ABSPATH')) {
  */
 function plused_seo_document_title_parts($title) {
     $company_name = plused_get_option('company_name', 'PLUSED SİGORTA');
-    $tagline      = plused_get_option('tagline', 'Bağımsız & Premium Sigorta Danışmanlığı');
+    $tagline      = plused_get_option('tagline', 'Premium Sigorta Danışmanlığı');
 
     if (is_front_page() || is_home()) {
         $title['title']   = $company_name;
@@ -74,11 +74,11 @@ function plused_get_seo_description() {
     } elseif (is_page('isyeri-sigortasi')) {
         return 'İşletmenizi yangın, su baskını, hırsızlık ve ticari risklere karşı koruyan işyeri sigortası çözümleri.';
     } elseif (is_page('teklif-al')) {
-        return 'İhtiyacınız olan sigorta türünü seçin, bağımsız acente danışmanınız size uygun teklif alternatiflerini hazırlasın.';
+        return 'İhtiyacınız olan sigorta türünü seçin, acente danışmanınız size uygun teklif alternatiflerini hazırlasın.';
     } elseif (is_page('hasar-destek')) {
         return 'Hasar Sürecinde Destek Rehberi. Kaza durumunda yapılması gerekenler, Kaza Tespit Tutanağı ve dosya takibi danışmanlığı.';
     } elseif (is_page('hakkimizda')) {
-        return 'Plused Sigorta bağımsız acente felsefesi. İhtiyaca odaklanan şeffaf ve güvenilir sigortacılık anlayışı.';
+        return 'Plused Sigorta kurumsal yaklaşımı. İhtiyaca odaklanan şeffaf ve güvenilir sigortacılık anlayışı.';
     } elseif (is_page('sss')) {
         return 'Sigorta poliçeleri, prim hesabı, teminat kapsamları ve hasar süreçleri hakkında sıkça sorulan sorular.';
     } elseif (is_page('iletisim')) {

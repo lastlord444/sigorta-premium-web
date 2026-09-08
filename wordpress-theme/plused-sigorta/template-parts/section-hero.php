@@ -10,7 +10,7 @@ if (!defined('ABSPATH')) {
 }
 
 $options           = get_option('plused_sigorta_options', array());
-$hero_eyebrow      = plused_get_option('hero_eyebrow', 'Bağımsız Sigorta Acentesi');
+$hero_eyebrow      = plused_get_option('hero_eyebrow', 'Premium Sigorta Danışmanlığı');
 $hero_title        = plused_get_option('hero_title', 'Hayat sürprizlerle dolu. Güvencen hazır olsun.');
 $hero_desc         = plused_get_option('hero_desc', 'Aracınızdan evinize, sağlığınızdan iş yerinize kadar değer verdiğiniz her şeyi doğru teminatlarla koruyun.');
 $hero_cta_primary  = plused_get_option('hero_cta_primary', 'Teklif Al');
