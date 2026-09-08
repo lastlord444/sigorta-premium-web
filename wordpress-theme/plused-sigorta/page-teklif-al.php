@@ -56,7 +56,7 @@ $whatsapp_url  = plused_build_whatsapp_link('Merhaba, hızlı teklif almak istiy
         <!-- ALTERNATIVE QUICK CHANNELS -->
         <div style="margin-top:4rem; padding-top:3rem; border-top:1px solid rgba(255,255,255,0.08); text-align:center;">
             <p class="text-silver-400 font-sans text-sm mb-4">
-                Form doldurmakla vakit kaybetmek istemiyor musunuz? Ruhsat fotoğrafınızı veya talebinizi doğrudan WhatsApp hattımıza iletebilirsiniz.
+                Danışmanımızla doğrudan görüşmek veya teklif alternatiflerini incelemek için ruhsatınızı ya da talebinizi WhatsApp hattımıza iletebilirsiniz.
             </p>
             <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:1rem;">
                 <a href="<?php echo esc_url($whatsapp_url); ?>" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="background:rgba(37,211,102,0.1); border-color:rgba(37,211,102,0.3); color:#86EFAC;">
@@ -68,6 +68,10 @@ $whatsapp_url  = plused_build_whatsapp_link('Merhaba, hızlı teklif almak istiy
                     <span>Doğrudan Arayın (<?php echo esc_html($phone_display); ?>)</span>
                 </a>
             </div>
+
+            <p style="font-size:12px; color:#94A3B8; text-align:center; margin-top:1.25rem; margin-bottom:0; line-height:1.5;">
+                Belge göndererek teklif sürecinin yürütülmesi için gerekli kişisel verilerin işlenmesine ilişkin bilgi için <a href="<?php echo esc_url(home_url('/kvkk-aydinlatma/')); ?>" style="color:#38BDF8; text-decoration:underline;">KVKK Aydınlatma Metni</a>'ni inceleyebilirsiniz.
+            </p>
         </div>
     </div>
 </main>

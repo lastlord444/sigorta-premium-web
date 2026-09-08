@@ -119,6 +119,16 @@ function plused_sanitize_options($input) {
     if (isset($input['address']))         $clean['address']         = sanitize_textarea_field($input['address']);
     if (isset($input['working_hours']))   $clean['working_hours']   = sanitize_text_field($input['working_hours']);
 
+    // Corporate & Legal Information
+    if (isset($input['corporate_legal_title']))  $clean['corporate_legal_title']  = sanitize_text_field($input['corporate_legal_title']);
+    if (isset($input['corporate_agency_name']))  $clean['corporate_agency_name']  = sanitize_text_field($input['corporate_agency_name']);
+    if (isset($input['corporate_plate_number'])) $clean['corporate_plate_number'] = sanitize_text_field($input['corporate_plate_number']);
+    if (isset($input['corporate_tax_office']))   $clean['corporate_tax_office']   = sanitize_text_field($input['corporate_tax_office']);
+    if (isset($input['corporate_tax_number']))   $clean['corporate_tax_number']   = sanitize_text_field($input['corporate_tax_number']);
+    if (isset($input['corporate_address']))      $clean['corporate_address']      = sanitize_textarea_field($input['corporate_address']);
+    if (isset($input['corporate_email']))        $clean['corporate_email']        = sanitize_email($input['corporate_email']);
+    if (isset($input['corporate_phone']))        $clean['corporate_phone']        = sanitize_text_field($input['corporate_phone']);
+
     // Socials
     if (isset($input['instagram'])) $clean['instagram'] = esc_url_raw($input['instagram']);
     if (isset($input['facebook']))  $clean['facebook']  = esc_url_raw($input['facebook']);
@@ -229,6 +239,64 @@ function plused_render_general_settings_page() {
                                 <input type="checkbox" name="plused_sigorta_options[announcement_active]" value="1" <?php checked(!empty($options['announcement_active']), true); ?> />
                                 Sayfanın en üstünde ince duyuru bandını göster
                             </label>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="plused-admin-card" style="margin-top:20px;">
+                <h2>Kurumsal ve Hukuki Bilgiler (Acente & Levha Kayıtları)</h2>
+                <p class="plused-helper-text" style="margin-bottom:15px;">
+                    Bu alana yalnızca resmi kayıtlı şirket ve acente bilgilerinizi giriniz. Boş bırakılan alanlar sitede kesinlikle gösterilmez.
+                </p>
+                <table class="form-table plused-form-table">
+                    <tr>
+                        <th scope="row"><label for="corporate_legal_title">Ticari Unvan</label></th>
+                        <td>
+                            <input type="text" id="corporate_legal_title" name="plused_sigorta_options[corporate_legal_title]" value="<?php echo esc_attr($options['corporate_legal_title'] ?? ''); ?>" placeholder="Örn: Plused Sigorta Aracılık Hizmetleri Ltd. Şti." />
+                            <p class="plused-helper-text">Ticaret siciline kayıtlı tam resmi şirket unvanı.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><label for="corporate_agency_name">Acente Adı</label></th>
+                        <td>
+                            <input type="text" id="corporate_agency_name" name="plused_sigorta_options[corporate_agency_name]" value="<?php echo esc_attr($options['corporate_agency_name'] ?? ''); ?>" placeholder="Örn: Plused Sigorta Acenteliği" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><label for="corporate_plate_number">Acente / Levha Kayıt No</label></th>
+                        <td>
+                            <input type="text" id="corporate_plate_number" name="plused_sigorta_options[corporate_plate_number]" value="<?php echo esc_attr($options['corporate_plate_number'] ?? ''); ?>" placeholder="Örn: T08512-XXXX (TOBB / SEDDK Levha No)" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><label for="corporate_tax_office">Vergi Dairesi</label></th>
+                        <td>
+                            <input type="text" id="corporate_tax_office" name="plused_sigorta_options[corporate_tax_office]" value="<?php echo esc_attr($options['corporate_tax_office'] ?? ''); ?>" placeholder="Örn: Kadıköy V.D." />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><label for="corporate_tax_number">Vergi Numarası</label></th>
+                        <td>
+                            <input type="text" id="corporate_tax_number" name="plused_sigorta_options[corporate_tax_number]" value="<?php echo esc_attr($options['corporate_tax_number'] ?? ''); ?>" placeholder="Örn: 1234567890" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><label for="corporate_address">Açık Adres</label></th>
+                        <td>
+                            <textarea id="corporate_address" name="plused_sigorta_options[corporate_address]" rows="3" placeholder="Resmi tebligat / ofis adresi"><?php echo esc_textarea($options['corporate_address'] ?? ($options['address'] ?? '')); ?></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><label for="corporate_email">Kurumsal E-posta</label></th>
+                        <td>
+                            <input type="email" id="corporate_email" name="plused_sigorta_options[corporate_email]" value="<?php echo esc_attr($options['corporate_email'] ?? ($options['email'] ?? '')); ?>" placeholder="info@..." />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><label for="corporate_phone">Kurumsal Telefon</label></th>
+                        <td>
+                            <input type="text" id="corporate_phone" name="plused_sigorta_options[corporate_phone]" value="<?php echo esc_attr($options['corporate_phone'] ?? ($options['phone_display'] ?? '')); ?>" placeholder="0530 477 77 37" />
                         </td>
                     </tr>
                 </table>
@@ -351,7 +419,7 @@ function plused_render_proposals_settings_page() {
                         <th scope="row"><label for="proposal_notify_email">Teklif Bildirim E-postası</label></th>
                         <td>
                             <input type="email" id="proposal_notify_email" name="plused_sigorta_options[proposal_notify_email]" value="<?php echo esc_attr($options['proposal_notify_email'] ?? get_option('admin_email')); ?>" />
-                            <p class="plused-helper-text">Siteden teklif formu doldurulduğunda bildirim gidecek e-posta adresi.</p>
+                            <p class="plused-helper-text">Siteden teklif talebi iletildiğinde bildirim gidecek e-posta adresi.</p>
                         </td>
                     </tr>
                     <tr>

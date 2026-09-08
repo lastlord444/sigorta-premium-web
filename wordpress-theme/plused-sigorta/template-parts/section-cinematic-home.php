@@ -31,7 +31,7 @@ $home_desc  = plused_get_option('home_konut_desc', 'Evinizi, değerli eşyaları
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             <div class="lg:col-span-7 lg:col-start-6 lg:text-left">
                 <span class="font-mono text-xs tracking-widest text-accent-violet uppercase font-semibold block mb-3" style="letter-spacing:0.25em; color:#A78BFA;">
-                    02 / SİNEMATİK VİTRİN: EV & DEPREM
+                    02 / KONUT & DEPREM
                 </span>
 
                 <h2 class="font-serif text-white font-medium mb-6" style="font-size:clamp(2rem, 4vw, 3.5rem); line-height:1.15; text-shadow:0 4px 20px rgba(0,0,0,0.8);">

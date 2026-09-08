@@ -342,7 +342,7 @@ $teklif_url    = home_url('/teklif-al/?urun=' . urlencode($data['form_type']));
                     <!-- Direct Actions -->
                     <div class="md:col-span-5 flex flex-col gap-3" style="display:flex; flex-direction:column; gap:0.75rem;">
                         <a href="<?php echo esc_url($teklif_url); ?>" class="btn-primary" style="width:100%; text-align:center;">
-                            <span>Teklif Formunu Doldur</span>
+                            <span>Teklif Al</span>
                             <?php echo plused_icon('arrow-right', 'w-4 h-4'); ?>
                         </a>
 
@@ -357,6 +357,10 @@ $teklif_url    = home_url('/teklif-al/?urun=' . urlencode($data['form_type']));
                             <span><?php echo esc_html($data['edevlet_text']); ?></span>
                         </a>
                         <?php endif; ?>
+
+                        <p style="font-size:11px; color:#94A3B8; text-align:center; margin:0.25rem 0 0 0; line-height:1.5;">
+                            Belge göndererek teklif sürecinin yürütülmesi için gerekli kişisel verilerin işlenmesine ilişkin bilgi için <a href="<?php echo esc_url(home_url('/kvkk-aydinlatma/')); ?>" style="color:#38BDF8; text-decoration:underline;">KVKK Aydınlatma Metni</a>'ni inceleyebilirsiniz.
+                        </p>
                     </div>
                 </div>
             </div>

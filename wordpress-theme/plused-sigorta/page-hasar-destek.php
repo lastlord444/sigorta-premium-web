@@ -13,7 +13,7 @@ get_header();
 
 $phone_display = plused_get_display_phone();
 $phone_url     = plused_get_phone_url();
-$whatsapp_url  = plused_build_whatsapp_link('Acil hasar bildirimi yapmak istiyorum.');
+$whatsapp_url  = plused_build_whatsapp_link('Merhaba, hasar bildirimi yapmak istiyorum. Kaza tutanağımı ve hasar fotoğraflarını iletiyorum.');
 ?>
 
 <main class="relative min-h-screen bg-navy-950 text-white pt-32 sm:pt-40 pb-28 px-6" style="background:#030712; padding-top:8rem; padding-bottom:7rem;">
@@ -59,10 +59,17 @@ $whatsapp_url  = plused_build_whatsapp_link('Acil hasar bildirimi yapmak istiyor
                     <span>WhatsApp Hasar Destek Hattı</span>
                 </a>
             </div>
+
+            <!-- KVKK LEGAL NOTICE -->
+            <div style="margin-top:1.25rem;">
+                <p style="font-size:12px; color:#94A3B8; margin:0; line-height:1.6;">
+                    Belge göndererek teklif/hasar sürecinin yürütülmesi için gerekli kişisel verilerin işlenmesine ilişkin bilgi için <a href="<?php echo esc_url(home_url('/kvkk-aydinlatma/')); ?>" style="color:#38BDF8; text-decoration:underline;">KVKK Aydınlatma Metni</a>'ni inceleyebilirsiniz.
+                </p>
+            </div>
         </div>
 
         <!-- 3 STEPS IN AN ACCIDENT -->
-        <div style="margin-bottom:4.5rem;">
+        <div style="margin-bottom:3.5rem;">
             <h2 class="font-serif text-white font-medium text-2xl text-center mb-8">
                 Trafik Kazası Durumunda Adım Adım Ne Yapmalısınız?
             </h2>
@@ -74,7 +81,7 @@ $whatsapp_url  = plused_build_whatsapp_link('Acil hasar bildirimi yapmak istiyor
                     </div>
                     <h3 class="font-serif text-white font-medium text-lg mb-3">Güvenliği Sağlayın & Fotoğraflayın</h3>
                     <p class="font-sans text-silver-400 text-sm leading-relaxed">
-                        Öncelikle araçları güvenli alana almadan (mümkünse araçların konumunu bozmadan) kaza alanının geniş açılı ve plaka görünen fotoğraflarını çekin. Dörtlülerinizi yakın ve reflektör yerleştirin.
+                        Öncelikle can güvenliğinizi sağlayın, dörtlülerinizi yakın ve reflektörü kuralına uygun yerleştirin. Mümkünse araçların konumunu bozmadan, kaza alanının geniş açılı ve plakalar net görülecek şekilde fotoğraflarını çekin.
                     </p>
                 </div>
 
@@ -82,9 +89,9 @@ $whatsapp_url  = plused_build_whatsapp_link('Acil hasar bildirimi yapmak istiyor
                     <div style="display:inline-block; font-family:var(--font-mono); font-size:12px; color:#FB7185; padding:0.25rem 0.6rem; border-radius:6px; background:rgba(244,63,94,0.1); margin-bottom:1rem; font-weight:600;">
                         ADIM 02
                     </div>
-                    <h3 class="font-serif text-white font-medium text-lg mb-3">Tutanağı Doldurun & Belgeleyin</h3>
+                    <h3 class="font-serif text-white font-medium text-lg mb-3">Maddi Hasarlı Kazalarda Tutanağı Doldurun</h3>
                     <p class="font-sans text-silver-400 text-sm leading-relaxed">
-                        Yaralanma yoksa karşı tarafla birlikte Kaza Tespit Tutanağı\'nı karşılıklı ıslak imzayla doldurun veya e-Devlet Mobil Kaza Tutanağı sistemini kullanın. Karşı tarafın ruhsat, ehliyet ve trafik poliçe fotolarını alın.
+                        Kaza Tespit Tutanağı yalnızca iki veya daha fazla aracın karıştığı, tarafların uzlaştığı ve kanunen kendi aralarında tutanak düzenlemeye uygun olduğu maddi hasarlı kazalarda karşılıklı ıslak imzayla veya e-Devlet Mobil Kaza Tutanağı ile düzenlenmelidir. Karşı tarafın ruhsat, ehliyet ve trafik sigortası poliçe görsellerini mutlaka karşılıklı temin edin.
                     </p>
                 </div>
 
@@ -92,10 +99,74 @@ $whatsapp_url  = plused_build_whatsapp_link('Acil hasar bildirimi yapmak istiyor
                     <div style="display:inline-block; font-family:var(--font-mono); font-size:12px; color:#FB7185; padding:0.25rem 0.6rem; border-radius:6px; background:rgba(244,63,94,0.1); margin-bottom:1rem; font-weight:600;">
                         ADIM 03
                     </div>
-                    <h3 class="font-serif text-white font-medium text-lg mb-3">Acentemize Bildirin</h3>
+                    <h3 class="font-serif text-white font-medium text-lg mb-3">Acentemize Bildirin & Dosya Açın</h3>
                     <p class="font-sans text-silver-400 text-sm leading-relaxed">
-                        Acentemizi arayarak veya WhatsApp'tan tutanak ve fotoğrafları bize iletin. Size en yakın yetkili servisi, poliçeniz kapsamındaki çekiciyi ve ikame araç sürecini birlikte koordine edelim.
+                        Resmi işlemler ve kaza yeri güvenliği sağlandıktan sonra, acentemizi arayarak veya WhatsApp'tan tutanak ve fotoğrafları bize iletin. Anlaşmalı yetkili servisi, poliçeniz kapsamındaki çekiciyi ve ikame araç sürecini birlikte koordine edelim.
                     </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- EXPLICIT WARNING CALLOUT BOX: Hangi durumlarda kendi aranızda Kaza Tespit Tutanağı düzenlememelisiniz? -->
+        <div style="background:linear-gradient(135deg, rgba(225,29,72,0.08), rgba(15,23,42,0.6)); border:1px solid rgba(244,63,94,0.35); border-radius:1.5rem; padding:clamp(1.5rem, 4vw, 2.5rem); margin-bottom:4.5rem; box-shadow:0 10px 40px rgba(225,29,72,0.15);">
+            <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.25rem;">
+                <div style="width:40px; height:40px; border-radius:10px; background:rgba(244,63,94,0.2); border:1px solid rgba(244,63,94,0.4); display:flex; align-items:center; justify-content:center; color:#FB7185; flex-shrink:0;">
+                    <?php echo plused_icon('shield', 'w-5 h-5'); ?>
+                </div>
+                <h3 class="font-serif text-white font-medium text-xl sm:text-2xl" style="margin:0;">
+                    Hangi durumlarda kendi aranızda Kaza Tespit Tutanağı düzenlememelisiniz?
+                </h3>
+            </div>
+
+            <p class="font-sans text-silver-300 text-sm sm:text-base leading-relaxed mb-6" style="line-height:1.7;">
+                Mevzuat gereğince aşağıdaki hallerden en az birinin bulunması durumunda tarafların kendi aralarında kaza tespit tutanağı düzenlemesi <strong>geçerli değildir</strong>:
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:0.75rem;">
+                <div style="display:flex; align-items:flex-start; gap:0.6rem; padding:0.85rem 1rem; border-radius:0.75rem; background:rgba(0,0,0,0.35); border:1px solid rgba(244,63,94,0.2);">
+                    <span style="color:#FB7185; font-weight:bold; line-height:1; font-size:16px;">&bull;</span>
+                    <span class="text-xs sm:text-sm text-silver-200">Yaralanma veya ölüm varsa</span>
+                </div>
+                <div style="display:flex; align-items:flex-start; gap:0.6rem; padding:0.85rem 1rem; border-radius:0.75rem; background:rgba(0,0,0,0.35); border:1px solid rgba(244,63,94,0.2);">
+                    <span style="color:#FB7185; font-weight:bold; line-height:1; font-size:16px;">&bull;</span>
+                    <span class="text-xs sm:text-sm text-silver-200">Sürücülerden birinin ehliyeti yoksa veya araç sınıfına uygun değilse</span>
+                </div>
+                <div style="display:flex; align-items:flex-start; gap:0.6rem; padding:0.85rem 1rem; border-radius:0.75rem; background:rgba(0,0,0,0.35); border:1px solid rgba(244,63,94,0.2);">
+                    <span style="color:#FB7185; font-weight:bold; line-height:1; font-size:16px;">&bull;</span>
+                    <span class="text-xs sm:text-sm text-silver-200">Araçlardan birinin geçerli zorunlu trafik sigortası yoksa</span>
+                </div>
+                <div style="display:flex; align-items:flex-start; gap:0.6rem; padding:0.85rem 1rem; border-radius:0.75rem; background:rgba(0,0,0,0.35); border:1px solid rgba(244,63,94,0.2);">
+                    <span style="color:#FB7185; font-weight:bold; line-height:1; font-size:16px;">&bull;</span>
+                    <span class="text-xs sm:text-sm text-silver-200">Sürücülerde alkol, uyuşturucu veya uyarıcı madde şüphesi varsa</span>
+                </div>
+                <div style="display:flex; align-items:flex-start; gap:0.6rem; padding:0.85rem 1rem; border-radius:0.75rem; background:rgba(0,0,0,0.35); border:1px solid rgba(244,63,94,0.2);">
+                    <span style="color:#FB7185; font-weight:bold; line-height:1; font-size:16px;">&bull;</span>
+                    <span class="text-xs sm:text-sm text-silver-200">Kazaya kamu kurumuna ait bir araç karışmışsa</span>
+                </div>
+                <div style="display:flex; align-items:flex-start; gap:0.6rem; padding:0.85rem 1rem; border-radius:0.75rem; background:rgba(0,0,0,0.35); border:1px solid rgba(244,63,94,0.2);">
+                    <span style="color:#FB7185; font-weight:bold; line-height:1; font-size:16px;">&bull;</span>
+                    <span class="text-xs sm:text-sm text-silver-200">Kamu malına veya üçüncü kişilere ait mala (bariyer, direk, bina vb.) zarar verilmişse</span>
+                </div>
+                <div style="display:flex; align-items:flex-start; gap:0.6rem; padding:0.85rem 1rem; border-radius:0.75rem; background:rgba(0,0,0,0.35); border:1px solid rgba(244,63,94,0.2);">
+                    <span style="color:#FB7185; font-weight:bold; line-height:1; font-size:16px;">&bull;</span>
+                    <span class="text-xs sm:text-sm text-silver-200">Kaza yalnız tek aracın karıştığı maddi hasarlı bir kazaysa</span>
+                </div>
+            </div>
+
+            <!-- OFFICIAL EMERGENCY CALL DIRECTIVE -->
+            <div style="padding:1.25rem 1.5rem; border-radius:1rem; background:rgba(225,29,72,0.12); border:1px solid rgba(244,63,94,0.4);">
+                <div style="display:flex; align-items:flex-start; gap:0.75rem;">
+                    <div style="color:#FB7185; margin-top:2px; flex-shrink:0;">
+                        <?php echo plused_icon('shield', 'w-5 h-5'); ?>
+                    </div>
+                    <div>
+                        <div style="font-weight:600; color:#FFFFFF; font-size:14px; margin-bottom:0.25rem;">
+                            Önemli Yasal Yönlendirme & Can Güvenliği Önceliği
+                        </div>
+                        <p style="margin:0; font-size:13px; color:#FECDD3; line-height:1.65;">
+                            Bu gibi durumlarda araçların konumu değiştirilmeden derhal <strong>112 Acil Çağrı Merkezi</strong> aranmalı; Polis veya Jandarma trafik ekiplerine <strong>resmi kaza tespit tutanağı</strong> düzenletilmelidir. Can güvenliği her şeyden önce gelir. Acente iletişimi veya WhatsApp bildirim adımları, resmi kolluk ve acil durum müdahale adımlarının önüne geçmemelidir.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -111,14 +182,14 @@ $whatsapp_url  = plused_build_whatsapp_link('Acil hasar bildirimi yapmak istiyor
                     <h3 class="font-mono text-xs uppercase tracking-widest text-electric-light mb-4 font-semibold">
                         Araç Hasarları (Kasko & Trafik)
                     </h3>
-                    <ul style="list-style:none; display:flex; flex-direction:column; gap:0.6rem; font-size:14px; color:#CBD5E1;">
+                    <ul style="list-style:none; display:flex; flex-direction:column; gap:0.6rem; font-size:14px; color:#CBD5E1; padding:0; margin:0;">
                         <li style="display:flex; align-items:center; gap:0.5rem;">
                             <?php echo plused_icon('check-circle', 'w-4 h-4 text-electric-light'); ?>
-                            <span>Islak imzalı Kaza Tespit Tutanağı veya Polis Zaptı</span>
+                            <span>Islak imzalı Kaza Tespit Tutanağı veya Polis / Jandarma Zaptı</span>
                         </li>
                         <li style="display:flex; align-items:center; gap:0.5rem;">
                             <?php echo plused_icon('check-circle', 'w-4 h-4 text-electric-light'); ?>
-                            <span>Araçların kaza yerindeki detaylı fotoğrafları</span>
+                            <span>Araçların kaza yerindeki detaylı ve plaka görünen fotoğrafları</span>
                         </li>
                         <li style="display:flex; align-items:center; gap:0.5rem;">
                             <?php echo plused_icon('check-circle', 'w-4 h-4 text-electric-light'); ?>
@@ -135,7 +206,7 @@ $whatsapp_url  = plused_build_whatsapp_link('Acil hasar bildirimi yapmak istiyor
                     <h3 class="font-mono text-xs uppercase tracking-widest text-electric-light mb-4 font-semibold">
                         Konut & İşyeri Hasarları
                     </h3>
-                    <ul style="list-style:none; display:flex; flex-direction:column; gap:0.6rem; font-size:14px; color:#CBD5E1;">
+                    <ul style="list-style:none; display:flex; flex-direction:column; gap:0.6rem; font-size:14px; color:#CBD5E1; padding:0; margin:0;">
                         <li style="display:flex; align-items:center; gap:0.5rem;">
                             <?php echo plused_icon('check-circle', 'w-4 h-4 text-electric-light'); ?>
                             <span>Hasar gören alanların ve eşyaların detaylı fotoğrafları</span>
@@ -154,6 +225,13 @@ $whatsapp_url  = plused_build_whatsapp_link('Acil hasar bildirimi yapmak istiyor
                         </li>
                     </ul>
                 </div>
+            </div>
+
+            <!-- KVKK LEGAL NOTICE FOOTER OF CHECKLIST -->
+            <div style="margin-top:2rem; padding-top:1.25rem; border-top:1px solid rgba(255,255,255,0.06); text-align:center;">
+                <p style="font-size:12px; color:#94A3B8; margin:0;">
+                    Belge göndererek teklif/hasar sürecinin yürütülmesi için gerekli kişisel verilerin işlenmesine ilişkin bilgi için <a href="<?php echo esc_url(home_url('/kvkk-aydinlatma/')); ?>" style="color:#38BDF8; text-decoration:underline;">KVKK Aydınlatma Metni</a>'ni inceleyebilirsiniz.
+                </p>
             </div>
         </div>
 

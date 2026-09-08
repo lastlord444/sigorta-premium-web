@@ -9,18 +9,21 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$options       = get_option('plused_sigorta_options', array());
-$company_name  = plused_get_option('company_name', 'PLUSED SİGORTA');
-$phone_display = plused_get_display_phone();
-$phone_url     = plused_get_phone_url();
-$whatsapp_url  = plused_build_whatsapp_link('Merhaba, hızlı sigorta teklifi almak istiyorum.');
-$email         = plused_get_option('email', '');
-$address       = plused_get_option('address', '');
-$working_hours = plused_get_option('working_hours', '');
-$instagram     = plused_get_option('instagram', '');
-$facebook      = plused_get_option('facebook', '');
-$linkedin      = plused_get_option('linkedin', '');
-$x_twitter     = plused_get_option('x_twitter', '');
+$options            = get_option('plused_sigorta_options', array());
+$company_name       = plused_get_option('company_name', 'PLUSED SİGORTA');
+$legal_title        = trim(plused_get_option('corporate_legal_title', ''));
+$plate_number       = trim(plused_get_option('corporate_plate_number', ''));
+$phone_display      = plused_get_display_phone();
+$phone_url          = plused_get_phone_url();
+$whatsapp_url       = plused_build_whatsapp_link('Merhaba, hızlı teklif almak istiyorum.');
+$whatsapp_hasar_url = plused_build_whatsapp_link('Merhaba, hasar bildirimi yapmak istiyorum. Kaza tutanağımı ve hasar fotoğraflarını iletiyorum.');
+$email              = plused_get_option('corporate_email', plused_get_option('email', ''));
+$address            = plused_get_option('corporate_address', plused_get_option('address', ''));
+$working_hours      = plused_get_option('working_hours', '');
+$instagram          = plused_get_option('instagram', '');
+$facebook           = plused_get_option('facebook', '');
+$linkedin           = plused_get_option('linkedin', '');
+$x_twitter          = plused_get_option('x_twitter', '');
 ?>
 <footer class="relative w-full bg-navy-950 text-silver-300 border-t border-white-10 overflow-hidden pt-20 pb-28 sm:pb-16" style="background:#030712; border-top:1px solid rgba(255,255,255,0.08); padding-top:5rem; padding-bottom:7rem;">
     <!-- AMBIENT GRADIENT GLOW -->
@@ -31,7 +34,7 @@ $x_twitter     = plused_get_option('x_twitter', '');
             
             <!-- BRAND COLUMN -->
             <div class="lg:col-span-4 flex flex-col">
-                <a href="<?php echo esc_url(home_url('/')); ?>" class="flex items-center gap-3 mb-6" style="text-decoration:none; margin-bottom:1.5rem; display:flex; align-items:center; gap:0.75rem;">
+                <a href="<?php echo esc_url(home_url('/')); ?>" class="flex items-center gap-3 mb-4" style="text-decoration:none; margin-bottom:1rem; display:flex; align-items:center; gap:0.75rem;">
                     <div style="width:42px; height:42px; border-radius:12px; background:linear-gradient(135deg, #0066FF, #312E81); display:flex; align-items:center; justify-content:center; border:1px solid rgba(255,255,255,0.2); box-shadow:0 0 20px rgba(0,102,255,0.4); flex-shrink:0;">
                         <?php echo plused_icon('shield', 'w-5 h-5 text-white'); ?>
                     </div>
@@ -39,6 +42,17 @@ $x_twitter     = plused_get_option('x_twitter', '');
                         <?php echo esc_html($company_name); ?>
                     </span>
                 </a>
+
+                <?php if (!empty($legal_title) || !empty($plate_number)) : ?>
+                <div style="font-size:12px; color:#94A3B8; font-weight:500; margin-bottom:1rem; line-height:1.5;">
+                    <?php if (!empty($legal_title)) : ?>
+                        <div><?php echo esc_html($legal_title); ?></div>
+                    <?php endif; ?>
+                    <?php if (!empty($plate_number)) : ?>
+                        <div style="font-family:var(--font-mono); font-size:11px; color:#64748B;">Levha No: <?php echo esc_html($plate_number); ?></div>
+                    <?php endif; ?>
+                </div>
+                <?php endif; ?>
 
                 <p class="text-silver-400 font-sans text-sm leading-relaxed mb-6" style="max-width:24rem; margin-bottom:1.5rem; font-size:14px; line-height:1.7;">
                     Gereksiz maddelerden arındırılmış, ihtiyaca özel teminat seçenekleri. Türkiye'nin önde gelen sigorta şirketlerinin teklifleriyle güvenle yanınızdayız.
@@ -85,6 +99,7 @@ $x_twitter     = plused_get_option('x_twitter', '');
                     <li><a href="<?php echo esc_url(home_url('/teklif-al/')); ?>" class="text-silver-400 hover:text-white transition-colors" style="text-decoration:none;">Teklif Al</a></li>
                     <li><a href="<?php echo esc_url(home_url('/hasar-destek/')); ?>" class="text-silver-400 hover:text-white transition-colors" style="text-decoration:none;">Hasar Desteği</a></li>
                     <li><a href="<?php echo esc_url(home_url('/hakkimizda/')); ?>" class="text-silver-400 hover:text-white transition-colors" style="text-decoration:none;">Hakkımızda</a></li>
+                    <li><a href="<?php echo esc_url(home_url('/kvkk-aydinlatma/')); ?>" class="text-silver-400 hover:text-white transition-colors" style="text-decoration:none;">KVKK Aydınlatma</a></li>
                     <li><a href="<?php echo esc_url(home_url('/sss/')); ?>" class="text-silver-400 hover:text-white transition-colors" style="text-decoration:none;">Sıkça Sorulan Sorular</a></li>
                     <li><a href="<?php echo esc_url(home_url('/iletisim/')); ?>" class="text-silver-400 hover:text-white transition-colors" style="text-decoration:none;">İletişim & Randevu</a></li>
                 </ul>
@@ -103,7 +118,12 @@ $x_twitter     = plused_get_option('x_twitter', '');
 
                     <a href="<?php echo esc_url($whatsapp_url); ?>" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-emerald-400 hover:text-emerald-300 transition-colors" style="text-decoration:none; display:flex; align-items:center; gap:0.75rem;">
                         <span><?php echo plused_icon('whatsapp', 'w-4 h-4'); ?></span>
-                        <span class="font-sans text-sm font-medium">WhatsApp Hasar & Teklif Masası</span>
+                        <span class="font-sans text-sm font-medium">WhatsApp Teklif & Danışma Hattı</span>
+                    </a>
+
+                    <a href="<?php echo esc_url($whatsapp_hasar_url); ?>" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-rose-400 hover:text-rose-300 transition-colors" style="text-decoration:none; display:flex; align-items:center; gap:0.75rem;">
+                        <span><?php echo plused_icon('shield', 'w-4 h-4 text-rose-400'); ?></span>
+                        <span class="font-sans text-sm font-medium">WhatsApp Hasar Destek Hattı</span>
                     </a>
 
                     <?php if (!empty($email)) : ?>
@@ -135,7 +155,8 @@ $x_twitter     = plused_get_option('x_twitter', '');
             <div>
                 &copy; <?php echo date('Y'); ?> <?php echo esc_html($company_name); ?>. Tüm hakları saklıdır.
             </div>
-            <div style="display:flex; align-items:center; gap:1.5rem;">
+            <div style="display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap;">
+                <a href="<?php echo esc_url(home_url('/kvkk-aydinlatma/')); ?>" style="color:#64748B; text-decoration:none;">KVKK Aydınlatma Metni</a>
                 <a href="<?php echo esc_url(home_url('/sss/')); ?>" style="color:#64748B; text-decoration:none;">Sıkça Sorulan Sorular</a>
                 <a href="<?php echo esc_url(home_url('/iletisim/')); ?>" style="color:#64748B; text-decoration:none;">Bize Ulaşın</a>
             </div>
@@ -158,9 +179,6 @@ $x_twitter     = plused_get_option('x_twitter', '');
 </div>
 
 <!-- CLAIM EMERGENCY MODAL (GLOBAL) -->
-<?php
-$claim_modal_wa_url = plused_build_whatsapp_link('Merhaba, hasar bildirimi yapmak istiyorum. Kaza/hasar bilgilerini ve belgeleri birazdan gönderiyorum.');
-?>
 <div id="claim-modal" class="modal-overlay">
     <div class="modal-card">
         <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:1.5rem; padding-bottom:1rem; border-bottom:1px solid rgba(255,255,255,0.1);">
@@ -180,7 +198,7 @@ $claim_modal_wa_url = plused_build_whatsapp_link('Merhaba, hasar bildirimi yapma
         </p>
 
         <div style="display:flex; flex-direction:column; gap:0.75rem;">
-            <a href="<?php echo esc_url($claim_modal_wa_url); ?>" target="_blank" rel="noopener noreferrer" class="btn-primary" style="width:100%; text-align:center; justify-content:center; background:linear-gradient(135deg, #059669, #10B981); border-color:rgba(52,211,153,0.4); text-decoration:none;">
+            <a href="<?php echo esc_url($whatsapp_hasar_url); ?>" target="_blank" rel="noopener noreferrer" class="btn-primary" style="width:100%; text-align:center; justify-content:center; background:linear-gradient(135deg, #059669, #10B981); border-color:rgba(52,211,153,0.4); text-decoration:none;">
                 <?php echo plused_icon('whatsapp', 'w-4 h-4 text-white'); ?>
                 <span>WhatsApp'tan Hasar Bildir</span>
             </a>
@@ -191,6 +209,11 @@ $claim_modal_wa_url = plused_build_whatsapp_link('Merhaba, hasar bildirimi yapma
             <a href="<?php echo esc_url(home_url('/hasar-destek/')); ?>" class="text-xs text-center text-silver-400 hover:text-white" style="margin-top:0.5rem; text-decoration:none;">
                 Hasar Süreç Rehberini Görüntüle &rarr;
             </a>
+
+            <!-- MODAL KVKK NOTICE -->
+            <p style="font-size:11px; color:#94A3B8; text-align:center; margin-top:0.5rem; margin-bottom:0; line-height:1.5;">
+                Belge göndererek süreçlerin yürütülmesi için gerekli kişisel verilerin işlenmesine ilişkin bilgi için <a href="<?php echo esc_url(home_url('/kvkk-aydinlatma/')); ?>" style="color:#38BDF8; text-decoration:underline;">KVKK Aydınlatma Metni</a>'ni inceleyebilirsiniz.
+            </p>
         </div>
     </div>
 </div>

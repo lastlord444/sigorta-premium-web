@@ -11,13 +11,13 @@ if (!defined('ABSPATH')) {
 
 $phone_display = plused_get_display_phone();
 $phone_url     = plused_get_phone_url();
-$whatsapp_url  = plused_build_whatsapp_link('Acil hasar bildirimi yapmak istiyorum.');
+$whatsapp_url  = plused_build_whatsapp_link('Merhaba, hasar bildirimi yapmak istiyorum. Kaza tutanağımı ve hasar fotoğraflarını iletiyorum.');
 
 $claim_steps = array(
     array(
         'step'  => '01',
         'title' => 'Güvenliği Sağlayın & Fotoğraflayın',
-        'desc'  => 'Öncelikle can güvenliğinizi sağlayın. Kaza alanını hareket ettirmeden geniş açılı fotoğraflarını çekin ve Kaza Tespit Tutanağı\'nı doldurun.',
+        'desc'  => 'Öncelikle can güvenliğinizi sağlayın ve dörtlülerinizi yakın. Mümkünse araçların konumunu bozmadan geniş açılı fotoğraflarını çekin. Yalnızca uygun maddi hasarlı kazalarda Kaza Tespit Tutanağı\'nı doldurun.',
     ),
     array(
         'step'  => '02',
@@ -108,7 +108,13 @@ $claim_steps = array(
                 <?php echo plused_icon('whatsapp', 'w-4 h-4'); ?>
                 <span>WhatsApp ile Fotoğraf Gönder</span>
             </a>
+
+            <!-- KVKK LEGAL NOTICE -->
+            <div style="width:100%; margin-top:0.5rem; text-align:right;">
+                <p style="font-size:12px; color:#94A3B8; margin:0; line-height:1.5;">
+                    Belge göndererek süreçlerin yürütülmesi için gerekli kişisel verilerin işlenmesine ilişkin bilgi için <a href="<?php echo esc_url(home_url('/kvkk-aydinlatma/')); ?>" style="color:#38BDF8; text-decoration:underline;">KVKK Aydınlatma Metni</a>'ni inceleyebilirsiniz.
+                </p>
+            </div>
         </div>
     </div>
 </section>
-

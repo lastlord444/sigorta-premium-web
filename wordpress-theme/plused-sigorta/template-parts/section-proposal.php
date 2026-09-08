@@ -99,6 +99,10 @@ $whatsapp_url = plused_build_whatsapp_link('Merhaba, hızlı teklif almak için 
                         <span>Ruhsat Bilgilerimi e-Devlet'ten Bul</span>
                     </a>
                 </div>
+
+                <p style="font-size:11px; color:#94A3B8; margin:0.25rem 0 0 0; line-height:1.5;">
+                    Belge göndererek teklif sürecinin yürütülmesi için gerekli kişisel verilerin işlenmesine ilişkin bilgi için <a href="<?php echo esc_url(home_url('/kvkk-aydinlatma/')); ?>" style="color:#38BDF8; text-decoration:underline;">KVKK Aydınlatma Metni</a>'ni inceleyebilirsiniz.
+                </p>
             </div>
 
             <!-- ACTION PANEL B: DİĞER ÜRÜNLER (SAĞLIK, KONUT, DASK, İŞYERİ, DİĞER) -->
@@ -121,6 +125,10 @@ $whatsapp_url = plused_build_whatsapp_link('Merhaba, hızlı teklif almak için 
                         <span id="proposal-other-btn-label">WhatsApp'tan Teklif Al</span>
                     </a>
                 </div>
+
+                <p style="font-size:11px; color:#94A3B8; margin:0.25rem 0 0 0; line-height:1.5;">
+                    Belge göndererek teklif sürecinin yürütülmesi için gerekli kişisel verilerin işlenmesine ilişkin bilgi için <a href="<?php echo esc_url(home_url('/kvkk-aydinlatma/')); ?>" style="color:#38BDF8; text-decoration:underline;">KVKK Aydınlatma Metni</a>'ni inceleyebilirsiniz.
+                </p>
             </div>
 
             <!-- GELECEKTEKİ SİGORTA ŞİRKETİ API ENTEGRASYONU İÇİN KORUNAN FORM TASLAĞI (Şu anda kapalı) -->

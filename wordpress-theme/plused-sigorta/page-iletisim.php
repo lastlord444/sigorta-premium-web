@@ -104,6 +104,9 @@ $has_meta_info      = (!empty($address) || !empty($email) || !empty($working_hou
                         <?php echo plused_icon('whatsapp', 'w-4 h-4 text-white'); ?>
                         <span>WhatsApp'tan Mesaj Gönder</span>
                     </a>
+                    <p style="font-size:11px; color:#94A3B8; text-align:center; margin-top:0.75rem; margin-bottom:0; line-height:1.5;">
+                        Belge göndererek teklif/hasar sürecinin yürütülmesi için gerekli kişisel verilerin işlenmesine ilişkin bilgi için <a href="<?php echo esc_url(home_url('/kvkk-aydinlatma/')); ?>" style="color:#38BDF8; text-decoration:underline;">KVKK Aydınlatma Metni</a>'ni inceleyebilirsiniz.
+                    </p>
                 </div>
             </div>
         </div>
@@ -159,11 +162,14 @@ $has_meta_info      = (!empty($address) || !empty($email) || !empty($working_hou
             <p class="text-silver-300 font-sans text-sm sm:text-base leading-relaxed mb-6" style="max-width:38rem; margin-left:auto; margin-right:auto;">
                 Kasko ve Trafik sigortanız için araç ruhsat fotoğrafınızı WhatsApp üzerinden ileterek en uygun fiyat ve teminat alternatiflerini hemen öğrenebilirsiniz.
             </p>
-            <div style="display:flex; justify-content:center;">
+            <div style="display:flex; flex-direction:column; align-items:center; gap:0.75rem;">
                 <a href="<?php echo esc_url($whatsapp_quote_url); ?>" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding:0.95rem 2.5rem; font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; background:linear-gradient(135deg, #0066FF 0%, #2563EB 50%, #4F46E5 100%);">
                     <span>Teklif Al</span>
                     <?php echo plused_icon('arrow-right', 'w-4 h-4'); ?>
                 </a>
+                <p style="font-size:11px; color:#94A3B8; text-align:center; margin:0; line-height:1.5;">
+                    Belge göndererek teklif sürecinin yürütülmesi için gerekli kişisel verilerin işlenmesine ilişkin bilgi için <a href="<?php echo esc_url(home_url('/kvkk-aydinlatma/')); ?>" style="color:#38BDF8; text-decoration:underline;">KVKK Aydınlatma Metni</a>'ni inceleyebilirsiniz.
+                </p>
             </div>
         </div>
     </div>

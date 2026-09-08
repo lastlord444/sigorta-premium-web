@@ -76,6 +76,11 @@ function plused_seed_default_data() {
             'title'    => 'İletişim',
             'template' => 'page-iletisim.php',
         ),
+        array(
+            'slug'     => 'kvkk-aydinlatma',
+            'title'    => 'KVKK Aydınlatma Metni',
+            'template' => 'page-kvkk-aydinlatma.php',
+        ),
     );
 
     foreach ($required_pages as $page) {
@@ -257,7 +262,7 @@ function plused_seed_default_data() {
             ),
             array(
                 'question' => 'Ruhsat fotoğrafını nasıl gönderebilirim?',
-                'answer'   => 'Teklif formunu doldurduktan sonra veya doğrudan resmi WhatsApp hattımıza ruhsatınızın ön yüzünün fotoğrafını gönderebilirsiniz. Danışmanımız bilgileri sisteme işleyecektir.',
+                'answer'   => 'Teklif sayfamız üzerinden veya doğrudan resmi WhatsApp hattımıza ruhsatınızın ön yüzünün fotoğrafını gönderebilirsiniz. Danışmanımız bilgileri sisteme işleyecektir.',
                 'category' => 'İşlem Kolaylığı',
                 'order'    => 3,
             ),
@@ -268,16 +273,10 @@ function plused_seed_default_data() {
                 'order'    => 4,
             ),
             array(
-                'question' => 'Teklif hazırlığı için ücret ödüyor muyum?',
-                'answer'   => 'Hayır. Sigorta teklifleri hazırlamak ve danışmanlık hizmeti sunmak için herhangi bir ücret talep edilmez. Poliçe satın alma kararı tamamen size aittir.',
-                'category' => 'Teklif & Süreç',
+                'question' => 'Teklifler ne kadar sürede hazırlanır?',
+                'answer'   => 'Bilgileriniz veya ruhsat fotoğrafınız danışmanımıza ulaştıktan sonra, mesai saatleri içinde ortalama 10-15 dakika içerisinde birden fazla şirketin karşılaştırmalı teklif tablosu hazırlanarak size iletilir.',
+                'category' => 'Hız & Teslimat',
                 'order'    => 5,
-            ),
-            array(
-                'question' => 'Poliçeyi nasıl satın alırım?',
-                'answer'   => 'Size sunulan teklif alternatifleri arasından ihtiyacınıza uygun olanı seçtikten sonra, ilgili sigorta şirketinin 3D Secure güvenli ödeme sistemi üzerinden işleminizi tamamlayabilirsiniz. Tanzim edilen poliçe resmi olarak e-Devlet sistemine işlenir ve dijital kopyası tarafınıza iletilir.',
-                'category' => 'Ödeme & Tanzim',
-                'order'    => 6,
             ),
         );
 
@@ -299,3 +298,13 @@ function plused_seed_default_data() {
     }
 }
 add_action('after_switch_theme', 'plused_seed_default_data');
+
+// Also ensure pages exist on admin_init if kvkk page is missing
+function plused_check_essential_pages_admin() {
+    if (is_admin() && current_user_can('manage_options')) {
+        if (!get_page_by_path('kvkk-aydinlatma')) {
+            plused_seed_default_data();
+        }
+    }
+}
+add_action('admin_init', 'plused_check_essential_pages_admin');

@@ -70,7 +70,9 @@ require_once get_template_directory() . '/inc/post-types.php';
 require_once get_template_directory() . '/inc/meta-boxes.php';
 require_once get_template_directory() . '/inc/admin-dashboard.php';
 require_once get_template_directory() . '/inc/admin-settings.php';
+require_once get_template_directory() . '/inc/default-data.php';
 require_once get_template_directory() . '/inc/seo.php';
+
 // 5. Enforce HTTPS 301 Redirect for Insecure Requests & Favicon
 function plused_enforce_https() {
     $is_ssl = is_ssl() || (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && strtolower($_SERVER['HTTP_X_FORWARDED_PROTO']) === 'https');
@@ -88,5 +90,19 @@ function plused_favicon_fallback() {
     }
 }
 add_action('init', 'plused_favicon_fallback', 1);
+
+// 6. Template routing for /kvkk-aydinlatma/
+function plused_kvkk_template_router($template) {
+    if (is_page('kvkk-aydinlatma') || (isset($_SERVER['REQUEST_URI']) && preg_match('#/kvkk-aydinlatma/?(\?.*)?$#', $_SERVER['REQUEST_URI']))) {
+        $kvkk_template = locate_template('page-kvkk-aydinlatma.php');
+        if (!empty($kvkk_template)) {
+            status_header(200);
+            return $kvkk_template;
+        }
+    }
+    return $template;
+}
+add_filter('template_include', 'plused_kvkk_template_router', 99);
+
 
 

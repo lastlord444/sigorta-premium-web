@@ -32,7 +32,7 @@ $whatsapp_url = plused_build_whatsapp_link('Merhaba, Kasko Sigortası için bilg
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             <div class="lg:col-span-7">
                 <span class="font-mono text-xs tracking-widest text-electric-light uppercase font-semibold block mb-3" style="letter-spacing:0.25em;">
-                    01 / SİNEMATİK VİTRİN: KASKO
+                    01 / KASKO
                 </span>
 
                 <h2 class="font-serif text-white font-medium mb-6" style="font-size:clamp(2rem, 4vw, 3.5rem); line-height:1.15; text-shadow:0 4px 20px rgba(0,0,0,0.8);">
