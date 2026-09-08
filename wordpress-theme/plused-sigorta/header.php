@@ -42,19 +42,19 @@ $announcement_on   = !empty($options['announcement_active']);
 
 <!-- MAIN NAVBAR -->
 <header id="site-header" class="site-header">
-    <div class="container-custom flex items-center justify-between" style="display:flex; align-items:center; justify-content:space-between;">
+    <div class="container-custom flex items-center justify-between" style="display:flex; align-items:center; justify-content:space-between; width:100%;">
         
         <!-- LOGO -->
-        <a href="<?php echo esc_url(home_url('/')); ?>" class="flex items-center gap-3 select-none text-decoration-none group" style="text-decoration:none; display:flex; align-items:center; gap:0.75rem;">
-            <div class="relative w-10 h-10 rounded-xl flex items-center justify-center border border-white/20 shadow-[0_0_20px_rgba(0,102,255,0.4)]" style="background:linear-gradient(135deg, #0066FF, #312E81); width:40px; height:40px; border-radius:12px; display:flex; align-items:center; justify-content:center; border:1px solid rgba(255,255,255,0.2); flex-shrink:0;">
+        <a href="<?php echo esc_url(home_url('/')); ?>" class="flex items-center gap-3 select-none text-decoration-none group" style="text-decoration:none; display:flex; align-items:center; gap:0.6rem; flex-shrink:0;">
+            <div class="relative w-10 h-10 rounded-xl flex items-center justify-center border border-white/20 shadow-[0_0_20px_rgba(0,102,255,0.4)]" style="background:linear-gradient(135deg, #0066FF, #312E81); width:38px; height:38px; border-radius:12px; display:flex; align-items:center; justify-content:center; border:1px solid rgba(255,255,255,0.2); flex-shrink:0;">
                 <?php echo plused_icon('shield', 'w-5 h-5 text-white'); ?>
             </div>
-            <span class="font-serif text-lg tracking-wider text-white font-semibold" style="letter-spacing:0.16em; line-height:1.2;">
+            <span class="font-serif text-lg tracking-wider text-white font-semibold" style="letter-spacing:0.12em; line-height:1.2; font-size:clamp(14px, 1.2vw, 18px); white-space:nowrap;">
                 <?php echo esc_html($company_name); ?>
             </span>
         </a>
 
-        <!-- DESKTOP NAV LINKS (>=1200px) -->
+        <!-- DESKTOP NAV LINKS (>=1024px) -->
         <nav class="site-nav-desktop nav-pill-container" id="desktop-nav" aria-label="Ana Menü">
             
             <!-- SIGORTALAR DROPDOWN -->
@@ -100,7 +100,7 @@ $announcement_on   = !empty($options['announcement_active']);
             <a href="<?php echo esc_url(home_url('/iletisim/')); ?>" class="site-nav-link">İletişim</a>
         </nav>
 
-        <!-- RIGHT DESKTOP ACTIONS (>=1200px) -->
+        <!-- RIGHT DESKTOP ACTIONS (>=1024px) -->
         <div class="site-header-desktop-actions">
             <a href="<?php echo esc_attr($phone_url); ?>" class="site-header-phone-link">
                 <span class="phone-pulse-dot"></span>
@@ -115,7 +115,7 @@ $announcement_on   = !empty($options['announcement_active']);
             </a>
         </div>
 
-        <!-- MOBILE CONTROLS: WhatsApp CTA + Hamburger Button (<1200px) -->
+        <!-- MOBILE CONTROLS: WhatsApp CTA + Hamburger Button (<1024px) -->
         <div class="site-header-mobile-controls">
             <a href="<?php echo esc_url($whatsapp_url); ?>" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp İletişim" class="mobile-whatsapp-btn">
                 <?php echo plused_icon('whatsapp', 'w-4 h-4 text-emerald-400'); ?>

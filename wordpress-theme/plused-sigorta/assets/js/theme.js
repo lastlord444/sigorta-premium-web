@@ -247,10 +247,10 @@ document.addEventListener("DOMContentLoaded", function () {
   var cursorRing = document.getElementById("custom-cursor-ring");
 
   if (hasPointer && cursorDot && cursorRing && !prefersReducedMotion) {
-    var mouseX = window.innerWidth / 2;
-    var mouseY = window.innerHeight / 2;
-    var ringX = mouseX;
-    var ringY = mouseY;
+    var mouseX = -100;
+    var mouseY = -100;
+    var ringX = -100;
+    var ringY = -100;
     var isCursorVisible = false;
 
     document.addEventListener("mousemove", function (e) {
@@ -258,6 +258,8 @@ document.addEventListener("DOMContentLoaded", function () {
       mouseY = e.clientY;
       if (!isCursorVisible) {
         isCursorVisible = true;
+        ringX = mouseX;
+        ringY = mouseY;
         document.body.classList.add("cursor-active");
         cursorDot.style.opacity = "1";
         cursorRing.style.opacity = "1";
@@ -289,8 +291,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     function renderRing() {
-      ringX += (mouseX - ringX) * 0.18;
-      ringY += (mouseY - ringY) * 0.18;
+      ringX += (mouseX - ringX) * 0.28;
+      ringY += (mouseY - ringY) * 0.28;
       cursorRing.style.transform = "translate3d(" + ringX + "px," + ringY + "px,0)";
       requestAnimationFrame(renderRing);
     }

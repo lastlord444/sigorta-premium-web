@@ -4,7 +4,7 @@ Theme URI: https://plusedsigorta.com.tr
 Author: Plused Sigorta
 Author URI: https://plusedsigorta.com.tr
 Description: Plused Sigorta özel sinematik WordPress teması. GSAP animasyonları, pürüzsüz kaydırma ve WordPress Admin kontrollü yönetim sistemi.
-Version: 1.0.1
+Version: 1.0.3
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
@@ -13,26 +13,11 @@ Text Domain: plused-sigorta
 */
 
 /* ==========================================================
-   RESPONSIVE HEADER HOTFIX
-   Keeps desktop navigation/actions out of mobile layouts and
-   gives header SVGs explicit dimensions so browsers never fall
-   back to the SVG default replaced-element size.
+   RESPONSIVE HEADER SPECIFICATION
+   Supports compact desktop navigation for intermediate widths
+   (1024px - 1199px) and full navigation for large screens (>=1200px),
+   with mobile controls for mobile/tablet (<1024px).
    ========================================================== */
-
-.site-header .site-nav-desktop.nav-pill-container {
-  display: none !important;
-}
-
-.site-header-desktop-actions {
-  display: none !important;
-}
-
-.site-header-mobile-controls {
-  display: flex !important;
-  align-items: center;
-  gap: 0.5rem;
-  flex: 0 0 auto;
-}
 
 .site-header svg {
   display: block;
@@ -60,7 +45,22 @@ Text Domain: plused-sigorta
   height: 16px !important;
 }
 
-@media (max-width: 1199px) {
+@media (max-width: 1023px) {
+  .site-header .site-nav-desktop.nav-pill-container {
+    display: none !important;
+  }
+
+  .site-header-desktop-actions {
+    display: none !important;
+  }
+
+  .site-header-mobile-controls {
+    display: flex !important;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 0 0 auto;
+  }
+
   .site-header .container-custom {
     display: flex !important;
     align-items: center !important;
@@ -78,7 +78,7 @@ Text Domain: plused-sigorta
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1024px) {
   .site-header .site-nav-desktop.nav-pill-container {
     display: flex !important;
     align-items: center;

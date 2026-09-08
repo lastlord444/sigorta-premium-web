@@ -48,12 +48,12 @@ $theme_uri         = get_template_directory_uri();
         </div>
 
         <!-- 1. SIMPLIFIED HERO COMPOSITION -->
-        <div id="hero-content" class="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col items-center my-auto pt-28 sm:pt-36 pb-12" style="max-width:64rem; margin:auto; padding-top:7rem; padding-bottom:3rem; padding-left:1.5rem; padding-right:1.5rem; position:relative; z-index:10;">
-            <h1 class="font-serif text-white font-medium mb-6" style="font-size:clamp(2.2rem, 5.5vw, 4.8rem); line-height:1.1; margin-bottom:1.5rem; text-shadow:0 4px 24px rgba(0,0,0,0.9);">
-                <?php echo esc_html($hero_title); ?>
+        <div id="hero-content" class="hero-content-inner relative z-10 mx-auto text-center flex flex-col items-center my-auto pt-28 sm:pt-36 pb-8" style="width:100%; max-width:56rem; margin-inline:auto; padding-top:7.5rem; padding-bottom:2rem; padding-inline:clamp(1rem, 3vw, 2rem); box-sizing:border-box; position:relative; z-index:10;">
+            <h1 class="font-serif text-white font-medium mb-5" style="font-size:clamp(2rem, 3.8vw, 3.8rem); line-height:1.18; max-width:44rem; margin-inline:auto; word-break:normal; overflow-wrap:break-word; margin-bottom:1.25rem; text-shadow:0 4px 24px rgba(0,0,0,0.9);">
+                Hayat sürprizlerle dolu.<br class="hidden sm:inline"> Güvencen hazır olsun.
             </h1>
 
-            <p class="text-silver-300 font-sans font-normal leading-relaxed mb-10 text-balance" style="font-size:clamp(1rem, 2vw, 1.25rem); max-width:42rem; margin-bottom:2.5rem; text-shadow:0 2px 12px rgba(0,0,0,0.9);">
+            <p class="text-silver-300 font-sans font-normal leading-relaxed mb-8" style="font-size:clamp(0.95rem, 1.5vw, 1.15rem); max-width:min(100%, 40rem); margin-inline:auto; word-break:normal; overflow-wrap:break-word; margin-bottom:2rem; text-shadow:0 2px 12px rgba(0,0,0,0.9);">
                 <?php echo esc_html($hero_desc); ?>
             </p>
 
