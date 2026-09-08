@@ -20,12 +20,16 @@ $insurance_types = array(
 );
 
 $whatsapp_url = plused_build_whatsapp_link('Merhaba, hızlı teklif almak için ruhsat fotoğrafımı iletiyorum.');
+$is_landing_page = is_page('teklif-al') || !empty($args['hide_header']);
 ?>
-<section id="teklif-al" class="relative w-full py-28 px-6 bg-background text-white overflow-hidden" style="padding-top:7rem; padding-bottom:7rem; background:#030712; position:relative;">
+<section id="teklif-al" class="relative w-full <?php echo $is_landing_page ? '' : 'py-28 px-6 bg-background'; ?> text-white overflow-hidden" style="<?php echo $is_landing_page ? 'background:transparent; padding:0;' : 'padding-top:7rem; padding-bottom:7rem; background:#030712;'; ?> position:relative;">
+    <?php if (!$is_landing_page) : ?>
     <!-- RADIANCE GLOW -->
     <div style="position:absolute; top:33%; left:50%; transform:translateX(-50%); width:800px; height:500px; background:rgba(0,102,255,0.08); border-radius:50%; filter:blur(170px); pointer-events:none;"></div>
+    <?php endif; ?>
 
-    <div class="container-custom relative z-10" style="max-width:56rem;">
+    <div class="<?php echo $is_landing_page ? 'w-full' : 'container-custom'; ?> relative z-10" style="max-width:56rem; margin:auto;">
+        <?php if (!$is_landing_page) : ?>
         <!-- HEADER -->
         <div style="text-align:center; margin-bottom:3.5rem;">
             <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono uppercase tracking-widest text-silver-300 mb-5" style="display:inline-flex; align-items:center; gap:0.5rem; padding:0.35rem 0.9rem; border-radius:9999px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); letter-spacing:0.2em; margin-bottom:1.25rem;">
@@ -41,6 +45,7 @@ $whatsapp_url = plused_build_whatsapp_link('Merhaba, hızlı teklif almak için 
                 İhtiyacınız olan güvenceyi seçin; danışmanlarımız birden fazla şirketin tekliflerini sizin için hazırlasın.
             </p>
         </div>
+        <?php endif; ?>
 
         <!-- MAIN PROPOSAL CARD -->
         <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.09); border-radius:1.5rem; padding:clamp(1.5rem, 4vw, 3rem); backdrop-filter:blur(20px); box-shadow:0 20px 70px rgba(0,0,0,0.7);">

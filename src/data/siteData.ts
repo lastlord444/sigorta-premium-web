@@ -245,7 +245,7 @@ export const faqItems: FaqItem[] = [
   },
   {
     question: "Poliçemi online olarak alabilir miyim?",
-    answer: "Evet. Teklif formunu doldurduktan sonra uzman danışmanımız sizin için hazırlanan karşılaştırmalı teklif dosyasını WhatsApp veya e-posta ile iletir. Onayınızın ardından 3D Secure güvenli ödeme bağlantısı üzerinden poliçeniz anında tanzim edilir ve e-Devlet sistemine resmi olarak işlenir.",
+    answer: "Evet. Teklif talebinizi ilettikten sonra uzman danışmanımız sizin için hazırlanan karşılaştırmalı teklif dosyasını WhatsApp veya e-posta ile iletir. Onayınızın ardından 3D Secure güvenli ödeme bağlantısı üzerinden poliçeniz anında tanzim edilir ve e-Devlet sistemine resmi olarak işlenir.",
     category: "İşlem Kolaylığı"
   }
 ];

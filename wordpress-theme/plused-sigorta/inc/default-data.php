@@ -308,3 +308,48 @@ function plused_check_essential_pages_admin() {
     }
 }
 add_action('admin_init', 'plused_check_essential_pages_admin');
+
+/**
+ * Automatically clean up any legacy phrasing mentioning 'form doldurduktan sonra'
+ * from existing posts/FAQs in database and filter on frontend rendering.
+ */
+function plused_filter_faq_content_cleanup($content) {
+    if (is_string($content)) {
+        $content = str_ireplace('Teklif formunu doldurduktan sonra veya doğrudan', 'Teklif sayfamız üzerinden veya doğrudan', $content);
+        $content = str_ireplace('Teklif formunu doldurduktan sonra', 'Teklif talebinizi ilettikten sonra', $content);
+        $content = str_ireplace('formunu doldurduktan sonra', 'teklif talebinizi ilettikten sonra', $content);
+        $content = str_ireplace('form doldurduktan sonra', 'teklif talebinizi ilettikten sonra', $content);
+    }
+    return $content;
+}
+add_filter('the_content', 'plused_filter_faq_content_cleanup', 20);
+
+function plused_cleanup_legacy_faq_copy() {
+    static $done = false;
+    if ($done) return;
+    $done = true;
+
+    $faqs = get_posts(array(
+        'post_type'      => 'insurance_faq',
+        'posts_per_page' => -1,
+        'post_status'    => 'any',
+    ));
+    if (!empty($faqs)) {
+        foreach ($faqs as $faq) {
+            $content = $faq->post_content;
+            if (stripos($content, 'form') !== false && (stripos($content, 'doldur') !== false || stripos($content, 'formunu') !== false)) {
+                $cleaned = str_ireplace('Teklif formunu doldurduktan sonra veya doğrudan', 'Teklif sayfamız üzerinden veya doğrudan', $content);
+                $cleaned = str_ireplace('Teklif formunu doldurduktan sonra', 'Teklif talebinizi ilettikten sonra', $cleaned);
+                $cleaned = str_ireplace('formunu doldurduktan sonra', 'teklif talebinizi ilettikten sonra', $cleaned);
+                $cleaned = str_ireplace('form doldurduktan sonra', 'teklif talebinizi ilettikten sonra', $cleaned);
+                if ($cleaned !== $content) {
+                    wp_update_post(array(
+                        'ID'           => $faq->ID,
+                        'post_content' => $cleaned,
+                    ));
+                }
+            }
+        }
+    }
+}
+add_action('init', 'plused_cleanup_legacy_faq_copy');

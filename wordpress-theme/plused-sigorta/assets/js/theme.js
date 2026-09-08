@@ -505,7 +505,7 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     privacy: {
       title: "Gizlilik Politikası",
-      text: "Plused Sigorta olarak kullanıcılarımızın gizliliğine saygı duyuyoruz. Formlar aracılığıyla iletilen ad, telefon ve araç bilgileri yalnızca teklif oluşturmak ve poliçe danışmanlığı sağlamak amacıyla kullanılır.",
+      text: "Plused Sigorta olarak kullanıcılarımızın gizliliğine saygı duyuyoruz. İletişim kanallarımız aracılığıyla iletilen ad, telefon ve araç bilgileri yalnızca teklif oluşturmak ve poliçe danışmanlığı sağlamak amacıyla kullanılır.",
     },
     cookies: {
       title: "Çerez Politikası",
