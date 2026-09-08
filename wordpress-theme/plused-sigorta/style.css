@@ -4,10 +4,98 @@ Theme URI: https://plusedsigorta.com.tr
 Author: Plused Sigorta
 Author URI: https://plusedsigorta.com.tr
 Description: Plused Sigorta özel sinematik WordPress teması. GSAP animasyonları, pürüzsüz kaydırma ve WordPress Admin kontrollü yönetim sistemi.
-Version: 1.0.0
+Version: 1.0.1
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
 License: Proprietary
 Text Domain: plused-sigorta
 */
+
+/* ==========================================================
+   RESPONSIVE HEADER HOTFIX
+   Keeps desktop navigation/actions out of mobile layouts and
+   gives header SVGs explicit dimensions so browsers never fall
+   back to the SVG default replaced-element size.
+   ========================================================== */
+
+.site-header .site-nav-desktop.nav-pill-container {
+  display: none !important;
+}
+
+.site-header-desktop-actions {
+  display: none !important;
+}
+
+.site-header-mobile-controls {
+  display: flex !important;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 0 0 auto;
+}
+
+.site-header svg {
+  display: block;
+  flex: 0 0 auto;
+  max-width: none;
+}
+
+.site-header > .container-custom > a svg {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.mobile-whatsapp-btn svg {
+  width: 18px !important;
+  height: 18px !important;
+}
+
+.mobile-menu-toggle-btn svg {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+#mobile-menu-overlay svg {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+@media (max-width: 1199px) {
+  .site-header .container-custom {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 12px;
+  }
+
+  .site-header > .container-custom > a {
+    min-width: 0;
+    max-width: calc(100% - 96px);
+  }
+
+  .site-header > .container-custom > a span {
+    white-space: nowrap;
+  }
+}
+
+@media (min-width: 1200px) {
+  .site-header .site-nav-desktop.nav-pill-container {
+    display: flex !important;
+    align-items: center;
+  }
+
+  .site-header-desktop-actions {
+    display: flex !important;
+    align-items: center;
+  }
+
+  .site-header-mobile-controls {
+    display: none !important;
+  }
+
+  .site-header-phone-link svg,
+  .site-header-whatsapp-btn svg {
+    width: 14px !important;
+    height: 14px !important;
+  }
+}
