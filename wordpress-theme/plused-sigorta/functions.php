@@ -25,12 +25,23 @@ add_action('after_setup_theme', 'plused_theme_setup');
 
 // 2. Enqueue Frontend Scripts & Styles
 function plused_enqueue_scripts() {
-    $theme_uri = get_template_directory_uri();
-    $version   = '2.0.0';
+    $theme_uri  = get_template_directory_uri();
+    $theme_path = get_template_directory();
+    $fallback_version = '2.0.1';
+
+    // Use file modification times as asset versions so deployments cannot
+    // leave visitors on stale CSS/JS after markup changes.
+    $theme_css_file = $theme_path . '/assets/css/theme.css';
+    $style_css_file = $theme_path . '/style.css';
+    $theme_js_file  = $theme_path . '/assets/js/theme.js';
+
+    $theme_css_version = file_exists($theme_css_file) ? (string) filemtime($theme_css_file) : $fallback_version;
+    $style_css_version = file_exists($style_css_file) ? (string) filemtime($style_css_file) : $fallback_version;
+    $theme_js_version  = file_exists($theme_js_file) ? (string) filemtime($theme_js_file) : $fallback_version;
 
     // Theme Styles
-    wp_enqueue_style('plused-theme-style', $theme_uri . '/assets/css/theme.css', array(), $version);
-    wp_enqueue_style('plused-style', get_stylesheet_uri(), array('plused-theme-style'), $version);
+    wp_enqueue_style('plused-theme-style', $theme_uri . '/assets/css/theme.css', array(), $theme_css_version);
+    wp_enqueue_style('plused-style', get_stylesheet_uri(), array('plused-theme-style'), $style_css_version);
 
     // Vendor Scripts
     wp_enqueue_script('gsap', $theme_uri . '/assets/js/vendor/gsap.min.js', array(), '3.12.7', true);
@@ -39,7 +50,7 @@ function plused_enqueue_scripts() {
     wp_enqueue_script('canvas-confetti', $theme_uri . '/assets/js/vendor/confetti.browser.min.js', array(), '1.9.4', true);
 
     // Theme Main Script
-    wp_enqueue_script('plused-theme-js', $theme_uri . '/assets/js/theme.js', array('gsap', 'scroll-trigger', 'lenis', 'canvas-confetti'), $version, true);
+    wp_enqueue_script('plused-theme-js', $theme_uri . '/assets/js/theme.js', array('gsap', 'scroll-trigger', 'lenis', 'canvas-confetti'), $theme_js_version, true);
 
     // Localize Script for AJAX & centralized settings
     wp_localize_script('plused-theme-js', 'plused_settings', array(
