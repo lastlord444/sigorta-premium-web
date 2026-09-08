@@ -421,11 +421,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // 7. EMERGENCY CLAIM SUPPORT MODAL (HASAR DESTEK)
   var claimModal = document.getElementById("claim-modal");
   var claimOpenBtns = document.querySelectorAll(".open-claim-modal");
-  var claimCloseBtn = document.getElementById("close-claim-modal");
-  var claimForm = document.getElementById("claim-form");
-  var claimFormContent = document.getElementById("claim-form-content");
-  var claimSuccessContent = document.getElementById("claim-success-content");
-  var claimPhoneDisplay = document.getElementById("claim-phone-display");
 
   claimOpenBtns.forEach(function (btn) {
     btn.addEventListener("click", function (e) {
@@ -434,13 +429,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  if (claimCloseBtn && claimModal) {
-    claimCloseBtn.addEventListener("click", function () {
-      claimModal.classList.remove("active");
-    });
-  }
-
   if (claimModal) {
+    var closeButtons = claimModal.querySelectorAll("#close-claim-modal, .close-modal-btn");
+    closeButtons.forEach(function (cb) {
+      cb.addEventListener("click", function () {
+        claimModal.classList.remove("active");
+      });
+    });
+
     claimModal.addEventListener("click", function (e) {
       if (e.target === claimModal) {
         claimModal.classList.remove("active");
@@ -448,13 +444,27 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  if (claimForm) {
-    claimForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      var phone = document.getElementById("claim-phone").value;
-      if (claimFormContent) claimFormContent.style.display = "none";
-      if (claimSuccessContent) claimSuccessContent.style.display = "block";
-      if (claimPhoneDisplay) claimPhoneDisplay.textContent = phone;
+  // VIDEO PLAY/PAUSE OBSERVER (PREVENTS EXCESSIVE DATA USAGE)
+  var lazyVideos = document.querySelectorAll(".lazy-video");
+  if ("IntersectionObserver" in window && lazyVideos.length > 0) {
+    var videoObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          var video = entry.target;
+          if (entry.isIntersecting) {
+            var playPromise = video.play();
+            if (playPromise !== undefined) {
+              playPromise.catch(function () {});
+            }
+          } else {
+            video.pause();
+          }
+        });
+      },
+      { rootMargin: "150px 0px", threshold: 0.15 }
+    );
+    lazyVideos.forEach(function (v) {
+      videoObserver.observe(v);
     });
   }
 

@@ -117,7 +117,7 @@ $theme_uri         = get_template_directory_uri();
 
         <!-- SCROLL DOWN INDICATOR -->
         <div id="hero-scroll-indicator" class="relative z-10 flex justify-center pb-6" style="position:relative; z-index:10; display:flex; justify-content:center; padding-bottom:1.5rem;">
-            <a href="#scene-kasko" aria-label="Aşağı kaydır" class="flex flex-col items-center text-silver-400 hover:text-white transition-colors" style="text-decoration:none; display:flex; flex-direction:column; align-items:center;">
+            <a href="#sigortalar" aria-label="Aşağı kaydır" class="flex flex-col items-center text-silver-400 hover:text-white transition-colors" style="text-decoration:none; display:flex; flex-direction:column; align-items:center;">
                 <span class="font-mono text-[10px] tracking-widest uppercase mb-1" style="font-size:10px; letter-spacing:0.25em;">Kaydırın</span>
                 <span style="color:#38BDF8; font-size:16px;">&darr;</span>
             </a>

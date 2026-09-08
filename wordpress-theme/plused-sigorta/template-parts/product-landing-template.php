@@ -82,7 +82,7 @@ $teklif_url    = home_url('/teklif-al/?urun=' . urlencode($data['form_type']));
         <!-- Video or Media Atmosphere Backdrop -->
         <?php if (!empty($data['video_url'])) : ?>
             <div class="absolute inset-0 w-full h-full pointer-events-none select-none overflow-hidden opacity-30 z-0">
-                <video src="<?php echo esc_url($data['video_url']); ?>" poster="<?php echo esc_url($data['poster_url']); ?>" muted autoplay playsinline loop style="width:100%; height:100%; object-fit:cover; filter:brightness(0.7) blur(1px);"></video>
+                <video class="lazy-video" src="<?php echo esc_url($data['video_url']); ?>" poster="<?php echo esc_url($data['poster_url']); ?>" muted playsinline loop preload="metadata" style="width:100%; height:100%; object-fit:cover; filter:brightness(0.7) blur(1px);"></video>
                 <div class="blend-mask-top"></div>
                 <div class="blend-mask-bottom"></div>
             </div>

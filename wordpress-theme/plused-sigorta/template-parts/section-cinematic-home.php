@@ -18,7 +18,7 @@ $home_desc  = plused_get_option('home_konut_desc', 'Evinizi, değerli eşyaları
     
     <!-- ATMOSPHERIC VIDEO & BACKGROUND -->
     <div class="absolute inset-0 w-full h-full pointer-events-none select-none overflow-hidden opacity-30 z-0">
-        <video src="<?php echo esc_url($theme_uri . '/assets/videos/konut-dask.mp4'); ?>" poster="<?php echo esc_url($theme_uri . '/assets/images/villajpg.jpg'); ?>" muted autoplay playsinline loop style="width:100%; height:100%; object-fit:cover; filter:brightness(0.7);"></video>
+        <video class="lazy-video" src="<?php echo esc_url($theme_uri . '/assets/videos/konut-dask.mp4'); ?>" poster="<?php echo esc_url($theme_uri . '/assets/images/villajpg.jpg'); ?>" muted playsinline loop preload="none" style="width:100%; height:100%; object-fit:cover; filter:brightness(0.7);"></video>
         <div class="blend-mask-top"></div>
         <div class="blend-mask-bottom"></div>
         <div class="blend-mask-radial"></div>

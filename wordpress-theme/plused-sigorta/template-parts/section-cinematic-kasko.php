@@ -19,7 +19,7 @@ $whatsapp_url = plused_build_whatsapp_link('Merhaba, Kasko Sigortası için bilg
     
     <!-- ATMOSPHERIC VIDEO & BACKGROUND -->
     <div class="absolute inset-0 w-full h-full pointer-events-none select-none overflow-hidden opacity-35 z-0">
-        <video src="<?php echo esc_url($theme_uri . '/assets/videos/kasko-car.mp4'); ?>" poster="<?php echo esc_url($theme_uri . '/assets/images/porshce.jpg'); ?>" muted autoplay playsinline loop style="width:100%; height:100%; object-fit:cover; filter:brightness(0.7);"></video>
+        <video class="lazy-video" src="<?php echo esc_url($theme_uri . '/assets/videos/kasko-car.mp4'); ?>" poster="<?php echo esc_url($theme_uri . '/assets/images/porshce.jpg'); ?>" muted playsinline loop preload="none" style="width:100%; height:100%; object-fit:cover; filter:brightness(0.7);"></video>
         <div class="blend-mask-top"></div>
         <div class="blend-mask-bottom"></div>
         <div class="blend-mask-radial"></div>

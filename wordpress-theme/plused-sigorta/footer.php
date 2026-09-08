@@ -158,6 +158,9 @@ $x_twitter     = plused_get_option('x_twitter', '');
 </div>
 
 <!-- CLAIM EMERGENCY MODAL (GLOBAL) -->
+<?php
+$claim_modal_wa_url = plused_build_whatsapp_link('Merhaba, hasar bildirimi yapmak istiyorum. Kaza/hasar bilgilerini ve belgeleri birazdan gönderiyorum.');
+?>
 <div id="claim-modal" class="modal-overlay">
     <div class="modal-card">
         <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:1.5rem; padding-bottom:1rem; border-bottom:1px solid rgba(255,255,255,0.1);">
@@ -166,22 +169,22 @@ $x_twitter     = plused_get_option('x_twitter', '');
                     <?php echo plused_icon('shield', 'w-4 h-4'); ?>
                 </div>
                 <div style="font-family:var(--font-serif); font-size:18px; color:#ffffff; font-weight:600;">
-                    Hasar Sürecinde Destek
+                    Hasar Sürecinde Acil Destek
                 </div>
             </div>
-            <button type="button" class="close-modal-btn" aria-label="Kapat" style="background:none; border:none; color:#94A3B8; font-size:24px; cursor:pointer;">&times;</button>
+            <button id="close-claim-modal" type="button" class="close-modal-btn" aria-label="Kapat" style="background:none; border:none; color:#94A3B8; font-size:24px; cursor:pointer; line-height:1;">&times;</button>
         </div>
 
         <p class="font-sans text-sm text-silver-300 leading-relaxed mb-6">
-            Kaza veya hasar durumunda acente danışmanınıza doğrudan ulaşabilirsiniz. Kaza yeri fotoğraflarını ve Kaza Tespit Tutanağınızı WhatsApp hattımıza iletebilirsiniz.
+            Kaza veya hasar durumunda doğrudan acente danışmanınıza bağlanın. Bilgilerinizi, kaza yeri fotoğraflarını ve kaza tespit tutanağını WhatsApp hattımıza anında iletebilir veya doğrudan arayabilirsiniz.
         </p>
 
         <div style="display:flex; flex-direction:column; gap:0.75rem;">
-            <a href="<?php echo esc_url($whatsapp_url); ?>" target="_blank" rel="noopener noreferrer" class="btn-primary" style="width:100%; text-align:center; justify-content:center; background:linear-gradient(135deg, #059669, #10B981); border-color:rgba(52,211,153,0.4);">
+            <a href="<?php echo esc_url($claim_modal_wa_url); ?>" target="_blank" rel="noopener noreferrer" class="btn-primary" style="width:100%; text-align:center; justify-content:center; background:linear-gradient(135deg, #059669, #10B981); border-color:rgba(52,211,153,0.4); text-decoration:none;">
                 <?php echo plused_icon('whatsapp', 'w-4 h-4 text-white'); ?>
-                <span>WhatsApp İle Tutanağı Gönder</span>
+                <span>WhatsApp'tan Hasar Bildir</span>
             </a>
-            <a href="<?php echo esc_attr($phone_url); ?>" class="btn-secondary" style="width:100%; text-align:center; justify-content:center;">
+            <a href="<?php echo esc_attr($phone_url); ?>" class="btn-secondary" style="width:100%; text-align:center; justify-content:center; text-decoration:none;">
                 <?php echo plused_icon('phone', 'w-4 h-4 text-emerald-400'); ?>
                 <span>Hemen Ara: <?php echo esc_html($phone_display); ?></span>
             </a>
