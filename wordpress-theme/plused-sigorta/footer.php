@@ -35,14 +35,9 @@ $x_twitter     = plused_get_option('x_twitter', '');
                     <div style="width:42px; height:42px; border-radius:12px; background:linear-gradient(135deg, #0066FF, #312E81); display:flex; align-items:center; justify-content:center; border:1px solid rgba(255,255,255,0.2); box-shadow:0 0 20px rgba(0,102,255,0.4); flex-shrink:0;">
                         <?php echo plused_icon('shield', 'w-5 h-5 text-white'); ?>
                     </div>
-                    <div class="flex flex-col">
-                        <span class="font-serif text-lg tracking-wider text-white font-semibold" style="letter-spacing:0.16em; line-height:1.2;">
-                            <?php echo esc_html($company_name); ?>
-                        </span>
-                        <span class="font-sans text-[10px] tracking-widest text-silver-400 uppercase" style="font-size:10px; letter-spacing:0.2em;">
-                            Bağımsız Sigorta Acentesi
-                        </span>
-                    </div>
+                    <span class="font-serif text-lg tracking-wider text-white font-semibold" style="letter-spacing:0.16em; line-height:1.2;">
+                        <?php echo esc_html($company_name); ?>
+                    </span>
                 </a>
 
                 <p class="text-silver-400 font-sans text-sm leading-relaxed mb-6" style="max-width:24rem; margin-bottom:1.5rem; font-size:14px; line-height:1.7;">

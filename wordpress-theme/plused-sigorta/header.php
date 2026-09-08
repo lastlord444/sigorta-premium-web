@@ -47,22 +47,17 @@ $announcement_on   = !empty($options['announcement_active']);
             <div class="relative w-10 h-10 rounded-xl flex items-center justify-center border border-white/20 shadow-[0_0_20px_rgba(0,102,255,0.4)]" style="background:linear-gradient(135deg, #0066FF, #312E81); width:40px; height:40px; border-radius:12px; display:flex; align-items:center; justify-content:center; border:1px solid rgba(255,255,255,0.2); flex-shrink:0;">
                 <?php echo plused_icon('shield', 'w-5 h-5 text-white'); ?>
             </div>
-            <div class="flex flex-col">
-                <span class="font-serif text-lg tracking-wider text-white font-semibold" style="letter-spacing:0.16em; line-height:1.2;">
-                    <?php echo esc_html($company_name); ?>
-                </span>
-                <span class="font-sans text-[10px] tracking-widest text-silver-400 uppercase" style="font-size:10px; letter-spacing:0.2em;">
-                    Bağımsız Acente
-                </span>
-            </div>
+            <span class="font-serif text-lg tracking-wider text-white font-semibold" style="letter-spacing:0.16em; line-height:1.2;">
+                <?php echo esc_html($company_name); ?>
+            </span>
         </a>
 
-        <!-- DESKTOP NAV LINKS -->
-        <nav class="hidden lg:flex items-center gap-1 nav-pill-container" style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:0.35rem 1.25rem; border-radius:9999px; backdrop-filter:blur(12px);">
+        <!-- DESKTOP NAV LINKS (>=1200px) -->
+        <nav class="site-nav-desktop nav-pill-container" aria-label="Ana Menü">
             
             <!-- SIGORTALAR DROPDOWN -->
             <div class="nav-dropdown-wrapper relative" style="position:relative;">
-                <button type="button" class="px-3 py-1.5 text-xs uppercase tracking-wider text-silver-300 hover:text-white transition-colors flex items-center gap-1.5 nav-link-btn" style="background:none; border:none; color:#CBD5E1; cursor:pointer; font-family:var(--font-sans); font-size:12px; font-weight:500; display:flex; align-items:center; gap:0.35rem;">
+                <button type="button" class="site-nav-link nav-link-btn" aria-haspopup="true" aria-expanded="false">
                     <span>Sigortalar</span>
                     <svg style="width:12px; height:12px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </button>
@@ -96,35 +91,35 @@ $announcement_on   = !empty($options['announcement_active']);
                 </div>
             </div>
 
-            <a href="<?php echo esc_url(home_url('/teklif-al/')); ?>" class="px-3.5 py-1.5 text-xs uppercase tracking-wider text-silver-300 hover:text-white transition-colors" style="text-decoration:none; font-size:12px; font-weight:500;">Teklif Al</a>
-            <a href="<?php echo esc_url(home_url('/hasar-destek/')); ?>" class="px-3.5 py-1.5 text-xs uppercase tracking-wider text-silver-300 hover:text-white transition-colors" style="text-decoration:none; font-size:12px; font-weight:500;">Hasar Desteği</a>
-            <a href="<?php echo esc_url(home_url('/hakkimizda/')); ?>" class="px-3.5 py-1.5 text-xs uppercase tracking-wider text-silver-300 hover:text-white transition-colors" style="text-decoration:none; font-size:12px; font-weight:500;">Hakkımızda</a>
-            <a href="<?php echo esc_url(home_url('/sss/')); ?>" class="px-3.5 py-1.5 text-xs uppercase tracking-wider text-silver-300 hover:text-white transition-colors" style="text-decoration:none; font-size:12px; font-weight:500;">SSS</a>
-            <a href="<?php echo esc_url(home_url('/iletisim/')); ?>" class="px-3.5 py-1.5 text-xs uppercase tracking-wider text-silver-300 hover:text-white transition-colors" style="text-decoration:none; font-size:12px; font-weight:500;">İletişim</a>
+            <a href="<?php echo esc_url(home_url('/teklif-al/')); ?>" class="site-nav-link">Teklif Al</a>
+            <a href="<?php echo esc_url(home_url('/hasar-destek/')); ?>" class="site-nav-link">Hasar Desteği</a>
+            <a href="<?php echo esc_url(home_url('/hakkimizda/')); ?>" class="site-nav-link">Hakkımızda</a>
+            <a href="<?php echo esc_url(home_url('/sss/')); ?>" class="site-nav-link">SSS</a>
+            <a href="<?php echo esc_url(home_url('/iletisim/')); ?>" class="site-nav-link">İletişim</a>
         </nav>
 
-        <!-- RIGHT DESKTOP ACTIONS -->
-        <div class="hidden sm:flex items-center gap-3">
-            <a href="<?php echo esc_attr($phone_url); ?>" class="flex items-center gap-2 text-xs text-silver-300 hover:text-white transition-colors py-2 px-3 rounded-full hover:bg-white/[0.04]" style="text-decoration:none;">
-                <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#10B981; box-shadow:0 0 10px #10B981;"></span>
+        <!-- RIGHT DESKTOP ACTIONS (>=1200px) -->
+        <div class="site-header-desktop-actions">
+            <a href="<?php echo esc_attr($phone_url); ?>" class="site-header-phone-link">
+                <span class="phone-pulse-dot"></span>
                 <?php echo plused_icon('phone', 'w-3.5 h-3.5 text-silver-400'); ?>
                 <span class="font-mono text-xs"><?php echo esc_html($phone_display); ?></span>
             </a>
 
             <!-- WhatsApp CTA Button -->
-            <a href="<?php echo esc_url($whatsapp_url); ?>" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding:0.6rem 1.25rem; font-size:11px; background:linear-gradient(135deg, #059669, #10B981); border-color:rgba(52,211,153,0.4); box-shadow:0 0 20px rgba(16,185,129,0.35);">
+            <a href="<?php echo esc_url($whatsapp_url); ?>" target="_blank" rel="noopener noreferrer" class="site-header-whatsapp-btn">
                 <?php echo plused_icon('whatsapp', 'w-3.5 h-3.5 text-white'); ?>
                 <span>WhatsApp</span>
             </a>
         </div>
 
-        <!-- MOBILE CONTROLS: WhatsApp CTA + Hamburger Button -->
-        <div class="flex lg:hidden items-center gap-2" style="display:flex; align-items:center; gap:0.5rem;">
-            <a href="<?php echo esc_url($whatsapp_url); ?>" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp İletişim" style="width:38px; height:38px; border-radius:10px; background:rgba(37,211,102,0.15); border:1px solid rgba(37,211,102,0.3); display:flex; align-items:center; justify-content:center; color:#34D399; text-decoration:none;">
+        <!-- MOBILE CONTROLS: WhatsApp CTA + Hamburger Button (<1200px) -->
+        <div class="site-header-mobile-controls">
+            <a href="<?php echo esc_url($whatsapp_url); ?>" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp İletişim" class="mobile-whatsapp-btn">
                 <?php echo plused_icon('whatsapp', 'w-4 h-4 text-emerald-400'); ?>
             </a>
 
-            <button id="mobile-menu-toggle" type="button" aria-label="Menüyü Aç" class="p-2 rounded-xl text-silver-300 hover:text-white" style="width:38px; height:38px; display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:10px; cursor:pointer; color:#CBD5E1;">
+            <button id="mobile-menu-toggle" type="button" aria-label="Menüyü Aç" class="mobile-menu-toggle-btn">
                 <svg style="width:20px; height:20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
         </div>

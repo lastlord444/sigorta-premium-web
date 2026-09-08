@@ -480,19 +480,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // CONTACT PAGE FORM HANDLER
-  var contactForm = document.getElementById("contact-page-form");
-  var contactSuccess = document.getElementById("contact-form-success");
-  if (contactForm) {
-    contactForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      if (contactSuccess) {
-        contactSuccess.style.display = "block";
-      }
-      contactForm.reset();
-    });
-  }
-
   // 9. LEGAL MODALS (KVKK, Gizlilik, Çerez)
   var legalModal = document.getElementById("legal-modal");
   var legalTitle = document.getElementById("legal-modal-title");

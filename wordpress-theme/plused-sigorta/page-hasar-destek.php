@@ -20,7 +20,7 @@ $whatsapp_url  = plused_build_whatsapp_link('Acil hasar bildirimi yapmak istiyor
     <!-- AMBIENT EMERGENCY GLOW -->
     <div style="position:absolute; top:20%; left:50%; transform:translateX(-50%); width:750px; height:450px; background:rgba(225,29,72,0.05); border-radius:50%; filter:blur(180px); pointer-events:none;"></div>
 
-    <div class="container-custom relative z-10" style="max-width:64rem; margin:auto;">
+    <div class="container-custom relative z-10">
         <!-- Breadcrumbs -->
         <nav aria-label="Breadcrumb" style="margin-bottom:1.5rem; font-family:var(--font-mono); font-size:11px; text-transform:uppercase; letter-spacing:0.1em; color:#94A3B8;">
             <a href="<?php echo esc_url(home_url('/')); ?>" style="color:#94A3B8; text-decoration:none;">Ana Sayfa</a>

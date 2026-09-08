@@ -169,7 +169,7 @@ $teklif_url    = home_url('/teklif-al/?urun=' . urlencode($data['form_type']));
 
     <!-- 2. KISA AÇIKLAMA & "NEDİR?" BÖLÜMÜ -->
     <section class="py-20 sm:py-24 px-6 border-b border-white/5" style="padding-top:5rem; padding-bottom:5rem; background:#040918; border-bottom:1px solid rgba(255,255,255,0.06);">
-        <div class="container-custom" style="max-width:64rem;">
+        <div class="container-custom">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
                 <div class="lg:col-span-7">
                     <div class="inline-flex items-center gap-2 text-xs font-mono tracking-widest text-electric-light uppercase mb-3" style="letter-spacing:0.2em;">
@@ -213,7 +213,7 @@ $teklif_url    = home_url('/teklif-al/?urun=' . urlencode($data['form_type']));
 
     <!-- 3. ANA TEMİNAT GRUPLARI -->
     <section class="py-20 sm:py-24 px-6 border-b border-white/5" style="padding-top:5.5rem; padding-bottom:5.5rem; background:#030712; border-bottom:1px solid rgba(255,255,255,0.06);">
-        <div class="container-custom" style="max-width:68rem;">
+        <div class="container-custom">
             <div style="text-align:center; max-width:44rem; margin:0 auto 3.5rem auto;">
                 <div class="inline-flex items-center gap-2 text-xs font-mono tracking-widest text-electric-light uppercase mb-2" style="letter-spacing:0.2em;">
                     <?php echo plused_icon('shield', 'w-3.5 h-3.5'); ?>
@@ -249,7 +249,7 @@ $teklif_url    = home_url('/teklif-al/?urun=' . urlencode($data['form_type']));
 
     <!-- 4. OPSİYONEL TEMİNATLAR -->
     <section class="py-20 sm:py-24 px-6 border-b border-white/5" style="padding-top:5.5rem; padding-bottom:5.5rem; background:#060D1F; border-bottom:1px solid rgba(255,255,255,0.06);">
-        <div class="container-custom" style="max-width:68rem;">
+        <div class="container-custom">
             <div style="text-align:center; max-width:44rem; margin:0 auto 3.5rem auto;">
                 <div class="inline-flex items-center gap-2 text-xs font-mono tracking-widest text-accent-violet uppercase mb-2" style="letter-spacing:0.2em; color:#A78BFA;">
                     <span style="display:inline-block; width:6px; height:6px; border-radius:50%; background:#A78BFA;"></span>
@@ -285,7 +285,7 @@ $teklif_url    = home_url('/teklif-al/?urun=' . urlencode($data['form_type']));
 
     <!-- 5. KİMLER İÇİN UYGUN? -->
     <section class="py-20 px-6 border-b border-white/5" style="padding-top:5rem; padding-bottom:5rem; background:#030712; border-bottom:1px solid rgba(255,255,255,0.06);">
-        <div class="container-custom" style="max-width:60rem;">
+        <div class="container-custom">
             <div style="text-align:center; max-width:40rem; margin:0 auto 3rem auto;">
                 <h2 class="font-serif text-white font-medium mb-3" style="font-size:clamp(1.75rem, 3vw, 2.5rem); line-height:1.2;">
                     <?php echo esc_html($data['who_is_it_for_title']); ?>
@@ -315,7 +315,7 @@ $teklif_url    = home_url('/teklif-al/?urun=' . urlencode($data['form_type']));
 
     <!-- 6. TEKLİF İÇİN GEREKLİ BİLGİLER & CTA BANNER -->
     <section class="py-20 px-6 border-b border-white/5" style="padding-top:5rem; padding-bottom:5rem; background:#080E1B; border-bottom:1px solid rgba(255,255,255,0.06);">
-        <div class="container-custom" style="max-width:60rem;">
+        <div class="container-custom">
             <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.1); border-radius:1.5rem; padding:clamp(1.5rem, 4vw, 3rem); backdrop-filter:blur(14px);">
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
                     <div class="md:col-span-7">
