@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   PhoneCall,
-  MessageSquare,
   AlertTriangle,
   FileText,
   Truck,
@@ -13,6 +12,7 @@ import {
   Send,
   ShieldAlert
 } from "lucide-react";
+import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 import { siteConfig } from "@/data/siteData";
 
 export default function ClaimSupport() {
@@ -151,9 +151,10 @@ export default function ClaimSupport() {
             href={`https://wa.me/${siteConfig.whatsappRaw}?text=Acil%20hasar%20bildirimi%20yapmak%20istiyorum.`}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-8 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-colors flex items-center gap-2 shrink-0 cursor-pointer"
+            aria-label="WhatsApp ile Fotoğraf Gönder"
+            className="w-full sm:w-auto px-8 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-colors flex items-center justify-center gap-2.5 shrink-0 cursor-pointer"
           >
-            <MessageSquare className="w-4 h-4" />
+            <WhatsAppIcon className="w-5 h-5 shrink-0 text-white" />
             <span>WhatsApp ile Fotoğraf Gönder</span>
           </a>
         </div>

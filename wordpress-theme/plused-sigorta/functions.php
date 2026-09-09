@@ -27,17 +27,10 @@ add_action('after_setup_theme', 'plused_theme_setup');
 function plused_enqueue_scripts() {
     $theme_uri  = get_template_directory_uri();
     $theme_path = get_template_directory();
-    $fallback_version = '2.0.1';
-
-    // Use file modification times as asset versions so deployments cannot
-    // leave visitors on stale CSS/JS after markup changes.
-    $theme_css_file = $theme_path . '/assets/css/theme.css';
-    $style_css_file = $theme_path . '/style.css';
-    $theme_js_file  = $theme_path . '/assets/js/theme.js';
-
-    $theme_css_version = file_exists($theme_css_file) ? (string) filemtime($theme_css_file) : $fallback_version;
-    $style_css_version = file_exists($style_css_file) ? (string) filemtime($style_css_file) : $fallback_version;
-    $theme_js_version  = file_exists($theme_js_file) ? (string) filemtime($theme_js_file) : $fallback_version;
+    $theme_version = '1.1.0';
+    $theme_css_version = $theme_version . '.' . (file_exists($theme_css_file) ? (string) filemtime($theme_css_file) : time());
+    $style_css_version = $theme_version . '.' . (file_exists($style_css_file) ? (string) filemtime($style_css_file) : time());
+    $theme_js_version  = $theme_version . '.' . (file_exists($theme_js_file) ? (string) filemtime($theme_js_file) : time());
 
     // Theme Styles
     wp_enqueue_style('plused-theme-style', $theme_uri . '/assets/css/theme.css', array(), $theme_css_version);
@@ -58,6 +51,7 @@ function plused_enqueue_scripts() {
         'ajax_nonce'   => wp_create_nonce('plused_ajax_nonce'),
         'whatsapp_raw' => plused_get_whatsapp_number(),
         'phone_raw'    => plused_get_option('phone_raw', '905304777737'),
+        'company_name' => plused_get_option('company_name', 'PLUSED SİGORTA'),
         'theme_uri'    => $theme_uri,
         'home_url'     => home_url('/'),
     ));
@@ -83,6 +77,7 @@ require_once get_template_directory() . '/inc/admin-dashboard.php';
 require_once get_template_directory() . '/inc/admin-settings.php';
 require_once get_template_directory() . '/inc/default-data.php';
 require_once get_template_directory() . '/inc/seo.php';
+require_once get_template_directory() . '/inc/cli-provisioning.php';
 
 // 5. Enforce HTTPS 301 Redirect for Insecure Requests & Favicon
 function plused_enforce_https() {

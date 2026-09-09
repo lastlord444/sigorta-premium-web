@@ -217,11 +217,15 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       }
 
-      // Mobile sticky bar toggle
+      // Mobile sticky bar toggle (mobile only <=768px)
       var mobileStickyBar = document.getElementById("mobile-sticky-bar");
       if (mobileStickyBar) {
-        if (window.scrollY > 250) {
-          mobileStickyBar.style.display = "block";
+        if (window.innerWidth <= 768) {
+          if (window.scrollY > 200) {
+            mobileStickyBar.style.display = "block";
+          } else {
+            mobileStickyBar.style.display = "none";
+          }
         } else {
           mobileStickyBar.style.display = "none";
         }
@@ -229,6 +233,16 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     { passive: true }
   );
+
+  // Initial check for sticky bar state on load
+  var initStickyBar = document.getElementById("mobile-sticky-bar");
+  if (initStickyBar) {
+    if (window.innerWidth <= 768 && window.scrollY > 200) {
+      initStickyBar.style.display = "block";
+    } else {
+      initStickyBar.style.display = "none";
+    }
+  }
 
   if (mobileMenuToggle && mobileMenuOverlay) {
     mobileMenuToggle.addEventListener("click", function () {
@@ -500,14 +514,16 @@ document.addEventListener("DOMContentLoaded", function () {
   var legalBody = document.getElementById("legal-modal-body");
   var legalClose = document.getElementById("legal-modal-close");
 
+  var companyName = (typeof plused_settings !== "undefined" && plused_settings.company_name) ? plused_settings.company_name : "Sigorta Acentesi";
+
   var legalTexts = {
     kvkk: {
       title: "KVKK Aydınlatma Metni",
-      text: "6698 sayılı Kişisel Verilerin Korunması Kanunu uyarınca, veri sorumlusu sıfatıyla Plused Sigorta tarafından işlenen kişisel verileriniz; yalnızca sigorta poliçesi teklifi hazırlama, risk analizi ve poliçe tanzimi amaçlarıyla sınırlı olarak işlenmektedir. Bilgileriniz yasal mevzuat dışında üçüncü şahıslarla paylaşılmaz.",
+      text: "6698 sayılı Kişisel Verilerin Korunması Kanunu uyarınca, veri sorumlusu sıfatıyla " + companyName + " tarafından işlenen kişisel verileriniz; yalnızca sigorta poliçesi teklifi hazırlama, risk analizi ve poliçe tanzimi amaçlarıyla sınırlı olarak işlenmektedir. Bilgileriniz yasal mevzuat dışında üçüncü şahıslarla paylaşılmaz.",
     },
     privacy: {
       title: "Gizlilik Politikası",
-      text: "Plused Sigorta olarak kullanıcılarımızın gizliliğine saygı duyuyoruz. İletişim kanallarımız aracılığıyla iletilen ad, telefon ve araç bilgileri yalnızca teklif oluşturmak ve poliçe danışmanlığı sağlamak amacıyla kullanılır.",
+      text: companyName + " olarak kullanıcılarımızın gizliliğine saygı duyuyoruz. İletişim kanallarımız aracılığıyla iletilen ad, telefon ve araç bilgileri yalnızca teklif oluşturmak ve poliçe danışmanlığı sağlamak amacıyla kullanılır.",
     },
     cookies: {
       title: "Çerez Politikası",

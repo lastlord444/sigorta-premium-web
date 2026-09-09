@@ -4,7 +4,7 @@ Theme URI: https://plusedsigorta.com.tr
 Author: Plused Sigorta
 Author URI: https://plusedsigorta.com.tr
 Description: Plused Sigorta özel sinematik WordPress teması. GSAP animasyonları, pürüzsüz kaydırma ve WordPress Admin kontrollü yönetim sistemi.
-Version: 1.0.3
+Version: 1.1.0
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
@@ -31,8 +31,8 @@ Text Domain: plused-sigorta
 }
 
 .mobile-whatsapp-btn svg {
-  width: 18px !important;
-  height: 18px !important;
+  width: 20px !important;
+  height: 20px !important;
 }
 
 .mobile-menu-toggle-btn svg {

@@ -16,7 +16,7 @@ function plused_register_custom_roles() {
     if (!get_role('plused_manager')) {
         add_role(
             'plused_manager',
-            'Plused Yöneticisi',
+            'Acente Yöneticisi',
             array(
                 'read'                   => true,
                 'upload_files'           => true, // Medya yönetebilsin
@@ -157,8 +157,8 @@ function plused_restrict_admin_pages() {
 
         if (in_array($pagenow, $forbidden_pages)) {
             wp_die(
-                esc_html__('Bu sayfaya erişim yetkiniz bulunmamaktadır. Lütfen sol menüdeki Plused Sigorta yönetim seçeneklerini kullanınız.', 'plused'),
-                esc_html__('Yetkisiz Erişim', 'plused'),
+                esc_html__('Bu sayfaya erişim yetkiniz bulunmamaktadır. Lütfen sol menüdeki Acente Ayarları yönetim seçeneklerini kullanınız.', 'plused-sigorta'),
+                esc_html__('Yetkisiz Erişim', 'plused-sigorta'),
                 array('response' => 403, 'back_link' => true)
             );
         }

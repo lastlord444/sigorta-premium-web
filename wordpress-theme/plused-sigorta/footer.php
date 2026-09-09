@@ -35,12 +35,7 @@ $x_twitter          = plused_get_option('x_twitter', '');
             <!-- BRAND COLUMN -->
             <div class="lg:col-span-4 flex flex-col">
                 <a href="<?php echo esc_url(home_url('/')); ?>" class="flex items-center gap-3 mb-4" style="text-decoration:none; margin-bottom:1rem; display:flex; align-items:center; gap:0.75rem;">
-                    <div style="width:42px; height:42px; border-radius:12px; background:linear-gradient(135deg, #0066FF, #312E81); display:flex; align-items:center; justify-content:center; border:1px solid rgba(255,255,255,0.2); box-shadow:0 0 20px rgba(0,102,255,0.4); flex-shrink:0;">
-                        <?php echo plused_icon('shield', 'w-5 h-5 text-white'); ?>
-                    </div>
-                    <span class="font-serif text-lg tracking-wider text-white font-semibold" style="letter-spacing:0.16em; line-height:1.2;">
-                        <?php echo esc_html($company_name); ?>
-                    </span>
+                    <?php echo plused_render_logo(true); ?>
                 </a>
 
                 <?php if (!empty($legal_title) || !empty($plate_number)) : ?>
@@ -165,15 +160,19 @@ $x_twitter          = plused_get_option('x_twitter', '');
 </footer>
 
 <!-- MOBILE BOTTOM STICKY BAR -->
-<div class="mobile-sticky-bar">
+<div id="mobile-sticky-bar" class="mobile-sticky-bar" role="region" aria-label="Hızlı İletişim">
     <div class="mobile-sticky-inner">
-        <a href="<?php echo esc_attr($phone_url); ?>" class="btn-secondary" style="flex:1; padding:0.65rem 0.5rem; font-size:11px; text-align:center; justify-content:center;">
-            <?php echo plused_icon('phone', 'w-3.5 h-3.5 text-emerald-400'); ?>
-            <span>Hemen Ara</span>
+        <a href="<?php echo esc_attr($phone_url); ?>" class="mobile-sticky-btn mobile-sticky-phone" aria-label="Hemen Ara: <?php echo esc_attr($phone_display); ?>">
+            <span class="mobile-sticky-icon-wrap">
+                <?php echo plused_icon('phone', 'w-4.5 h-4.5 text-emerald-400'); ?>
+            </span>
+            <span class="mobile-sticky-label">Hemen Ara</span>
         </a>
-        <a href="<?php echo esc_url($whatsapp_url); ?>" target="_blank" rel="noopener noreferrer" class="btn-primary" style="flex:1.2; padding:0.65rem 0.5rem; font-size:11px; text-align:center; justify-content:center; background:linear-gradient(135deg, #059669, #10B981); border-color:rgba(52,211,153,0.4);">
-            <?php echo plused_icon('whatsapp', 'w-3.5 h-3.5 text-white'); ?>
-            <span>WhatsApp</span>
+        <a href="<?php echo esc_url($whatsapp_url); ?>" target="_blank" rel="noopener noreferrer" class="mobile-sticky-btn mobile-sticky-whatsapp" aria-label="WhatsApp Teklif ve Destek Hattı">
+            <span class="mobile-sticky-icon-wrap">
+                <?php echo plused_icon('whatsapp', 'w-4.5 h-4.5 text-white'); ?>
+            </span>
+            <span class="mobile-sticky-label">WhatsApp</span>
         </a>
     </div>
 </div>

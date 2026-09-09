@@ -9,6 +9,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+$company_name   = plused_get_option('company_name', 'PLUSED SİGORTA');
 $products_query = new WP_Query(array(
     'post_type'      => 'insurance_product',
     'posts_per_page' => -1,
@@ -134,7 +135,7 @@ $products_query = new WP_Query(array(
                                         <?php echo plused_icon('arrow-up-right', 'w-3.5 h-3.5'); ?>
                                     </a>
                                     <p style="font-size:11px; color:#94A3B8; font-family:var(--font-sans); margin:0;">
-                                        Resmî e-Devlet Kapısı'na yönlendirilirsiniz. Giriş bilgileriniz Plused Sigorta ile paylaşılmaz.
+                                        Resmî e-Devlet Kapısı'na yönlendirilirsiniz. Giriş bilgileriniz <?php echo esc_html($company_name); ?> ile paylaşılmaz.
                                     </p>
                                 </div>
                                 <?php endif; ?>
@@ -187,7 +188,7 @@ $products_query = new WP_Query(array(
                                         </div>
 
                                         <div style="position:relative; z-index:2; margin:auto 0; text-align:center; display:flex; flex-direction:column; align-items:center; padding:1.5rem 0;">
-                                            <div style="width:64px; height:64px; border-radius:16px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; color:#38BDF8; margin-bottom:1rem; box-shadow:0 0 25px rgba(0,102,255,0.15);">
+                                            <div class="product-badge-icon-box" style="border-radius:16px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; color:#38BDF8; margin-bottom:1rem; box-shadow:0 0 25px rgba(0,102,255,0.15);">
                                                 <?php echo plused_icon('shield', 'w-7 h-7'); ?>
                                             </div>
                                             <h4 class="font-serif text-2xl text-white font-medium mb-2">

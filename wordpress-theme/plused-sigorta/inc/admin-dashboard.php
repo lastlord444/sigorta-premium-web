@@ -42,10 +42,12 @@ function plused_render_custom_dashboard_widget() {
         return;
     }
 
+    $company_name = plused_get_option('company_name', 'Acente');
+
     // Add our custom dashboard widget at the very top
     wp_add_dashboard_widget(
         'plused_custom_welcome_widget',
-        'Plused Sigorta Site Yönetimi',
+        $company_name . ' Site Yönetimi',
         'plused_custom_dashboard_widget_content'
     );
 }
@@ -55,9 +57,10 @@ add_action('wp_dashboard_setup', 'plused_render_custom_dashboard_widget', 1);
  * Output Custom Dashboard Screen Content
  */
 function plused_custom_dashboard_widget_content() {
-    $options = get_option('plused_sigorta_options', array());
-    $phone   = plused_get_display_phone();
-    $site_url = home_url('/');
+    $options      = get_option('plused_sigorta_options', array());
+    $company_name = plused_get_option('company_name', 'Acente');
+    $phone        = plused_get_display_phone();
+    $site_url     = home_url('/');
     ?>
     <div class="plused-dashboard-container">
         <div class="plused-dashboard-hero">
@@ -65,7 +68,7 @@ function plused_custom_dashboard_widget_content() {
                 <span class="dashicons dashicons-shield-alt"></span>
                 <span>Bağımsız & Premium Acente Yönetim Masası</span>
             </div>
-            <h2 class="plused-dashboard-title">Plused Sigorta Site Yönetimi</h2>
+            <h2 class="plused-dashboard-title"><?php echo esc_html($company_name); ?> Site Yönetimi</h2>
             <p class="plused-dashboard-desc">
                 Web sitenizin içeriklerini, ürün detaylarını, iletişim hatlarını ve SSS arşivini tek bir merkezi ekrandan kolayca yönetin. Tasarım ve kurumsal kimlik güvenli biçimde kilitlenmiştir.
             </p>

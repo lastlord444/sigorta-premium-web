@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Shield, Phone, Menu, X, ArrowUpRight, CheckCircle2 } from "lucide-react";
+import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 import MagneticButton from "@/components/ui/MagneticButton";
 import { siteConfig } from "@/data/siteData";
 import { useLenis } from "@/components/providers/SmoothScrollProvider";
@@ -105,14 +106,26 @@ export default function Navbar() {
             </MagneticButton>
           </div>
 
-          {/* MOBILE HAMBURGER TOGGLE */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Menüyü Aç/Kapat"
-            className="lg:hidden p-2.5 rounded-xl bg-white/[0.05] border border-white/10 text-silver-200 hover:text-white transition-colors focus:outline-none"
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          {/* MOBILE CONTROLS (WhatsApp + Hamburger) */}
+          <div className="flex lg:hidden items-center gap-2">
+            <a
+              href={`https://wa.me/${siteConfig.whatsappRaw}?text=Merhaba,%20hızlı%20sigorta%20teklifi%20almak%20istiyorum.`}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp İletişim"
+              className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center transition-colors"
+            >
+              <WhatsAppIcon className="w-[22px] h-[22px] text-emerald-400" />
+            </a>
+
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Menüyü Aç/Kapat"
+              className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl bg-white/[0.05] border border-white/10 text-silver-200 hover:text-white flex items-center justify-center transition-colors focus:outline-none"
+            >
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
         </div>
       </header>
 
@@ -145,11 +158,21 @@ export default function Navbar() {
               ))}
             </div>
 
-            <div className="flex flex-col gap-4 pt-6 border-t border-white/[0.08]">
+            <div className="flex flex-col gap-3 pt-6 border-t border-white/[0.08]">
               <div className="flex items-center gap-2 text-xs text-emerald-400">
                 <CheckCircle2 className="w-4 h-4" />
                 <span>7/24 Kesintisiz Hasar Destek Masası Aktif</span>
               </div>
+              <a
+                href={`https://wa.me/${siteConfig.whatsappRaw}?text=Merhaba,%20hızlı%20sigorta%20teklifi%20almak%20istiyorum.`}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp İletişim"
+                className="flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 text-white font-semibold text-sm shadow-[0_0_15px_rgba(16,185,129,0.3)]"
+              >
+                <WhatsAppIcon className="w-4 h-4 text-white" />
+                <span>WhatsApp İletişim</span>
+              </a>
               <a
                 href={`tel:${siteConfig.phoneRaw}`}
                 className="flex items-center justify-center gap-2 py-3 rounded-xl bg-white/[0.05] border border-white/10 text-silver-200 font-mono text-sm"

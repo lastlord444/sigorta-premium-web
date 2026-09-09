@@ -79,7 +79,7 @@ function plused_icon($name, $classes = 'w-5 h-5') {
         case 'check-circle':
             return '<svg class="' . $classes . '" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>';
         case 'whatsapp':
-            return '<svg class="' . $classes . '" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.968.54 1.748.814 2.791.814 3.179 0 5.765-2.586 5.766-5.766 0-3.18-2.586-5.766-5.766-5.766zm9.969 5.766c0 5.518-4.482 10-10 10-1.746 0-3.385-.45-4.821-1.238l-7.179 1.881 1.916-6.994c-.886-1.487-1.397-3.228-1.397-5.089 0-5.518 4.482-10 10-10 5.518 0 10 4.482 10 10z"/></svg>';
+            return '<svg class="' . $classes . '" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>';
         case 'car':
             return '<svg class="' . $classes . '" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 17a2 2 0 100-4 2 2 0 000 4zm8 0a2 2 0 100-4 2 2 0 000 4zM5 11l2-5h10l2 5M3 13h18v4H3v-4z"></path></svg>';
         case 'home':
@@ -94,3 +94,86 @@ function plused_icon($name, $classes = 'w-5 h-5') {
             return '<svg class="' . $classes . '" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>';
     }
 }
+
+/**
+ * Check if a package feature flag is enabled for the tenant
+ */
+function plused_is_feature_enabled($feature_name, $default = true) {
+    $key = (strpos($feature_name, 'feature_') === 0) ? $feature_name : 'feature_' . $feature_name;
+    $val = plused_get_option($key, null);
+    if ($val === null) {
+        return (bool) $default;
+    }
+    return ($val === '1' || $val === 1 || $val === true);
+}
+
+/**
+ * Render dynamic tenant branding logo
+ */
+function plused_render_logo($is_footer = false) {
+    $company_name = plused_get_option('company_name', 'PLUSED SİGORTA');
+    $logo_key = $is_footer ? 'logo_footer_url' : 'logo_url';
+    $custom_logo = trim(plused_get_option($logo_key, ''));
+    if (empty($custom_logo) && $is_footer) {
+        $custom_logo = trim(plused_get_option('logo_url', ''));
+    }
+
+    if (!empty($custom_logo)) {
+        $max_h = $is_footer ? '44px' : '40px';
+        return '<img src="' . esc_url($custom_logo) . '" alt="' . esc_attr($company_name) . '" style="max-height:' . $max_h . '; width:auto; object-fit:contain; display:block;" />';
+    }
+
+    // Default: Cinematic shield badge + Company Name
+    $box_size = $is_footer ? '42px' : '38px';
+    $icon_size = $is_footer ? 'w-5 h-5' : 'w-5 h-5';
+    $html = '<div class="relative rounded-xl flex items-center justify-center border border-white/20 shadow-[0_0_20px_rgba(0,102,255,0.4)]" style="background:linear-gradient(135deg, var(--electric, #0066FF), #312E81); width:' . $box_size . '; height:' . $box_size . '; border-radius:12px; display:flex; align-items:center; justify-content:center; border:1px solid rgba(255,255,255,0.2); flex-shrink:0;">';
+    $html .= plused_icon('shield', $icon_size . ' text-white');
+    $html .= '</div>';
+    $html .= '<span class="font-serif text-lg tracking-wider text-white font-semibold" style="letter-spacing:0.12em; line-height:1.2; font-size:clamp(14px, 1.2vw, 18px); white-space:nowrap;">';
+    $html .= esc_html($company_name);
+    $html .= '</span>';
+
+    return $html;
+}
+
+/**
+ * Get tenant favicon URL
+ */
+function plused_get_favicon_url() {
+    $custom_favicon = trim(plused_get_option('favicon_url', ''));
+    if (!empty($custom_favicon)) {
+        return esc_url($custom_favicon);
+    }
+    // Default blue shield SVG data URI
+    return "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230066FF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'/%3E%3C/svg%3E";
+}
+
+/**
+ * Output dynamic CSS variables for tenant brand colors
+ */
+function plused_render_brand_styles() {
+    $primary   = trim(plused_get_option('brand_primary_color', ''));
+    $secondary = trim(plused_get_option('brand_secondary_color', ''));
+    $accent    = trim(plused_get_option('brand_accent_color', ''));
+
+    if (empty($primary) && empty($secondary) && empty($accent)) {
+        return;
+    }
+
+    echo '<style id="plused-tenant-brand-vars">';
+    echo ':root {';
+    if (!empty($primary)) {
+        $p = esc_attr($primary);
+        echo "--electric: {$p};";
+        echo "--electric-glow: " . $p . "66;";
+    }
+    if (!empty($secondary)) {
+        echo "--electric-light: " . esc_attr($secondary) . ";";
+    }
+    if (!empty($accent)) {
+        echo "--accent-violet: " . esc_attr($accent) . ";";
+    }
+    echo '}';
+    echo '</style>' . "\n";
+}
+add_action('wp_head', 'plused_render_brand_styles', 2);

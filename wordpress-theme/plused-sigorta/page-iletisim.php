@@ -15,12 +15,13 @@ $options            = get_option('plused_sigorta_options', array());
 $company_name       = plused_get_option('company_name', 'PLUSED SİGORTA');
 $phone_display      = plused_get_display_phone();
 $phone_url          = plused_get_phone_url();
-$whatsapp_url       = 'https://wa.me/905304777737';
+$whatsapp_url       = plused_build_whatsapp_link('Merhaba, bilgi ve teklif almak istiyorum.');
 $whatsapp_quote_url = plused_build_whatsapp_link('Merhaba, Kasko ve Trafik sigortası teklifi almak için ruhsat bilgilerimi paylaşmak istiyorum.');
 $email              = trim(plused_get_option('email', ''));
 $address            = trim(plused_get_option('address', ''));
 $working_hours      = trim(plused_get_option('working_hours', ''));
-$has_meta_info      = (!empty($address) || !empty($email) || !empty($working_hours));
+$google_maps_url    = trim(plused_get_option('google_maps_embed_url', ''));
+$has_meta_info      = (!empty($address) || !empty($email) || !empty($working_hours) || !empty($google_maps_url));
 ?>
 
 <main class="relative min-h-screen bg-navy-950 text-white pt-32 sm:pt-40 pb-28 px-6" style="background:#030712; padding-top:8rem; padding-bottom:7rem;">
@@ -149,6 +150,21 @@ $has_meta_info      = (!empty($address) || !empty($email) || !empty($working_hou
                     <span style="font-size:11px; font-family:var(--font-mono); text-transform:uppercase; color:#94A3B8; letter-spacing:0.1em; font-weight:600;">Çalışma Saatleri</span>
                 </div>
                 <p style="font-size:13px; color:#CBD5E1; line-height:1.6; margin:0;"><?php echo esc_html($working_hours); ?></p>
+            </div>
+            <?php endif; ?>
+
+            <?php if (!empty($google_maps_url)) : ?>
+            <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.08); border-radius:1.25rem; padding:1.5rem;">
+                <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
+                    <div style="width:36px; height:36px; border-radius:10px; background:rgba(255,255,255,0.05); display:flex; align-items:center; justify-content:center; color:#38BDF8;">
+                        <?php echo plused_icon('map-pin', 'w-4 h-4'); ?>
+                    </div>
+                    <span style="font-size:11px; font-family:var(--font-mono); text-transform:uppercase; color:#94A3B8; letter-spacing:0.1em; font-weight:600;">Konum / Harita</span>
+                </div>
+                <a href="<?php echo esc_url($google_maps_url); ?>" target="_blank" rel="noopener noreferrer" style="color:#38BDF8; text-decoration:none; font-size:13px; font-weight:500; display:inline-flex; align-items:center; gap:6px;">
+                    <span>Haritada Görüntüle</span>
+                    <?php echo plused_icon('arrow-right', 'w-3.5 h-3.5'); ?>
+                </a>
             </div>
             <?php endif; ?>
         </div>

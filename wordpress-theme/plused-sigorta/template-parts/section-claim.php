@@ -70,7 +70,7 @@ $claim_steps = array(
             <div style="padding:clamp(1.25rem, 3vw, 2rem); min-width:0; border-radius:1.5rem; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.07); backdrop-filter:blur(10px); display:flex; flex-direction:column; justify-content:space-between;">
                 <div>
                     <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:1.5rem;">
-                        <div style="width:48px; height:48px; border-radius:14px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center; color:#38BDF8;">
+                        <div class="advantage-icon-box" style="color:#38BDF8;">
                             <?php echo plused_icon('shield', 'w-5 h-5'); ?>
                         </div>
                         <span class="font-mono text-xs font-semibold text-silver-500 tracking-widest" style="letter-spacing:0.15em;">
@@ -105,7 +105,7 @@ $claim_steps = array(
             </div>
 
             <a href="<?php echo esc_url($whatsapp_url); ?>" target="_blank" rel="noopener noreferrer" class="btn-primary" style="background:linear-gradient(135deg, #059669, #047857); border-color:rgba(52,211,153,0.4); box-shadow:0 0 25px rgba(16,185,129,0.4);">
-                <?php echo plused_icon('whatsapp', 'w-4 h-4'); ?>
+                <?php echo plused_icon('whatsapp', 'w-4 h-4 text-white'); ?>
                 <span>WhatsApp ile Fotoğraf Gönder</span>
             </a>
 

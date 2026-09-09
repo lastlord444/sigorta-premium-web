@@ -69,7 +69,7 @@ $metrics = array(
             <?php foreach ($advantages as $adv) : ?>
             <div class="group relative rounded-3xl" style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.07); border-radius:1.5rem; padding:clamp(1.25rem, 3.5vw, 2.5rem); min-width:0; transition:all 0.3s ease;">
                 <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:2rem;">
-                    <div style="width:48px; height:48px; border-radius:14px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center; color:#38BDF8;">
+                    <div class="advantage-icon-box" style="color:#38BDF8;">
                         <?php echo plused_icon('shield', 'w-5 h-5'); ?>
                     </div>
                     <span class="font-mono text-sm tracking-widest text-silver-500" style="letter-spacing:0.15em;">

@@ -22,8 +22,8 @@ $announcement_on   = !empty($options['announcement_active']);
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230066FF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'/%3E%3C/svg%3E">
-    <link rel="shortcut icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230066FF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'/%3E%3C/svg%3E">
+    <link rel="icon" href="<?php echo plused_get_favicon_url(); ?>">
+    <link rel="shortcut icon" href="<?php echo plused_get_favicon_url(); ?>">
     <?php wp_head(); ?>
 </head>
 <body <?php body_class('font-sans bg-background text-foreground selection:bg-electric/30 selection:text-white'); ?>>
@@ -46,12 +46,7 @@ $announcement_on   = !empty($options['announcement_active']);
         
         <!-- LOGO -->
         <a href="<?php echo esc_url(home_url('/')); ?>" class="flex items-center gap-3 select-none text-decoration-none group" style="text-decoration:none; display:flex; align-items:center; gap:0.6rem; flex-shrink:0;">
-            <div class="relative w-10 h-10 rounded-xl flex items-center justify-center border border-white/20 shadow-[0_0_20px_rgba(0,102,255,0.4)]" style="background:linear-gradient(135deg, #0066FF, #312E81); width:38px; height:38px; border-radius:12px; display:flex; align-items:center; justify-content:center; border:1px solid rgba(255,255,255,0.2); flex-shrink:0;">
-                <?php echo plused_icon('shield', 'w-5 h-5 text-white'); ?>
-            </div>
-            <span class="font-serif text-lg tracking-wider text-white font-semibold" style="letter-spacing:0.12em; line-height:1.2; font-size:clamp(14px, 1.2vw, 18px); white-space:nowrap;">
-                <?php echo esc_html($company_name); ?>
-            </span>
+            <?php echo plused_render_logo(false); ?>
         </a>
 
         <!-- DESKTOP NAV LINKS (>=1024px) -->
@@ -134,12 +129,7 @@ $announcement_on   = !empty($options['announcement_active']);
         
         <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:1.5rem; padding-bottom:1rem; border-bottom:1px solid rgba(255,255,255,0.1);">
             <div class="flex items-center gap-2.5">
-                <div style="width:32px; height:32px; border-radius:8px; background:linear-gradient(135deg, #0066FF, #312E81); display:flex; align-items:center; justify-content:center;">
-                    <?php echo plused_icon('shield', 'w-4 h-4 text-white'); ?>
-                </div>
-                <div style="font-family:var(--font-serif); font-size:16px; color:#ffffff; font-weight:600; letter-spacing:0.1em;">
-                    <?php echo esc_html($company_name); ?>
-                </div>
+                <?php echo plused_render_logo(false); ?>
             </div>
             <button id="mobile-menu-close" type="button" aria-label="Kapat" style="background:none; border:none; color:#94A3B8; font-size:24px; cursor:pointer; line-height:1;">
                 &times;

@@ -9,8 +9,20 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-// Acente tarafından resmi acentelik/partnerlik sözleşmeleri doğrulanana kadar bu bölüm production'da gizlenmiştir.
-return;
+if (!plused_is_feature_enabled('partners_marquee', false)) {
+    return;
+}
+
+$all_partners = array(
+    array('name' => 'Allianz Sigorta', 'cat' => 'Acente Portföyü'),
+    array('name' => 'Axa Sigorta', 'cat' => 'Acente Portföyü'),
+    array('name' => 'Anadolu Sigorta', 'cat' => 'Acente Portföyü'),
+    array('name' => 'Türkiye Sigorta', 'cat' => 'Acente Portföyü'),
+    array('name' => 'Sompo Sigorta', 'cat' => 'Acente Portföyü'),
+    array('name' => 'AkSigorta', 'cat' => 'Acente Portföyü'),
+    array('name' => 'HDI Sigorta', 'cat' => 'Acente Portföyü'),
+    array('name' => 'Doğa Sigorta', 'cat' => 'Acente Portföyü'),
+);
 ?>
 <section id="sirketler" class="relative w-full py-16 bg-navy-950 overflow-hidden" style="padding-top:4rem; padding-bottom:4rem; background:#030712; border-top:1px solid rgba(255,255,255,0.06); border-bottom:1px solid rgba(255,255,255,0.06); position:relative;">
     <div class="container-custom mb-8 text-center" style="margin-bottom:2rem; text-align:center;">

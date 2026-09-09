@@ -15,10 +15,10 @@ import {
   CheckCircle2,
   AlertCircle,
   Clock,
-  MessageSquare,
   RefreshCw,
   Lock
 } from "lucide-react";
+import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 import { siteConfig } from "@/data/siteData";
 
 interface FormErrors {
@@ -421,10 +421,11 @@ export default function ProposalSection({ initialProduct = "kasko" }: ProposalPr
                     href={`https://wa.me/${siteConfig.whatsappRaw}?text=Merhaba,%20${refCode}%20referans%20koduyla%20${selectedType}%20sigortası%20teklifim%20için%20yazıyorum.`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs uppercase tracking-wider transition-colors shadow-[0_0_20px_rgba(16,185,129,0.4)]"
+                    aria-label="WhatsApp'tan Hemen Yazın"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs uppercase tracking-wider transition-colors shadow-[0_0_20px_rgba(16,185,129,0.4)]"
                   >
-                    <MessageSquare className="w-4 h-4" />
-                    WhatsApp'tan Hemen Yazın
+                    <WhatsAppIcon className="w-4 h-4 shrink-0 text-white" />
+                    <span>WhatsApp'tan Hemen Yazın</span>
                   </a>
 
                   <button

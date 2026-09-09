@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus, HelpCircle, ArrowUpRight } from "lucide-react";
+import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 import { faqItems, siteConfig } from "@/data/siteData";
 
 export default function FaqSection() {
@@ -105,10 +106,12 @@ export default function FaqSection() {
             href={`https://wa.me/${siteConfig.whatsappRaw}?text=Sigorta%20poliçem%20hakkında%20özel%20bir%20sorum%20var.`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-electric-light hover:text-white transition-colors"
+            aria-label="WhatsApp'tan Danışın"
+            className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-emerald-400 hover:text-emerald-300 transition-colors"
           >
+            <WhatsAppIcon className="w-4 h-4 text-emerald-400" />
             <span>Danışmanımıza WhatsApp'tan Danışın</span>
-            <ArrowUpRight className="w-4 h-4" />
+            <ArrowUpRight className="w-4 h-4 text-silver-400" />
           </a>
         </div>
       </div>
