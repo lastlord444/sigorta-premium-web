@@ -18,6 +18,7 @@ $hero_cta_secondary= plused_get_option('hero_cta_secondary', 'Sigortaları İnce
 $kasko_title       = plused_get_option('hero_kasko_title', 'Hareket özgürlüğünüzü güvence altına alın.');
 $kasko_desc        = plused_get_option('hero_kasko_desc', 'Kaza, çarpma, doğal afet, yangın ve hırsızlığa karşı aracınızı tam güvenceye alın. İhtiyacınıza uygun teminat seçenekleriyle standart poliçelerin ötesine geçin.');
 $theme_uri         = get_template_directory_uri();
+$whatsapp_url      = plused_build_whatsapp_link('Merhaba, hızlı sigorta teklifi almak istiyorum.');
 ?>
 <section id="hero-kasko" class="hero-container">
     <!-- STICKY VIEWPORT (DESKTOP) / NATURAL FULL-HEIGHT (MOBILE) -->
@@ -59,10 +60,15 @@ $theme_uri         = get_template_directory_uri();
                 <?php echo esc_html($hero_desc); ?>
             </p>
 
-            <div class="flex flex-col sm:flex-row items-center gap-4 sm:gap-5 w-full sm:w-auto" style="display:flex; justify-content:center; gap:1rem;">
-                <a href="#teklif-al" class="btn-primary" style="font-size:13px; padding:1.05rem 2.5rem;">
+            <div class="flex flex-col sm:flex-row items-center gap-4 sm:gap-5 w-full sm:w-auto" style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
+                <a href="#teklif-al" class="btn-primary" style="font-size:13px; padding:1.05rem 2.25rem;">
                     <span><?php echo esc_html($hero_cta_primary); ?></span>
                     <?php echo plused_icon('arrow-right', 'w-4 h-4'); ?>
+                </a>
+
+                <a href="<?php echo esc_url($whatsapp_url); ?>" target="_blank" rel="noopener noreferrer" class="btn-secondary hero-whatsapp-btn" style="font-size:13px; padding:1.05rem 2rem; background:rgba(37,211,102,0.12); border-color:rgba(37,211,102,0.35); color:#34D399; display:inline-flex; align-items:center; gap:0.5rem;" aria-label="WhatsApp Teklif ve Danışma Hattı">
+                    <?php echo plused_icon('whatsapp', 'w-4.5 h-4.5 text-emerald-400'); ?>
+                    <span>WhatsApp</span>
                 </a>
 
                 <a href="#sigortalar" class="btn-secondary" style="font-size:13px; padding:1.05rem 2.25rem;">

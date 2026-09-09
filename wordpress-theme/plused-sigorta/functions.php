@@ -27,7 +27,7 @@ add_action('after_setup_theme', 'plused_theme_setup');
 function plused_enqueue_scripts() {
     $theme_uri  = get_template_directory_uri();
     $theme_path = get_template_directory();
-    $theme_version = '1.1.0';
+    $theme_version = '1.1.2';
     $theme_css_version = $theme_version . '.' . (file_exists($theme_css_file) ? (string) filemtime($theme_css_file) : time());
     $style_css_version = $theme_version . '.' . (file_exists($style_css_file) ? (string) filemtime($style_css_file) : time());
     $theme_js_version  = $theme_version . '.' . (file_exists($theme_js_file) ? (string) filemtime($theme_js_file) : time());

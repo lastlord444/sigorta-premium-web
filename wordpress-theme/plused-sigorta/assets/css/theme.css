@@ -49,16 +49,26 @@ html {
   font-family: var(--font-sans);
   scroll-behavior: auto;
   -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
   background-color: #030712;
   color: #F8FAFC;
   overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
+  position: relative;
   line-height: 1.6;
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+  overflow-x: clip;
+  max-width: 100%;
 }
 
 /* FILM GRAIN TEXTURE OVERLAY */

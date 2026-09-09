@@ -24,9 +24,9 @@ $google_maps_url    = trim(plused_get_option('google_maps_embed_url', ''));
 $has_meta_info      = (!empty($address) || !empty($email) || !empty($working_hours) || !empty($google_maps_url));
 ?>
 
-<main class="relative min-h-screen bg-navy-950 text-white pt-32 sm:pt-40 pb-28 px-6" style="background:#030712; padding-top:8rem; padding-bottom:7rem;">
+<main class="relative min-h-screen bg-navy-950 text-white pt-32 sm:pt-40 pb-28 px-6 overflow-hidden" style="background:#030712; padding-top:8rem; padding-bottom:7rem; overflow-x:hidden; max-width:100%;">
     <!-- RADIANCE GLOW -->
-    <div style="position:absolute; top:20%; left:50%; transform:translateX(-50%); width:700px; height:450px; background:rgba(0,102,255,0.06); border-radius:50%; filter:blur(180px); pointer-events:none;"></div>
+    <div style="position:absolute; top:20%; left:50%; transform:translateX(-50%); width:min(700px, 90vw); height:450px; background:rgba(0,102,255,0.06); border-radius:50%; filter:blur(180px); pointer-events:none;"></div>
 
     <div class="container-custom relative z-10">
         <!-- Breadcrumbs -->
