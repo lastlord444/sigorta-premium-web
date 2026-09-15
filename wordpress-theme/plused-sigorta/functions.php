@@ -99,7 +99,7 @@ add_action('init', 'plused_favicon_fallback', 1);
 
 // 6. Template routing for /kvkk-aydinlatma/
 function plused_kvkk_template_router($template) {
-    if (is_page('kvkk-aydinlatma') || (isset($_SERVER['REQUEST_URI']) && preg_match('#/kvkk-aydinlatma/?(\\?.*)?$#', $_SERVER['REQUEST_URI']))) {
+    if (is_page('kvkk-aydinlatma') || (isset($_SERVER['REQUEST_URI']) && preg_match('#/kvkk-aydinlatma/?(\?.*)?$#', $_SERVER['REQUEST_URI']))) {
         $kvkk_template = locate_template('page-kvkk-aydinlatma.php');
         if (!empty($kvkk_template)) {
             status_header(200);
@@ -110,50 +110,5 @@ function plused_kvkk_template_router($template) {
 }
 add_filter('template_include', 'plused_kvkk_template_router', 99);
 
-// 7. Temporary maintenance mode.
-// Keep wp-admin, AJAX, CLI and logged-in administrators available.
-function plused_temporary_maintenance_mode() {
-    if (
-        is_admin() ||
-        wp_doing_ajax() ||
-        (defined('WP_CLI') && WP_CLI) ||
-        current_user_can('manage_options')
-    ) {
-        return;
-    }
 
-    status_header(503);
-    nocache_headers();
-    header('Retry-After: 3600');
-    header('Content-Type: text/html; charset=' . get_option('blog_charset'));
-
-    echo '<!doctype html>';
-    echo '<html lang="tr">';
-    echo '<head>';
-    echo '<meta charset="' . esc_attr(get_option('blog_charset')) . '">';
-    echo '<meta name="viewport" content="width=device-width,initial-scale=1">';
-    echo '<meta name="robots" content="noindex,nofollow">';
-    echo '<title>Bakım Çalışması | Plused Sigorta</title>';
-    echo '<style>';
-    echo 'html,body{margin:0;min-height:100%;background:#07111f;color:#fff;font-family:Arial,Helvetica,sans-serif}';
-    echo 'body{min-height:100vh;display:grid;place-items:center;padding:24px;box-sizing:border-box}';
-    echo '.maintenance{width:min(680px,100%);text-align:center;padding:56px 32px;border:1px solid rgba(255,255,255,.12);border-radius:24px;background:rgba(255,255,255,.035);box-shadow:0 24px 80px rgba(0,0,0,.28)}';
-    echo '.brand{font-size:13px;font-weight:800;letter-spacing:.22em;color:#8fc7ff;margin-bottom:28px}';
-    echo 'h1{margin:0 0 18px;font-size:clamp(32px,7vw,56px);line-height:1.05;letter-spacing:-.03em}';
-    echo 'p{margin:0 auto;max-width:520px;color:#b8c4d3;font-size:18px;line-height:1.7}';
-    echo '.line{width:64px;height:3px;border-radius:99px;background:#8fc7ff;margin:30px auto 0}';
-    echo '</style>';
-    echo '</head>';
-    echo '<body>';
-    echo '<main class="maintenance">';
-    echo '<div class="brand">PLUSED SİGORTA</div>';
-    echo '<h1>Geçici olarak bakımdayız.</h1>';
-    echo '<p>Web sitemiz geçici olarak bakım çalışması nedeniyle hizmet verememektedir. Kısa süre içinde tekrar yayında olacağız.</p>';
-    echo '<div class="line" aria-hidden="true"></div>';
-    echo '</main>';
-    echo '</body>';
-    echo '</html>';
-    exit;
-}
-add_action('template_redirect', 'plused_temporary_maintenance_mode', 2);
 
