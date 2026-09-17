@@ -2,12 +2,15 @@
 
 import React from "react";
 import {
+  Car,
   Home,
   ShieldAlert,
   HeartPulse,
   Building2,
   Briefcase,
-  Shield
+  Shield,
+  ArrowRight,
+  Sparkles
 } from "lucide-react";
 import CinematicInsuranceScene from "@/components/sections/CinematicInsuranceScene";
 import { useLenis } from "@/components/providers/SmoothScrollProvider";
@@ -39,7 +42,41 @@ export default function ScrollStorytelling({
     { id: "isyeri", order: "06", label: t.scenes.navPills[5]?.label || "COMMERCIAL", target: "#scene-isyeri" },
   ];
 
+  const getProductIcon = (id: string, className: string = "w-5 h-5") => {
+    switch (id) {
+      case "kasko":
+        return <Car className={className} />;
+      case "trafik":
+        return <ShieldAlert className={className} />;
+      case "konut":
+        return <Home className={className} />;
+      case "dask":
+        return <Building2 className={className} />;
+      case "saglik":
+        return <HeartPulse className={className} />;
+      case "isyeri":
+        return <Briefcase className={className} />;
+      default:
+        return <Shield className={className} />;
+    }
+  };
+
   const scenes = [
+    {
+      id: "kasko",
+      order: "01",
+      eyebrow: t.scenes.auto?.eyebrow || "01 / KASKO",
+      title: t.scenes.auto?.title || t.hero.autoTitle,
+      description: t.scenes.auto?.description || t.hero.autoDesc,
+      videoSrc: "/videos/kasko-car.mp4",
+      poster: "/images/porshce.jpg",
+      imageSrc: "/images/porshce.jpg",
+      alignment: "right" as const,
+      badge: t.scenes.auto?.badge || "Kasko",
+      icon: <Car className="w-4 h-4 text-electric-light" />,
+      highlights: t.scenes.auto?.highlights || t.hero.autoHighlights,
+      ctaText: t.scenes.auto?.ctaText || t.hero.autoCta,
+    },
     {
       id: "konut",
       order: "02",
@@ -48,6 +85,7 @@ export default function ScrollStorytelling({
       description: t.scenes.estate.description,
       videoSrc: "/videos/konut-dask.mp4",
       poster: "/images/villajpg.jpg",
+      imageSrc: "/images/villajpg.jpg",
       alignment: "left" as const,
       badge: t.scenes.estate.badge,
       icon: <Home className="w-4 h-4 text-emerald-400" />,
@@ -61,6 +99,8 @@ export default function ScrollStorytelling({
       title: t.scenes.liability.title,
       description: t.scenes.liability.description,
       videoSrc: undefined,
+      poster: "/images/porshce.jpg",
+      imageSrc: "/images/porshce.jpg",
       alignment: "right" as const,
       badge: t.scenes.liability.badge,
       icon: <ShieldAlert className="w-4 h-4 text-amber-400" />,
@@ -74,6 +114,8 @@ export default function ScrollStorytelling({
       title: t.scenes.health.title,
       description: t.scenes.health.description,
       videoSrc: undefined,
+      poster: "/images/saglik.jpg",
+      imageSrc: "/images/saglik.jpg",
       alignment: "left" as const,
       badge: t.scenes.health.badge,
       icon: <HeartPulse className="w-4 h-4 text-rose-400" />,
@@ -86,7 +128,9 @@ export default function ScrollStorytelling({
       eyebrow: t.scenes.disaster.eyebrow,
       title: t.scenes.disaster.title,
       description: t.scenes.disaster.description,
-      videoSrc: undefined,
+      videoSrc: "/videos/konut-dask.mp4",
+      poster: "/images/villajpg.jpg",
+      imageSrc: "/images/villajpg.jpg",
       alignment: "right" as const,
       badge: t.scenes.disaster.badge,
       icon: <Building2 className="w-4 h-4 text-sky-400" />,
@@ -100,6 +144,8 @@ export default function ScrollStorytelling({
       title: t.scenes.commercial.title,
       description: t.scenes.commercial.description,
       videoSrc: undefined,
+      poster: "/images/is-yeri.jpg",
+      imageSrc: "/images/is-yeri.jpg",
       alignment: "left" as const,
       badge: t.scenes.commercial.badge,
       icon: <Briefcase className="w-4 h-4 text-accent-violet" />,
@@ -139,7 +185,70 @@ export default function ScrollStorytelling({
         </div>
       </div>
 
-      {/* REUSABLE CINEMATIC SCENES */}
+      {/* 6-CARD CATEGORIES SHOWCASE GRID (From Git Repo Architecture) */}
+      {t.categories?.items && (
+        <div className="py-14 sm:py-16 px-6 sm:px-10 lg:px-16 border-b border-white/[0.06] bg-black/40">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+              <div>
+                <span className="inline-flex items-center gap-2 text-xs font-mono tracking-widest text-electric-light uppercase mb-1">
+                  <Sparkles className="w-3 h-3" />
+                  <span>{t.categories.badge}</span>
+                </span>
+                <h3 className="font-serif text-2xl sm:text-3xl text-white font-medium">
+                  {t.categories.title}
+                </h3>
+              </div>
+              <p className="text-silver-400 text-xs sm:text-sm max-w-md font-sans">
+                {t.categories.desc}
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {t.categories.items.map((cat) => (
+                <div
+                  key={cat.id}
+                  onClick={() => handleQuoteClick(cat.id)}
+                  className="group relative flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-white/[0.02] hover:bg-white/[0.05] border border-white/[0.06] hover:border-electric-light/40 transition-all duration-300 cursor-pointer backdrop-blur-sm"
+                >
+                  {/* Subtle top ambient glow */}
+                  <div className="absolute inset-0 bg-radial-glow opacity-0 group-hover:opacity-10 pointer-events-none transition-opacity rounded-2xl" />
+
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="w-11 h-11 rounded-xl bg-blue-500/10 border border-blue-500/20 group-hover:border-electric-light/50 flex items-center justify-center text-electric-light transition-colors">
+                        {getProductIcon(cat.id, "w-5 h-5")}
+                      </div>
+                      <span className="font-mono text-xs text-silver-500 tracking-wider">
+                        {cat.order}
+                      </span>
+                    </div>
+
+                    <div className="inline-block px-2.5 py-0.5 rounded-md bg-white/[0.04] border border-white/[0.08] text-[10px] font-mono uppercase tracking-wider text-silver-400 mb-2.5">
+                      {cat.badge}
+                    </div>
+
+                    <h4 className="font-serif text-xl text-white font-medium mb-2 group-hover:text-electric-light transition-colors">
+                      {cat.title}
+                    </h4>
+
+                    <p className="font-sans text-silver-400 text-xs sm:text-sm leading-relaxed mb-6">
+                      {cat.desc}
+                    </p>
+                  </div>
+
+                  <div className="flex items-center justify-between pt-4 border-t border-white/[0.04] text-xs font-mono text-electric-light font-medium group-hover:translate-x-1 transition-transform">
+                    <span>{cat.cta}</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* REUSABLE CINEMATIC SCENES (EVERY SCENE HAS HIGH-RES MEDIA & NO EMPTY BOXES) */}
       <div className="divide-y divide-white/[0.04]">
         {scenes.map((scene) => (
           <CinematicInsuranceScene
@@ -151,6 +260,7 @@ export default function ScrollStorytelling({
             description={scene.description}
             videoSrc={scene.videoSrc}
             poster={scene.poster}
+            imageSrc={scene.imageSrc}
             alignment={scene.alignment}
             badge={scene.badge}
             highlights={scene.highlights}

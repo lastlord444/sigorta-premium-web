@@ -85,6 +85,14 @@ export interface SiteTranslations {
       highlights: string[];
       ctaText: string;
     };
+    auto?: {
+      eyebrow: string;
+      title: string;
+      description: string;
+      badge: string;
+      highlights: string[];
+      ctaText: string;
+    };
     commercial: {
       eyebrow: string;
       title: string;
@@ -93,6 +101,19 @@ export interface SiteTranslations {
       highlights: string[];
       ctaText: string;
     };
+  };
+  categories?: {
+    badge: string;
+    title: string;
+    desc: string;
+    items: {
+      id: string;
+      order: string;
+      title: string;
+      badge: string;
+      desc: string;
+      cta: string;
+    }[];
   };
   whyUs: {
     badge: string;
@@ -249,6 +270,19 @@ export const translations: Record<Language, SiteTranslations> = {
         { id: "dask", order: "05", label: "DISASTER" },
         { id: "isyeri", order: "06", label: "COMMERCIAL" },
       ],
+      auto: {
+        eyebrow: "01 / PRIVATE MOTOR KASKO",
+        title: "Uncompromising protection for premier automobiles.",
+        description: "Full comprehensive coverage against collision, total loss, natural perils, vandalism, and theft. Customized policy structures engineered beyond standard limitations with OEM certified parts.",
+        badge: "Comprehensive Auto & Exotic",
+        highlights: [
+          "OEM manufacturer parts & certified network guarantee",
+          "Unlimited luxury replacement vehicle entitlement",
+          "24/7 VIP roadside recovery and claims advocacy",
+          "International transit & track event endorsement options",
+        ],
+        ctaText: "Request Auto Quote",
+      },
       estate: {
         eyebrow: "02 / LUXURY HOME & ESTATE",
         title: "Your sanctuary deserves unconditional protection.",
@@ -314,6 +348,61 @@ export const translations: Record<Language, SiteTranslations> = {
         ],
         ctaText: "Request Commercial Quote",
       },
+    },
+    categories: {
+      badge: "Coverage Suite",
+      title: "Tailored Insurance Architecture",
+      desc: "Review our specialized underwriting suites or initiate your multi-carrier quote across Turkey's top underwriters in minutes.",
+      items: [
+        {
+          id: "kasko",
+          order: "01",
+          title: "Comprehensive Auto (Kasko)",
+          badge: "Full Auto Protection",
+          desc: "Bespoke vehicle protection against collision, theft, natural disaster, and zero-compromise replacement vehicles.",
+          cta: "Inquire & Quote",
+        },
+        {
+          id: "trafik",
+          order: "02",
+          title: "Motor Liability",
+          badge: "Statutory & Excess",
+          desc: "Statutory third-party liability upgraded with generous excess coverage and 24/7 VIP roadside assistance.",
+          cta: "Inquire & Quote",
+        },
+        {
+          id: "konut",
+          order: "03",
+          title: "Luxury Home & Estate",
+          badge: "Structure & Contents",
+          desc: "Full replacement cost for prime residences, fine art, water damage, and round-the-clock emergency concierge.",
+          cta: "Inquire & Quote",
+        },
+        {
+          id: "dask",
+          order: "04",
+          title: "Earthquake (DASK)",
+          badge: "Compulsory Seismic",
+          desc: "Official statutory pool coverage protecting buildings against seismic events, tsunami, and earthquake-induced perils.",
+          cta: "Inquire & Quote",
+        },
+        {
+          id: "saglik",
+          order: "05",
+          title: "Executive Healthcare",
+          badge: "Private & Supplementary",
+          desc: "Priority access to A+ hospital networks, top specialists, and comprehensive inpatient & outpatient clinical care.",
+          cta: "Inquire & Quote",
+        },
+        {
+          id: "isyeri",
+          order: "06",
+          title: "Commercial & Business",
+          badge: "Corporate Risk & SME",
+          desc: "Integrated enterprise security covering fixed inventory, business interruption, machinery breakdown, and liabilities.",
+          cta: "Inquire & Quote",
+        },
+      ],
     },
     whyUs: {
       badge: "Our Philosophy & Approach",
@@ -579,6 +668,19 @@ export const translations: Record<Language, SiteTranslations> = {
         { id: "dask", order: "05", label: "DASK" },
         { id: "isyeri", order: "06", label: "İŞYERİ" },
       ],
+      auto: {
+        eyebrow: "01 / GENİŞLETİLMİŞ KASKO",
+        title: "Hareket özgürlüğünüzü ve aracınızı güvence altına alın.",
+        description: "Kaza, çarpma, doğal afet, yangın, vandalizm ve hırsızlığa karşı aracınızı tam güvenceye alın. İkame araç, orijinal cam değişimi ve yetkili servis güvencesiyle standart poliçelerin ötesine geçin.",
+        badge: "Genişletilmiş Özel Kasko",
+        highlights: [
+          "Yetkili servis & orijinal parça garantisi",
+          "Üst segment sınırsız ikame araç seçeneği",
+          "Mini onarım ve 7/24 kesintisiz çekici desteği",
+          "Yurtdışı ek teminat ve anahtar kaybı güvencesi",
+        ],
+        ctaText: "Kasko Teklifi Al",
+      },
       estate: {
         eyebrow: "02 / LÜKS KONUT & VİLLA",
         title: "Eviniz dört duvardan fazlasıdır.",
@@ -644,6 +746,61 @@ export const translations: Record<Language, SiteTranslations> = {
         ],
         ctaText: "İşyeri Sigortası Teklifi Al",
       },
+    },
+    categories: {
+      badge: "Güvence Portföyümüz",
+      title: "İhtiyacınıza Özel Sigorta Çözümleri",
+      desc: "Her ürün için hazırlanan detaylı teminat rehberlerini inceleyin veya Türkiye'nin öncü şirketlerinden karşılaştırmalı teklif sürecinizi başlatın.",
+      items: [
+        {
+          id: "kasko",
+          order: "01",
+          title: "Kasko",
+          badge: "Kasko Güvencesi",
+          desc: "Çarpma, hırsızlık, yangın ve ikame araç alternatifleriyle aracınıza tam koruma seçenekleri.",
+          cta: "İncele & Teklif Al",
+        },
+        {
+          id: "trafik",
+          order: "02",
+          title: "Trafik Sigortası",
+          badge: "Zorunlu Mali Mesuliyet",
+          desc: "Karşı tarafa verilebilecek maddi ve bedeni hasarlara karşı yasal güvence ve yol yardım imkanları.",
+          cta: "İncele & Teklif Al",
+        },
+        {
+          id: "konut",
+          order: "03",
+          title: "Konut Sigortası",
+          badge: "Bina & Eşya Paketi",
+          desc: "Yangın, dahili su sızıntıları, hırsızlık ve poliçeye bağlı asistans hizmetleri seçenekleri.",
+          cta: "İncele & Teklif Al",
+        },
+        {
+          id: "dask",
+          order: "04",
+          title: "DASK",
+          badge: "Zorunlu Deprem",
+          desc: "Deprem ve deprem kaynaklı risklere karşı binanızı güvenceye alan kanuni afet sigortası.",
+          cta: "İncele & Teklif Al",
+        },
+        {
+          id: "saglik",
+          order: "05",
+          title: "Sağlık Sigortası",
+          badge: "Tamamlayıcı & Özel",
+          desc: "Özel hastane ağlarında sıra beklemeden, doktorunuzu seçerek tedavi olma imkanı.",
+          cta: "İncele & Teklif Al",
+        },
+        {
+          id: "isyeri",
+          order: "06",
+          title: "İşyeri Sigortası",
+          badge: "Ticari Risk & KOBİ",
+          desc: "Demirbaş, stok emtiası, çalışanlar ve iş durması risklerine karşı entegre kurumsal koruma.",
+          cta: "İncele & Teklif Al",
+        },
+      ],
     },
     whyUs: {
       badge: "Felsefemiz & Yaklaşımımız",
@@ -909,6 +1066,19 @@ export const translations: Record<Language, SiteTranslations> = {
         { id: "dask", order: "05", label: "KATASTROPHE" },
         { id: "isyeri", order: "06", label: "GEWERBE" },
       ],
+      auto: {
+        eyebrow: "01 / PREMIUM-VOLLKASKO",
+        title: "Kompromissloser Schutz für erstklassige Automobile.",
+        description: "Vollkaskoversicherung für Luxusfahrzeuge und Premiumflotten gegen Unfall, Vandalismus, Naturgewalten und Diebstahl. Individuelle Deckungskonzepte mit markengebundener Werkstattgarantie.",
+        badge: "Exklusive Vollkaskodeckung",
+        highlights: [
+          "Hersteller-Originalteile & freie Werkstattwahl",
+          "Gleichwertiges Premium-Ersatzfahrzeug unbegrenzt",
+          "24/7 VIP-Pannendienst und Schadensmanagement",
+          "Schutzbrief für weltweite Reisen und Renntrainings",
+        ],
+        ctaText: "Kfz-Angebot anfordern",
+      },
       estate: {
         eyebrow: "02 / LUXUSIMMOBILIEN & ANWESEN",
         title: "Ihr Zuhause verdient bedingungslosen Schutz.",
@@ -974,6 +1144,61 @@ export const translations: Record<Language, SiteTranslations> = {
         ],
         ctaText: "Gewerbe-Angebot anfordern",
       },
+    },
+    categories: {
+      badge: "Deckungsportfolio",
+      title: "Maßgeschneiderte Absicherungslösungen",
+      desc: "Prüfen Sie unsere spezialisierten Deckungskonzepte oder fordern Sie binnen Minuten einen Vergleich führender Versicherungsgesellschaften an.",
+      items: [
+        {
+          id: "kasko",
+          order: "01",
+          title: "Vollkasko",
+          badge: "Kasko-Schutz",
+          desc: "Schutz vor Kollision, Diebstahl, Naturgewalten und unbegrenztem Ersatzfahrzeug-Anspruch.",
+          cta: "Prüfen & Angebot",
+        },
+        {
+          id: "trafik",
+          order: "02",
+          title: "Kfz-Haftpflicht",
+          badge: "Gesetzlich & Exzess",
+          desc: "Gesetzlicher Schutz gegen Sach- und Personenschäden Dritter mit 24/7 Notfall-Pannendienst.",
+          cta: "Prüfen & Angebot",
+        },
+        {
+          id: "konut",
+          order: "03",
+          title: "Wohngebäude & Hausrat",
+          badge: "Immobilien-Paket",
+          desc: "Umfassender Schutz für Residenzen, Kunst, Wasserschäden und Handwerker-Sofortdienst.",
+          cta: "Prüfen & Angebot",
+        },
+        {
+          id: "dask",
+          order: "04",
+          title: "DASK Erdbeben",
+          badge: "Gesetzliche Erdbeben",
+          desc: "Staatliche Pflichtversicherung für Wohngebäude gegen seismische Risiken und Folgeschäden.",
+          cta: "Prüfen & Angebot",
+        },
+        {
+          id: "saglik",
+          order: "05",
+          title: "Private Krankenversicherung",
+          badge: "Privat & Zusatz",
+          desc: "Freie Arzt- und Klinikwahl in erstklassigen Privatkliniken ohne monatelange Wartezeiten.",
+          cta: "Prüfen & Angebot",
+        },
+        {
+          id: "isyeri",
+          order: "06",
+          title: "Gewerbeversicherung",
+          badge: "Unternehmensrisiko & KMU",
+          desc: "Integrierter Schutz für Inventar, Betriebsunterbrechungen, Maschinen und Betriebshaftpflicht.",
+          cta: "Prüfen & Angebot",
+        },
+      ],
     },
     whyUs: {
       badge: "Unsere Philosophie & Arbeitsweise",
@@ -1239,6 +1464,19 @@ export const translations: Record<Language, SiteTranslations> = {
         { id: "dask", order: "05", label: "CATASTROPHE" },
         { id: "isyeri", order: "06", label: "ENTREPRISE" },
       ],
+      auto: {
+        eyebrow: "01 / TOUS RISQUES AUTOMOBILE",
+        title: "Protection sans compromis pour automobiles d'exception.",
+        description: "Couverture intégrale haut de gamme protégeant vos véhicules de prestige contre le vol, l'incendie, les dommages tous accidents et le bris de glace. Réparations en réseau constructeur agréé.",
+        badge: "Tous Risques Prestige",
+        highlights: [
+          "Garantie pièces d'origine constructeur",
+          "Véhicule de remplacement de prestige illimité",
+          "Assistance VIP et dépannage zéro kilomètre 24/7",
+          "Extensions circuit loisir et conduite à l'étranger",
+        ],
+        ctaText: "Devis Tous Risques Auto",
+      },
       estate: {
         eyebrow: "02 / DEMEURES & PROPRIÉTÉS DE LUXE",
         title: "Votre sanctuaire mérite une protection absolue.",
@@ -1304,6 +1542,61 @@ export const translations: Record<Language, SiteTranslations> = {
         ],
         ctaText: "Devis Risques Entreprise",
       },
+    },
+    categories: {
+      badge: "Portefeuille de Garanties",
+      title: "Solutions d'Assurance Sur Mesure",
+      desc: "Découvrez nos gammes de garanties spécialisées ou initiez votre demande de devis comparatif auprès des meilleures compagnies en quelques instants.",
+      items: [
+        {
+          id: "kasko",
+          order: "01",
+          title: "Tous Risques Auto",
+          badge: "Protection Véhicule",
+          desc: "Couverture intégrale contre l'accident, le vol, les intempéries et mise à disposition de véhicules de remplacement.",
+          cta: "Consulter & Devis",
+        },
+        {
+          id: "trafik",
+          order: "02",
+          title: "Responsabilité Civile",
+          badge: "Légale & Étendue",
+          desc: "Garantie obligatoire des tiers enrichie de plafonds élevés et d'une assistance dépannage 24/7.",
+          cta: "Consulter & Devis",
+        },
+        {
+          id: "konut",
+          order: "03",
+          title: "Habitation & Propriétés",
+          badge: "Bâtiment & Mobilier",
+          desc: "Indemnisation à valeur à neuf, art, dégâts des eaux et conciergerie d'urgence 24h/24.",
+          cta: "Consulter & Devis",
+        },
+        {
+          id: "dask",
+          order: "04",
+          title: "Séisme & Aléas (DASK)",
+          badge: "Catastrophes Naturelles",
+          desc: "Assurance légale obligatoire protégeant les constructions contre les tremblements de terre et risques majeurs.",
+          cta: "Consulter & Devis",
+        },
+        {
+          id: "saglik",
+          order: "05",
+          title: "Santé Privée",
+          badge: "Individuelle & Famille",
+          desc: "Libre choix des spécialistes au sein des meilleurs réseaux hospitaliers privés sans délai d'attente.",
+          cta: "Consulter & Devis",
+        },
+        {
+          id: "isyeri",
+          order: "06",
+          title: "Risques d'Entreprise",
+          badge: "Entreprises & PME",
+          desc: "Protection globale des immobilisations, des stocks, des pertes d'exploitation et des responsabilités.",
+          cta: "Consulter & Devis",
+        },
+      ],
     },
     whyUs: {
       badge: "Notre Démarche & Philosophie",
@@ -1569,6 +1862,19 @@ export const translations: Record<Language, SiteTranslations> = {
         { id: "dask", order: "05", label: "CATÁSTROFE" },
         { id: "isyeri", order: "06", label: "EMPRESAS" },
       ],
+      auto: {
+        eyebrow: "01 / TODO RIESGO AUTOMÓVIL",
+        title: "Protección incondicional para vehículos de alta gama.",
+        description: "Cobertura completa contra colisión, robo, fenómenos naturales y actos vandálicos. Pólizas a medida diseñadas para superar cualquier estándar con piezas originales de fábrica.",
+        badge: "Todo Riesgo Premium",
+        highlights: [
+          "Garantía de piezas originales y talleres oficiales",
+          "Vehículo de sustitución de categoría equivalente ilimitado",
+          "Asistencia en carretera VIP 24/7 y grúa exclusiva",
+          "Cobertura internacional y custodia de vehículo",
+        ],
+        ctaText: "Cotizar Seguro Auto",
+      },
       estate: {
         eyebrow: "02 / FINCAS & HOGARES DE LUJO",
         title: "Su hogar merece una protección incondicional.",
@@ -1634,6 +1940,61 @@ export const translations: Record<Language, SiteTranslations> = {
         ],
         ctaText: "Cotizar Seguro de Empresa",
       },
+    },
+    categories: {
+      badge: "Portafolio de Coberturas",
+      title: "Soluciones de Seguro a Medida",
+      desc: "Examine nuestras gamas especializadas de suscripción o inicie su solicitud de cotización comparativa con las principales aseguradoras en minutos.",
+      items: [
+        {
+          id: "kasko",
+          order: "01",
+          title: "Todo Riesgo Auto",
+          badge: "Protección de Vehículos",
+          desc: "Protección completa frente a colisión, robo, catástrofes naturales y vehículo de sustitución de alta gama.",
+          cta: "Consultar & Cotizar",
+        },
+        {
+          id: "trafik",
+          order: "02",
+          title: "Responsabilidad Civil",
+          badge: "Obligatoria & Ampliada",
+          desc: "Cobertura legal de daños a terceros con límites ampliados y asistencia en viaje y grúa 24/7.",
+          cta: "Consultar & Cotizar",
+        },
+        {
+          id: "konut",
+          order: "03",
+          title: "Hogar & Fincas",
+          badge: "Estructura & Ajuar",
+          desc: "Reposición a valor nuevo para residencias, arte, daños por agua y servicio urgente del hogar 24h.",
+          cta: "Consultar & Cotizar",
+        },
+        {
+          id: "dask",
+          order: "04",
+          title: "Terremoto (DASK)",
+          badge: "Sísmico Obligatorio",
+          desc: "Póliza oficial que asegura edificaciones contra terremotos, tsunamis y consecuencias sísmicas.",
+          cta: "Consultar & Cotizar",
+        },
+        {
+          id: "saglik",
+          order: "05",
+          title: "Salud Privada",
+          badge: "Individual & Familiar",
+          desc: "Acceso preferente y sin esperas a especialistas en las mejores clínicas privadas y hospitales.",
+          cta: "Consultar & Cotizar",
+        },
+        {
+          id: "isyeri",
+          order: "06",
+          title: "Seguro de Empresa",
+          badge: "Riesgo Corporativo & Pymes",
+          desc: "Seguridad patrimonial integrada para existencias, pérdidas de explotación, maquinaria y responsabilidad.",
+          cta: "Consultar & Cotizar",
+        },
+      ],
     },
     whyUs: {
       badge: "Nuestra Filosofía & Método",

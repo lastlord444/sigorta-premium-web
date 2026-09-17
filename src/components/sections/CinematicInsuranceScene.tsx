@@ -16,6 +16,7 @@ export interface CinematicInsuranceSceneProps {
   description: string;
   videoSrc?: string;
   poster?: string;
+  imageSrc?: string;
   alignment?: "left" | "right";
   badge?: string;
   highlights?: string[];
@@ -32,6 +33,7 @@ export default function CinematicInsuranceScene({
   description,
   videoSrc,
   poster,
+  imageSrc,
   alignment = "right",
   badge,
   highlights = [],
@@ -152,12 +154,12 @@ export default function CinematicInsuranceScene({
             )}
           >
             {videoSrc ? (
-              /* FULL-BLEED SEAMLESS CINEMATIC VIDEO (NO UI CARD, NO BORDERS, NO SHADOWS) */
-              <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] overflow-hidden rounded-2xl border border-white/[0.08] shadow-[0_20px_60px_rgba(0,0,0,0.7)]">
+              /* FULL-BLEED SEAMLESS CINEMATIC VIDEO */
+              <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] overflow-hidden rounded-2xl border border-white/[0.08] shadow-[0_20px_60px_rgba(0,0,0,0.7)] group">
                 <video
                   ref={videoRef}
                   src={videoSrc}
-                  poster={poster}
+                  poster={poster || imageSrc}
                   muted
                   autoPlay
                   playsInline
@@ -172,37 +174,97 @@ export default function CinematicInsuranceScene({
                 <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#030712] via-[#030712]/60 to-transparent pointer-events-none" />
                 <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#030712] via-[#030712]/60 to-transparent pointer-events-none" />
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_45%,#030712_92%)] pointer-events-none" />
+
+                {/* TOP TELEMETRY HUD PILL */}
+                <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none z-10">
+                  <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/15 text-[10px] font-mono text-silver-300">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                    <span>{order} • {badge || "CINEMATIC"}</span>
+                  </div>
+                  <span className="text-[10px] font-mono text-electric-light px-2.5 py-0.5 rounded-full bg-black/50 backdrop-blur-md border border-white/10">
+                    4K 60FPS
+                  </span>
+                </div>
+              </div>
+            ) : imageSrc ? (
+              /* FULL-BLEED SEAMLESS CINEMATIC IMAGE SHOWCASE */
+              <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] overflow-hidden rounded-2xl border border-white/[0.08] shadow-[0_20px_60px_rgba(0,0,0,0.7)] group">
+                <img
+                  src={imageSrc}
+                  alt={title}
+                  className="w-full h-full object-cover object-center scale-[1.02] filter brightness-[0.88] contrast-[1.08] group-hover:scale-105 transition-transform duration-700 ease-out"
+                />
+
+                {/* ORGANIC MULTI-LAYER BLEND MASKS (Dissolves edges seamlessly into dark background) */}
+                <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#030712] via-[#030712]/60 to-transparent pointer-events-none" />
+                <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#030712] via-[#030712]/60 to-transparent pointer-events-none" />
+                <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#030712] via-[#030712]/60 to-transparent pointer-events-none" />
+                <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#030712] via-[#030712]/60 to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,#030712_92%)] pointer-events-none" />
+
+                {/* TOP TELEMETRY HUD PILL */}
+                <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none z-10">
+                  <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/15 text-[10px] font-mono text-silver-300">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                    <span>{order} • {badge || "VERIFIED"}</span>
+                  </div>
+                  <span className="text-[10px] font-mono text-electric-light px-2.5 py-0.5 rounded-full bg-black/50 backdrop-blur-md border border-white/10">
+                    STUDIO HD
+                  </span>
+                </div>
+
+                {/* BOTTOM HUD STATUS */}
+                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between pointer-events-none z-10">
+                  <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-[10px] font-mono text-silver-300">
+                    <Shield className="w-3 h-3 text-electric-light" />
+                    <span>{eyebrow.split("/")[1]?.trim() || badge || "PROTECTED"}</span>
+                  </div>
+                </div>
               </div>
             ) : (
-              /* CLEAN EDITORIAL ATMOSPHERE FOR PRODUCTS WITHOUT VIDEO (NO TECHNICAL / DEV PLACEHOLDERS) */
-              <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] rounded-2xl bg-gradient-to-br from-white/[0.02] to-transparent p-8 flex flex-col justify-between overflow-hidden border border-white/[0.04]">
+              /* RICH LUXURY TELEMETRY DASHBOARD FOR SCENES */
+              <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] rounded-2xl bg-gradient-to-br from-white/[0.04] via-navy-950/80 to-black p-8 flex flex-col justify-between overflow-hidden border border-white/[0.08] shadow-[0_20px_50px_rgba(0,0,0,0.6)]">
                 {/* Soft ambient background glow */}
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(0,102,255,0.08),transparent_60%)] pointer-events-none" />
-                <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-accent-violet/10 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(0,102,255,0.15),transparent_60%)] pointer-events-none" />
+                <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-accent-violet/15 rounded-full blur-3xl pointer-events-none" />
 
                 {/* Top minimalist indicator */}
-                <div className="relative z-10 flex items-center justify-between text-xs font-mono text-silver-500">
-                  <span className="tracking-[0.2em] uppercase">{eyebrow}</span>
-                  <span className="text-silver-400">Coverage Suite</span>
+                <div className="relative z-10 flex items-center justify-between text-xs font-mono text-silver-400 pb-3 border-b border-white/[0.08]">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+                    <span className="tracking-widest uppercase">{order} • 20+ UNDERWRITERS</span>
+                  </div>
+                  <span className="text-electric-light font-mono">PORTFOLIO {order} / 06</span>
                 </div>
 
                 {/* Center subtle icon & thematic typography */}
-                <div className="relative z-10 my-auto text-center flex flex-col items-center py-6">
-                  <div className="w-16 h-16 rounded-2xl bg-white/[0.03] border border-white/[0.08] flex items-center justify-center text-electric-light mb-4 shadow-[0_0_25px_rgba(0,102,255,0.15)]">
+                <div className="relative z-10 my-auto text-center flex flex-col items-center py-4">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500/20 to-indigo-600/20 border border-white/15 flex items-center justify-center text-electric-light mb-3 shadow-[0_0_25px_rgba(0,102,255,0.25)]">
                     {icon || <Shield className="w-7 h-7 stroke-[1.5]" />}
                   </div>
+                  <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-silver-400 mb-1">
+                    {eyebrow}
+                  </span>
                   <h4 className="font-serif text-2xl sm:text-3xl text-white font-medium mb-2 tracking-tight">
                     {badge || title}
                   </h4>
-                  <p className="text-xs sm:text-sm text-silver-400 max-w-sm font-sans leading-relaxed">
-                    Protected by bespoke underwriting tailored to your risk profile.
-                  </p>
+                  <div className="flex flex-wrap justify-center gap-2 mt-2">
+                    <span className="px-2.5 py-0.5 rounded-full bg-white/[0.05] border border-white/10 text-[10px] font-mono text-silver-300">
+                      ✓ Instant Quote
+                    </span>
+                    <span className="px-2.5 py-0.5 rounded-full bg-white/[0.05] border border-white/10 text-[10px] font-mono text-silver-300">
+                      ✓ 24/7 Support
+                    </span>
+                  </div>
                 </div>
 
                 {/* Bottom subtle detail */}
-                <div className="relative z-10 pt-4 border-t border-white/[0.04] flex items-center justify-between text-[11px] font-mono text-silver-500">
-                  <span>Bespoke Protection</span>
-                  <span>{order}</span>
+                <div className="relative z-10 pt-3 border-t border-white/[0.06] flex items-center justify-between text-[11px] font-mono text-silver-400">
+                  <div className="flex items-center gap-1.5">
+                    <Shield className="w-3.5 h-3.5 text-electric-light" />
+                    <span>SEDDK Certified Architecture</span>
+                  </div>
+                  <span className="text-emerald-400">Active</span>
                 </div>
               </div>
             )}
