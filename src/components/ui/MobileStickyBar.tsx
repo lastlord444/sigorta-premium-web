@@ -5,9 +5,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Phone } from "lucide-react";
 import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 import { siteConfig } from "@/data/siteData";
+import { useLanguage } from "@/components/providers/LanguageProvider";
 
 export default function MobileStickyBar() {
   const [show, setShow] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,7 +39,7 @@ export default function MobileStickyBar() {
               <span className="w-7 h-7 min-w-[28px] min-h-[28px] flex items-center justify-center shrink-0">
                 <Phone className="w-5 h-5 text-emerald-400" />
               </span>
-              <span className="text-sm font-semibold truncate">Call Now</span>
+              <span className="text-sm font-semibold truncate">{t.common.callNow}</span>
             </a>
 
             <a

@@ -3,9 +3,11 @@
 import React, { useState, useEffect } from "react";
 import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 import { siteConfig } from "@/data/siteData";
+import { useLanguage } from "@/components/providers/LanguageProvider";
 
 export default function FloatingWhatsApp() {
   const [mounted, setMounted] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     setMounted(true);
@@ -48,7 +50,7 @@ export default function FloatingWhatsApp() {
         className="hidden md:block absolute right-full mr-3 px-3 py-1.5 rounded-xl bg-navy-950/95 text-white text-[11px] font-mono tracking-wide border border-white/10 shadow-xl opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200 pointer-events-none whitespace-nowrap"
       >
         <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 mr-2 animate-pulse" />
-        Chat with Advisor (Online)
+        {t.common.chatWithAdvisor} ({t.common.online})
       </div>
     </aside>
   );

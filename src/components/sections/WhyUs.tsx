@@ -2,8 +2,8 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { whyUsAdvantages, metricsData } from "@/data/siteData";
 import { Layers, Sliders, LifeBuoy, UserCheck, ShieldCheck } from "lucide-react";
+import { useLanguage } from "@/components/providers/LanguageProvider";
 
 const advantageIcons = [
   <Layers key="1" className="w-5 h-5 text-electric-light" />,
@@ -13,6 +13,8 @@ const advantageIcons = [
 ];
 
 export default function WhyUs() {
+  const { t } = useLanguage();
+
   return (
     <section
       id="neden-biz"
@@ -26,24 +28,24 @@ export default function WhyUs() {
         <div className="max-w-3xl mb-20">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs font-mono uppercase tracking-[0.2em] text-silver-300 mb-6">
             <ShieldCheck className="w-3.5 h-3.5 text-electric-light" />
-            <span>Our Philosophy & Approach</span>
+            <span>{t.whyUs.badge}</span>
           </div>
 
           <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-medium leading-[1.15] text-white">
-            We do not sell standard policies.{" "}
+            {t.whyUs.title1}{" "}
             <span className="block italic font-light bg-gradient-to-r from-silver-100 via-silver-300 to-electric-light bg-clip-text text-transparent">
-              We engineer precision protection.
+              {t.whyUs.title2}
             </span>
           </h2>
 
           <p className="mt-6 text-silver-400 text-base sm:text-lg font-sans leading-relaxed">
-            We depart from conventional commission-driven brokerage models. By mapping your holistic exposure profile and conducting rigorous multi-carrier syndicate comparisons, we construct institutional coverage tailored for what you hold dearest.
+            {t.whyUs.desc}
           </p>
         </div>
 
         {/* 4 ADVANTAGES GRID */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
-          {whyUsAdvantages.map((adv, idx) => (
+          {t.whyUs.advantages.map((adv, idx) => (
             <motion.div
               key={adv.id}
               initial={{ opacity: 0, y: 20 }}
@@ -55,7 +57,7 @@ export default function WhyUs() {
               {/* CORNER NUMBER */}
               <div className="flex items-center justify-between mb-8">
                 <div className="w-12 h-12 rounded-2xl bg-white/[0.04] border border-white/10 flex items-center justify-center group-hover:scale-110 group-hover:border-electric/40 transition-all duration-300">
-                  {advantageIcons[idx]}
+                  {advantageIcons[idx % advantageIcons.length]}
                 </div>
                 <span className="font-mono text-sm tracking-widest text-silver-500 group-hover:text-electric-light transition-colors">
                   {adv.number}
@@ -82,7 +84,7 @@ export default function WhyUs() {
 
         {/* STATS / TRUST METRICS BANNER */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 p-8 sm:p-10 rounded-3xl bg-gradient-to-b from-white/[0.04] to-white/[0.01] border border-white/10 backdrop-blur-xl">
-          {metricsData.map((metric, idx) => (
+          {t.whyUs.metrics.map((metric, idx) => (
             <motion.div
               key={idx}
               initial={{ opacity: 0, scale: 0.95 }}

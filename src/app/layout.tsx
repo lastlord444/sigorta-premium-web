@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
+import { LanguageProvider } from "@/components/providers/LanguageProvider";
 import CustomCursor from "@/components/ui/CustomCursor";
 import MobileStickyBar from "@/components/ui/MobileStickyBar";
 import FloatingWhatsApp from "@/components/ui/FloatingWhatsApp";
@@ -105,12 +106,14 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans antialiased bg-background text-foreground selection:bg-electric/30 selection:text-white">
-        <SmoothScrollProvider>
-          <CustomCursor />
-          {children}
-          <MobileStickyBar />
-          <FloatingWhatsApp />
-        </SmoothScrollProvider>
+        <LanguageProvider>
+          <SmoothScrollProvider>
+            <CustomCursor />
+            {children}
+            <MobileStickyBar />
+            <FloatingWhatsApp />
+          </SmoothScrollProvider>
+        </LanguageProvider>
       </body>
     </html>
   );

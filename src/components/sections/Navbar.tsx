@@ -5,13 +5,16 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Shield, Phone, Menu, X, ArrowUpRight, CheckCircle2 } from "lucide-react";
 import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 import MagneticButton from "@/components/ui/MagneticButton";
+import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
 import { siteConfig } from "@/data/siteData";
 import { useLenis } from "@/components/providers/SmoothScrollProvider";
+import { useLanguage } from "@/components/providers/LanguageProvider";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { scrollTo } = useLenis();
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,12 +25,12 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { label: "Coverage", href: "#sigortalar" },
-    { label: "Philosophy", href: "#neden-biz" },
-    { label: "Underwriters", href: "#sirketler" },
-    { label: "Claims Desk", href: "#hasar-destek" },
-    { label: "About Us", href: "#hakkimizda" },
-    { label: "FAQ", href: "#sss" },
+    { label: t.nav.coverage, href: "#sigortalar" },
+    { label: t.nav.philosophy, href: "#neden-biz" },
+    { label: t.nav.underwriters, href: "#sirketler" },
+    { label: t.nav.claimsDesk, href: "#hasar-destek" },
+    { label: t.nav.aboutUs, href: "#hakkimizda" },
+    { label: t.nav.faq, href: "#sss" },
   ];
 
   const handleNavClick = (href: string) => {
@@ -63,7 +66,7 @@ export default function Navbar() {
                 {siteConfig.name}
               </span>
               <span className="text-[10px] tracking-[0.24em] text-silver-400 uppercase font-sans -mt-0.5">
-                Private Advisory
+                {t.common.brandSubtitle}
               </span>
             </div>
           </a>
@@ -83,6 +86,9 @@ export default function Navbar() {
 
           {/* RIGHT ACTIONS */}
           <div className="hidden md:flex items-center gap-3">
+            {/* Language Switcher */}
+            <LanguageSwitcher />
+
             <a
               href={`https://wa.me/${siteConfig.whatsappRaw}?text=Hello,%20I%20would%20like%20to%20request%20an%20insurance%20quote.`}
               target="_blank"
@@ -112,13 +118,15 @@ export default function Navbar() {
               onClick={() => handleNavClick("#teklif-al")}
               className="text-xs px-5 py-2.5"
             >
-              Get a Quote
+              {t.common.getQuote}
               <ArrowUpRight className="w-3.5 h-3.5" />
             </MagneticButton>
           </div>
 
-          {/* MOBILE CONTROLS (WhatsApp + Hamburger) */}
+          {/* MOBILE CONTROLS (Language + WhatsApp + Hamburger) */}
           <div className="flex lg:hidden items-center gap-2">
+            <LanguageSwitcher />
+
             <a
               href={`https://wa.me/${siteConfig.whatsappRaw}?text=Hello,%20I%20would%20like%20to%20request%20an%20insurance%20quote.`}
               target="_blank"
@@ -148,31 +156,36 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="fixed inset-0 z-30 bg-navy-950/95 backdrop-blur-2xl lg:hidden flex flex-col justify-between pt-28 pb-10 px-8 border-b border-white/10"
+            className="fixed inset-0 z-30 bg-navy-950/95 backdrop-blur-2xl lg:hidden flex flex-col justify-between pt-28 pb-10 px-8 border-b border-white/10 overflow-y-auto"
           >
-            <div className="flex flex-col gap-5">
-              <p className="text-[11px] tracking-[0.25em] text-silver-400 uppercase font-mono">
-                Navigation
-              </p>
-              {navLinks.map((link, idx) => (
-                <motion.button
-                  key={link.href}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.05 * idx, duration: 0.3 }}
-                  onClick={() => handleNavClick(link.href)}
-                  className="flex items-center justify-between py-2 text-left border-b border-white/[0.06] text-xl font-serif text-silver-100 hover:text-electric-light transition-colors"
-                >
-                  <span>{link.label}</span>
-                  <ArrowUpRight className="w-4 h-4 text-silver-500" />
-                </motion.button>
-              ))}
+            <div className="flex flex-col gap-6">
+              {/* Language Selector in Mobile Drawer */}
+              <LanguageSwitcher variant="mobile" />
+
+              <div className="flex flex-col gap-4 pt-2">
+                <p className="text-[11px] tracking-[0.25em] text-silver-400 uppercase font-mono">
+                  {t.nav.navigation}
+                </p>
+                {navLinks.map((link, idx) => (
+                  <motion.button
+                    key={link.href}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.05 * idx, duration: 0.3 }}
+                    onClick={() => handleNavClick(link.href)}
+                    className="flex items-center justify-between py-2 text-left border-b border-white/[0.06] text-xl font-serif text-silver-100 hover:text-electric-light transition-colors"
+                  >
+                    <span>{link.label}</span>
+                    <ArrowUpRight className="w-4 h-4 text-silver-500" />
+                  </motion.button>
+                ))}
+              </div>
             </div>
 
             <div className="flex flex-col gap-3 pt-6 border-t border-white/[0.08]">
               <div className="flex items-center gap-2 text-xs text-emerald-400">
                 <CheckCircle2 className="w-4 h-4" />
-                <span>24/7 Dedicated Claims Desk Active</span>
+                <span>{t.nav.claimsActiveNotice}</span>
               </div>
               <a
                 href={`https://wa.me/${siteConfig.whatsappRaw}?text=Hello,%20I%20would%20like%20to%20request%20an%20insurance%20quote.`}
@@ -195,7 +208,7 @@ export default function Navbar() {
                 onClick={() => handleNavClick("#teklif-al")}
                 className="w-full py-3.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold text-sm uppercase tracking-wider shadow-[0_0_20px_rgba(0,102,255,0.4)]"
               >
-                Get a Quote Now
+                {t.common.getQuote}
               </button>
             </div>
           </motion.div>

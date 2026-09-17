@@ -14,8 +14,10 @@ import {
 } from "lucide-react";
 import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 import { siteConfig } from "@/data/siteData";
+import { useLanguage } from "@/components/providers/LanguageProvider";
 
 export default function ClaimSupport() {
+  const { t } = useLanguage();
   const [modalOpen, setModalOpen] = useState(false);
   const [claimSubmitted, setClaimSubmitted] = useState(false);
   const [claimName, setClaimName] = useState("");
@@ -37,26 +39,12 @@ export default function ClaimSupport() {
     setClaimNote("");
   };
 
-  const claimSteps = [
-    {
-      step: "01",
-      title: "Secure & Document",
-      desc: "Ensure personal safety first. Capture comprehensive, wide-angle incident photography before relocating vehicles or property, and complete standard accident documentation.",
-      icon: FileText,
-    },
-    {
-      step: "02",
-      title: "Contact 24/7 Concierge Desk",
-      desc: "Call our emergency claims hotline or initiate instant WhatsApp reporting. We immediately coordinate authorized roadside towing and dispatch accredited adjusters.",
-      icon: PhoneCall,
-    },
-    {
-      step: "03",
-      title: "End-to-End Settlement Tracking",
-      desc: "From independent surveyor appointments and loss assessment to replacement vehicles and insurer payouts, our advisory desk personally champions your file.",
-      icon: Truck,
-    },
-  ];
+  const stepIcons = [FileText, PhoneCall, Truck];
+
+  const claimSteps = t.claim.steps.map((step, idx) => ({
+    ...step,
+    icon: stepIcons[idx % stepIcons.length],
+  }));
 
   return (
     <section
@@ -71,16 +59,15 @@ export default function ClaimSupport() {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-500/10 border border-rose-500/30 text-xs font-mono uppercase tracking-[0.2em] text-rose-300 mb-5">
             <AlertTriangle className="w-3.5 h-3.5 text-rose-400" />
-            <span>24/7 Rapid Response & Claims Concierge</span>
+            <span>{t.claim.badge}</span>
           </div>
 
           <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-medium text-white mb-6">
-            When loss occurs, you are never alone.
+            {t.claim.title}
           </h2>
 
           <p className="text-silver-400 text-base sm:text-lg font-sans leading-relaxed">
-            Insurance is proven on the day of a claim. Whether vehicular damage, estate flooding,
-            or medical emergency, you reach a dedicated private advocate—never an automated call queue.
+            {t.claim.desc}
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -89,7 +76,7 @@ export default function ClaimSupport() {
               className="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-rose-600 to-red-700 hover:from-rose-500 hover:to-red-600 text-white font-semibold text-xs uppercase tracking-wider shadow-[0_0_30px_rgba(225,29,72,0.4)] transition-all cursor-pointer flex items-center justify-center gap-2"
             >
               <ShieldAlert className="w-4 h-4" />
-              <span>Report an Incident</span>
+              <span>{t.claim.reportBtn}</span>
             </button>
 
             <a
@@ -97,7 +84,7 @@ export default function ClaimSupport() {
               className="w-full sm:w-auto px-8 py-4 rounded-xl bg-white/[0.05] hover:bg-white/[0.1] border border-white/10 text-silver-100 font-medium text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2"
             >
               <PhoneCall className="w-4 h-4 text-emerald-400" />
-              <span>24/7 Claims Desk: {siteConfig.phone}</span>
+              <span>{t.claim.hotlinePrefix} {siteConfig.phone}</span>
             </a>
           </div>
         </div>
@@ -117,7 +104,7 @@ export default function ClaimSupport() {
                       <Icon className="w-5 h-5" />
                     </div>
                     <span className="font-mono text-xs font-semibold text-silver-500 tracking-widest">
-                      STEP {step.step}
+                      {step.step}
                     </span>
                   </div>
                   <h3 className="font-serif text-xl text-white font-medium mb-3">
@@ -136,13 +123,13 @@ export default function ClaimSupport() {
         <div className="rounded-3xl bg-gradient-to-r from-blue-950/40 via-navy-900/60 to-indigo-950/40 border border-white/10 p-8 sm:p-10 flex flex-col lg:flex-row items-center justify-between gap-6">
           <div className="flex flex-col text-center lg:text-left">
             <span className="text-xs font-mono tracking-widest text-electric-light uppercase mb-1">
-              PRIORITY CLAIMS CONCIERGE
+              {t.claim.bannerBadge}
             </span>
             <h4 className="font-serif text-2xl text-white font-medium">
-              Submit accident documentation or scene photographs instantly.
+              {t.claim.bannerTitle}
             </h4>
             <p className="text-sm text-silver-400 mt-1">
-              Your file is routed immediately to the lead loss adjuster and syndicate claims desk.
+              {t.claim.bannerDesc}
             </p>
           </div>
 
@@ -154,7 +141,7 @@ export default function ClaimSupport() {
             className="w-full sm:w-auto px-8 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-colors flex items-center justify-center gap-2.5 shrink-0 cursor-pointer"
           >
             <WhatsAppIcon className="w-5 h-5 shrink-0 text-white" />
-            <span>Send Incident Details via WhatsApp</span>
+            <span>{t.claim.bannerBtn}</span>
           </a>
         </div>
       </div>
@@ -171,7 +158,7 @@ export default function ClaimSupport() {
             >
               <button
                 onClick={closeModal}
-                className="absolute top-5 right-5 p-2 rounded-full bg-white/5 text-silver-400 hover:text-white"
+                className="absolute top-5 right-5 p-2 rounded-full bg-white/5 text-silver-400 hover:text-white cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -181,92 +168,82 @@ export default function ClaimSupport() {
                   <div className="flex items-center gap-2 text-rose-400 mb-2">
                     <ShieldAlert className="w-5 h-5" />
                     <span className="font-mono text-xs uppercase tracking-wider">
-                      Initiate Incident File
+                      {t.claim.modal.badge}
                     </span>
                   </div>
 
                   <h3 className="font-serif text-2xl text-white font-medium">
-                    Report an Incident
+                    {t.claim.modal.title}
                   </h3>
 
                   <p className="text-xs text-silver-400 font-sans">
-                    Submit essential details and our emergency claims desk will contact you within 5 minutes to direct field response.
+                    {t.claim.modal.desc}
                   </p>
 
                   <div>
                     <label className="block text-xs font-mono text-silver-300 mb-1">
-                      Full Name *
+                      {t.claim.modal.nameLabel}
                     </label>
                     <input
                       required
                       type="text"
                       value={claimName}
                       onChange={(e) => setClaimName(e.target.value)}
-                      placeholder="Full Name"
+                      placeholder={t.claim.modal.namePlaceholder}
                       className="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:ring-2 focus:ring-rose-500 focus:outline-none"
                     />
                   </div>
 
                   <div>
                     <label className="block text-xs font-mono text-silver-300 mb-1">
-                      Phone Number *
+                      {t.claim.modal.phoneLabel}
                     </label>
                     <input
                       required
                       type="tel"
                       value={claimPhone}
                       onChange={(e) => setClaimPhone(e.target.value)}
-                      placeholder="+1 (555) 000-0000"
+                      placeholder={t.claim.modal.phonePlaceholder}
                       className="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:ring-2 focus:ring-rose-500 focus:outline-none"
                     />
                   </div>
 
                   <div>
                     <label className="block text-xs font-mono text-silver-300 mb-1">
-                      Claim Category
+                      {t.claim.modal.typeLabel}
                     </label>
                     <select
                       value={claimType}
                       onChange={(e) => setClaimType(e.target.value)}
                       className="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:ring-2 focus:ring-rose-500 focus:outline-none"
                     >
-                      <option value="kasko" className="bg-navy-950">
-                        Automobile Collision / Theft
-                      </option>
-                      <option value="konut" className="bg-navy-950">
-                        Residential / Fire / Water Intrusion
-                      </option>
-                      <option value="saglik" className="bg-navy-950">
-                        Medical Emergency
-                      </option>
-                      <option value="isyeri" className="bg-navy-950">
-                        Commercial Property / Business Interruption
-                      </option>
-                      <option value="diger" className="bg-navy-950">
-                        Other Specialty Claim
-                      </option>
+                      {t.claim.modal.typeOptions.map((opt) => (
+                        <option key={opt.value} value={opt.value} className="bg-navy-950">
+                          {opt.label}
+                        </option>
+                      ))}
                     </select>
                   </div>
 
                   <div>
                     <label className="block text-xs font-mono text-silver-300 mb-1">
-                      Brief Incident Summary (Optional)
+                      {t.claim.modal.noteLabel}
                     </label>
                     <textarea
                       rows={2}
                       value={claimNote}
                       onChange={(e) => setClaimNote(e.target.value)}
-                      placeholder="Location, immediate roadside assistance needed, or damages..."
+                      placeholder={t.claim.modal.notePlaceholder}
                       className="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:ring-2 focus:ring-rose-500 focus:outline-none"
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full py-3.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-semibold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2"
+                    className="w-full py-3.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-semibold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <Send className="w-4 h-4" />
-                    <span>Alert Claims Desk</span>
+                    <span>{t.claim.modal.submitBtn}</span>
                   </button>
                 </form>
               ) : (
@@ -275,16 +252,16 @@ export default function ClaimSupport() {
                     <CheckCircle2 className="w-8 h-8" />
                   </div>
                   <h4 className="font-serif text-2xl text-white font-medium mb-2">
-                    Claims Alert Dispatched
+                    {t.claim.modal.successTitle}
                   </h4>
                   <p className="text-sm text-silver-300 font-sans mb-6">
-                    Our emergency claims advocate will contact you at {claimPhone} within minutes. You are in safe hands.
+                    {t.claim.modal.successDesc}
                   </p>
                   <button
                     onClick={closeModal}
-                    className="px-6 py-2.5 rounded-xl bg-white/10 text-white text-xs uppercase font-mono tracking-wider hover:bg-white/15"
+                    className="px-6 py-2.5 rounded-xl bg-white/10 text-white text-xs uppercase font-mono tracking-wider hover:bg-white/15 cursor-pointer"
                   >
-                    Close
+                    {t.claim.modal.closeBtn}
                   </button>
                 </div>
               )}

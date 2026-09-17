@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 import { siteConfig } from "@/data/siteData";
+import { useLanguage } from "@/components/providers/LanguageProvider";
 
 interface FormErrors {
   fullName?: string;
@@ -34,6 +35,7 @@ interface ProposalProps {
 }
 
 export default function ProposalSection({ initialProduct = "kasko" }: ProposalProps) {
+  const { t } = useLanguage();
   const [selectedType, setSelectedType] = useState(initialProduct);
   const [fullName, setFullName] = useState("");
   const [phone, setPhone] = useState("");
@@ -52,76 +54,50 @@ export default function ProposalSection({ initialProduct = "kasko" }: ProposalPr
     }
   }, [initialProduct]);
 
-  const insuranceTypes = [
-    { id: "kasko", name: "Auto", icon: Car, tag: "Comprehensive" },
-    { id: "trafik", name: "Liability", icon: ShieldAlert, tag: "Third-Party" },
-    { id: "saglik", name: "Health", icon: HeartPulse, tag: "Executive Care" },
-    { id: "konut", name: "Estate", icon: Home, tag: "Home & Art" },
-    { id: "dask", name: "Disaster", icon: Building2, tag: "Catastrophe" },
-    { id: "isyeri", name: "Commercial", icon: Briefcase, tag: "Business Shield" },
-    { id: "diger", name: "Bespoke", icon: Sparkles, tag: "Specialty Lines" },
-  ];
+  const typeIcons: Record<string, React.ComponentType<{ className?: string }>> = {
+    kasko: Car,
+    trafik: ShieldAlert,
+    saglik: HeartPulse,
+    konut: Home,
+    dask: Building2,
+    isyeri: Briefcase,
+    diger: Sparkles,
+  };
 
-  const getExtraFieldConfig = () => {
-    switch (selectedType) {
-      case "kasko":
-      case "trafik":
-        return {
-          label: "Vehicle Registration / VIN",
-          placeholder: "e.g. 34 ABC 1234 or VIN",
-          helper: "Official vehicle identification or license plate",
-        };
-      case "saglik":
-        return {
-          label: "Year of Birth & City / Country",
-          placeholder: "e.g. 1988, London / New York",
-          helper: "For actuarial underwriting and regional hospital tiers",
-        };
-      case "konut":
-      case "dask":
-        return {
-          label: "Property Location & Approx. Sq. Ft.",
-          placeholder: "e.g. Manhattan, NY - 3,200 sq ft",
-          helper: "For structural valuation and replacement cost analysis",
-        };
-      case "isyeri":
-        return {
-          label: "Industry Sector & Operational City",
-          placeholder: "e.g. Wealth Advisory / Tech HQ, London",
-          helper: "Primary commercial activities & employee scale",
-        };
-      default:
-        return {
-          label: "Coverage Requirements & Notes",
-          placeholder: "Brief overview of requested protection...",
-          helper: "Superyacht, aviation, fine art collection, cyber, etc.",
-        };
-    }
+  const insuranceTypes = t.proposal.types.map((type) => ({
+    ...type,
+    icon: typeIcons[type.id] || Sparkles,
+  }));
+
+  const extraConfig = t.proposal.fields[selectedType] || t.proposal.fields.kasko || {
+    label: "Details",
+    placeholder: "Enter details",
+    helper: "Required information",
   };
 
   const validate = (): boolean => {
     const errs: FormErrors = {};
 
     if (!fullName.trim() || fullName.trim().length < 3) {
-      errs.fullName = "Please enter a valid full name.";
+      errs.fullName = t.proposal.validation.nameRequired;
     }
 
     const cleanPhone = phone.replace(/[^0-9]/g, "");
     if (!cleanPhone || cleanPhone.length < 10) {
-      errs.phone = "Please enter a valid phone number (at least 10 digits).";
+      errs.phone = t.proposal.validation.phoneRequired;
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!email.trim() || !emailRegex.test(email)) {
-      errs.email = "Please enter a valid email address.";
+      errs.email = t.proposal.validation.emailRequired;
     }
 
     if (!extraField.trim()) {
-      errs.extraField = "Please complete this required field.";
+      errs.extraField = t.proposal.validation.extraRequired;
     }
 
     if (!kvkkAccepted) {
-      errs.kvkk = "You must acknowledge the privacy consent to proceed.";
+      errs.kvkk = t.proposal.validation.consentRequired;
     }
 
     setErrors(errs);
@@ -165,8 +141,6 @@ export default function ProposalSection({ initialProduct = "kasko" }: ProposalPr
     setErrors({});
   };
 
-  const extraConfig = getExtraFieldConfig();
-
   return (
     <section
       id="teklif-al"
@@ -180,16 +154,15 @@ export default function ProposalSection({ initialProduct = "kasko" }: ProposalPr
         <div className="text-center mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs font-mono uppercase tracking-[0.2em] text-silver-300 mb-5">
             <Clock className="w-3.5 h-3.5 text-electric-light" />
-            <span>Multi-Carrier Comparative Quote Engine</span>
+            <span>{t.proposal.badge}</span>
           </div>
 
           <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-medium text-white mb-4">
-            Receive comparative proposals in minutes.
+            {t.proposal.title}
           </h2>
 
           <p className="text-silver-400 text-base sm:text-lg max-w-xl mx-auto font-sans">
-            Select your coverage requirement and our private advisory desk will formulate
-            customized underwriting options across leading global syndicates.
+            {t.proposal.desc}
           </p>
         </div>
 
@@ -209,10 +182,10 @@ export default function ProposalSection({ initialProduct = "kasko" }: ProposalPr
                 <div>
                   <div className="flex items-center justify-between mb-4">
                     <label className="text-xs font-mono uppercase tracking-widest text-silver-300">
-                      1. Select Coverage Type
+                      {t.proposal.step1Label}
                     </label>
                     <span className="text-[11px] font-mono text-silver-500">
-                      Active: {insuranceTypes.find((t) => t.id === selectedType)?.name}
+                      {t.proposal.activeLabel} {insuranceTypes.find((t) => t.id === selectedType)?.name}
                     </span>
                   </div>
 
@@ -253,7 +226,7 @@ export default function ProposalSection({ initialProduct = "kasko" }: ProposalPr
                       htmlFor="extraField"
                       className="text-xs font-mono uppercase tracking-wider text-silver-300"
                     >
-                      2. {extraConfig.label} <span className="text-rose-400">*</span>
+                      {t.proposal.step2Prefix} {extraConfig.label} <span className="text-rose-400">*</span>
                     </label>
                     <span className="text-[11px] text-silver-500 font-sans">
                       {extraConfig.helper}
@@ -280,7 +253,7 @@ export default function ProposalSection({ initialProduct = "kasko" }: ProposalPr
                 {/* STEP 3: CONTACT INFORMATION */}
                 <div>
                   <label className="text-xs font-mono uppercase tracking-widest text-silver-300 block mb-4">
-                    3. Contact Information
+                    {t.proposal.step3Label}
                   </label>
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -290,7 +263,7 @@ export default function ProposalSection({ initialProduct = "kasko" }: ProposalPr
                         type="text"
                         value={fullName}
                         onChange={(e) => setFullName(e.target.value)}
-                        placeholder="Full Name *"
+                        placeholder={t.proposal.fullNamePlaceholder}
                         className={`w-full px-4 py-3 rounded-xl bg-white/[0.04] border text-white placeholder-silver-600 text-sm font-sans focus:outline-none focus:ring-2 focus:ring-electric transition-all ${
                           errors.fullName ? "border-rose-500/70" : "border-white/10"
                         }`}
@@ -308,7 +281,7 @@ export default function ProposalSection({ initialProduct = "kasko" }: ProposalPr
                         type="tel"
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
-                        placeholder="Phone Number *"
+                        placeholder={t.proposal.phonePlaceholder}
                         className={`w-full px-4 py-3 rounded-xl bg-white/[0.04] border text-white placeholder-silver-600 text-sm font-sans focus:outline-none focus:ring-2 focus:ring-electric transition-all ${
                           errors.phone ? "border-rose-500/70" : "border-white/10"
                         }`}
@@ -326,7 +299,7 @@ export default function ProposalSection({ initialProduct = "kasko" }: ProposalPr
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        placeholder="Email Address *"
+                        placeholder={t.proposal.emailPlaceholder}
                         className={`w-full px-4 py-3 rounded-xl bg-white/[0.04] border text-white placeholder-silver-600 text-sm font-sans focus:outline-none focus:ring-2 focus:ring-electric transition-all ${
                           errors.email ? "border-rose-500/70" : "border-white/10"
                         }`}
@@ -350,8 +323,7 @@ export default function ProposalSection({ initialProduct = "kasko" }: ProposalPr
                       className="mt-1 w-4 h-4 rounded border-white/20 bg-white/5 text-electric focus:ring-electric accent-blue-600 cursor-pointer"
                     />
                     <span className="text-xs text-silver-400 group-hover:text-silver-300 font-sans leading-relaxed">
-                      I consent to the processing of my contact information strictly for the
-                      purpose of receiving tailored insurance proposals and risk advisory in compliance with privacy regulations.
+                      {t.proposal.consent}
                     </span>
                   </label>
                   {errors.kvkk && (
@@ -372,11 +344,11 @@ export default function ProposalSection({ initialProduct = "kasko" }: ProposalPr
                     {isSubmitting ? (
                       <>
                         <RefreshCw className="w-4 h-4 animate-spin" />
-                        <span>Aggregating Underwriters...</span>
+                        <span>{t.proposal.submittingBtn}</span>
                       </>
                     ) : (
                       <>
-                        <span>Receive Comparative Quotes</span>
+                        <span>{t.proposal.submitBtn}</span>
                         <ArrowRight className="w-4 h-4" />
                       </>
                     )}
@@ -384,7 +356,7 @@ export default function ProposalSection({ initialProduct = "kasko" }: ProposalPr
 
                   <div className="flex items-center gap-2 text-xs text-silver-500 font-mono">
                     <Lock className="w-3.5 h-3.5 text-emerald-400" />
-                    <span>256-Bit SSL End-to-End Encrypted Submission</span>
+                    <span>{t.proposal.sslNotice}</span>
                   </div>
                 </div>
               </motion.form>
@@ -402,15 +374,15 @@ export default function ProposalSection({ initialProduct = "kasko" }: ProposalPr
                 </div>
 
                 <span className="px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 font-mono text-xs text-silver-300 mb-3">
-                  REFERENCE CODE: <strong className="text-white">{refCode}</strong>
+                  {t.proposal.successCodeLabel}: <strong className="text-white">{refCode}</strong>
                 </span>
 
                 <h3 className="font-serif text-3xl sm:text-4xl text-white font-medium mb-3">
-                  Inquiry Received Successfully.
+                  {t.proposal.successTitle}
                 </h3>
 
                 <p className="text-silver-300 text-base max-w-lg mb-8 font-sans leading-relaxed">
-                  Our private client desk is currently evaluating underwriting terms from top-tier carriers for your <span className="text-electric-light font-medium uppercase">{selectedType}</span> portfolio. An advisor will contact you shortly.
+                  {t.proposal.successDesc}
                 </p>
 
                 {/* FAST DIRECT ACTIONS */}
@@ -423,7 +395,7 @@ export default function ProposalSection({ initialProduct = "kasko" }: ProposalPr
                     className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs uppercase tracking-wider transition-colors shadow-[0_0_20px_rgba(16,185,129,0.4)]"
                   >
                     <WhatsAppIcon className="w-4 h-4 shrink-0 text-white" />
-                    <span>Connect via WhatsApp</span>
+                    <span>{t.proposal.whatsappBtn}</span>
                   </a>
 
                   <button
@@ -431,7 +403,7 @@ export default function ProposalSection({ initialProduct = "kasko" }: ProposalPr
                     className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white/[0.05] hover:bg-white/[0.1] border border-white/10 text-silver-200 font-medium text-xs uppercase tracking-wider transition-colors"
                   >
                     <RefreshCw className="w-4 h-4" />
-                    Submit Another Inquiry
+                    {t.proposal.resetBtn}
                   </button>
                 </div>
               </motion.div>

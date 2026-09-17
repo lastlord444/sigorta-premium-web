@@ -16,9 +16,12 @@ import {
 } from "lucide-react";
 import { siteConfig } from "@/data/siteData";
 import { useLenis } from "@/components/providers/SmoothScrollProvider";
+import { useLanguage } from "@/components/providers/LanguageProvider";
+import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
 
 export default function Footer() {
   const { scrollTo } = useLenis();
+  const { t } = useLanguage();
   const [legalModalContent, setLegalModalContent] = useState<string | null>(null);
 
   const openLegal = (title: string) => {
@@ -54,13 +57,13 @@ export default function Footer() {
                   {siteConfig.name}
                 </span>
                 <span className="text-[10px] tracking-[0.24em] text-silver-400 uppercase font-sans">
-                  Independent Insurance Brokerage
+                  {t.common.brandSubtitle}
                 </span>
               </div>
             </a>
 
             <p className="text-sm text-silver-400 font-sans leading-relaxed mb-6 max-w-sm">
-              Uncompromising coverage structures tailored to high-value assets and individual risk profiles. Comparative multi-carrier syndication.
+              {t.footer.brandDesc}
             </p>
 
             <div className="flex items-center gap-3">
@@ -106,55 +109,55 @@ export default function Footer() {
           {/* PRODUCTS COLUMN */}
           <div className="lg:col-span-2">
             <h4 className="font-mono text-xs uppercase tracking-widest text-white mb-5 font-semibold">
-              Coverages
+              {t.footer.coveragesTitle}
             </h4>
             <ul className="space-y-2.5 text-sm">
               <li>
                 <button
-                  onClick={() => scrollTo("#sigortalar")}
+                  onClick={() => scrollTo("#scene-kasko")}
                   className="text-silver-400 hover:text-white transition-colors cursor-pointer"
                 >
-                  Comprehensive Auto
+                  {t.scenes.navPills[0]?.label || "Auto"}
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => scrollTo("#sigortalar")}
+                  onClick={() => scrollTo("#scene-konut")}
                   className="text-silver-400 hover:text-white transition-colors cursor-pointer"
                 >
-                  Motor Liability
+                  {t.scenes.navPills[1]?.label || "Estate"}
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => scrollTo("#sigortalar")}
+                  onClick={() => scrollTo("#scene-trafik")}
                   className="text-silver-400 hover:text-white transition-colors cursor-pointer"
                 >
-                  Executive Healthcare
+                  {t.scenes.navPills[2]?.label || "Liability"}
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => scrollTo("#sigortalar")}
+                  onClick={() => scrollTo("#scene-saglik")}
                   className="text-silver-400 hover:text-white transition-colors cursor-pointer"
                 >
-                  Estate & Architecture
+                  {t.scenes.navPills[3]?.label || "Health"}
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => scrollTo("#sigortalar")}
+                  onClick={() => scrollTo("#scene-dask")}
                   className="text-silver-400 hover:text-white transition-colors cursor-pointer"
                 >
-                  Catastrophe / DASK
+                  {t.scenes.navPills[4]?.label || "Disaster"}
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => scrollTo("#sigortalar")}
+                  onClick={() => scrollTo("#scene-isyeri")}
                   className="text-silver-400 hover:text-white transition-colors cursor-pointer"
                 >
-                  Commercial Property
+                  {t.scenes.navPills[5]?.label || "Commercial"}
                 </button>
               </li>
             </ul>
@@ -163,7 +166,7 @@ export default function Footer() {
           {/* CORPORATE & NAVIGATION */}
           <div className="lg:col-span-2">
             <h4 className="font-mono text-xs uppercase tracking-widest text-white mb-5 font-semibold">
-              Practice
+              {t.footer.practiceTitle}
             </h4>
             <ul className="space-y-2.5 text-sm">
               <li>
@@ -171,7 +174,7 @@ export default function Footer() {
                   onClick={() => scrollTo("#neden-biz")}
                   className="text-silver-400 hover:text-white transition-colors cursor-pointer"
                 >
-                  Why Choose Us
+                  {t.nav.philosophy}
                 </button>
               </li>
               <li>
@@ -179,7 +182,7 @@ export default function Footer() {
                   onClick={() => scrollTo("#sirketler")}
                   className="text-silver-400 hover:text-white transition-colors cursor-pointer"
                 >
-                  Global Underwriters
+                  {t.nav.underwriters}
                 </button>
               </li>
               <li>
@@ -187,7 +190,7 @@ export default function Footer() {
                   onClick={() => scrollTo("#hakkimizda")}
                   className="text-silver-400 hover:text-white transition-colors cursor-pointer"
                 >
-                  About Our Practice
+                  {t.nav.aboutUs}
                 </button>
               </li>
               <li>
@@ -195,7 +198,7 @@ export default function Footer() {
                   onClick={() => scrollTo("#hasar-destek")}
                   className="text-silver-400 hover:text-white transition-colors cursor-pointer"
                 >
-                  Claims Concierge
+                  {t.nav.claimsDesk}
                 </button>
               </li>
               <li>
@@ -203,7 +206,7 @@ export default function Footer() {
                   onClick={() => scrollTo("#sss")}
                   className="text-silver-400 hover:text-white transition-colors cursor-pointer"
                 >
-                  FAQ
+                  {t.nav.faq}
                 </button>
               </li>
               <li>
@@ -211,7 +214,7 @@ export default function Footer() {
                   onClick={() => scrollTo("#teklif-al")}
                   className="text-silver-400 hover:text-white transition-colors cursor-pointer"
                 >
-                  Request Proposal
+                  {t.common.getQuote}
                 </button>
               </li>
             </ul>
@@ -220,7 +223,7 @@ export default function Footer() {
           {/* CONTACT INFO */}
           <div className="lg:col-span-4">
             <h4 className="font-mono text-xs uppercase tracking-widest text-white mb-5 font-semibold">
-              Headquarters & Inquiries
+              {t.footer.contactTitle}
             </h4>
             <ul className="space-y-3.5 text-sm text-silver-400">
               <li className="flex items-start gap-3">
@@ -258,33 +261,36 @@ export default function Footer() {
         {/* BOTTOM LEGAL & REGULATORY BAR */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-silver-500">
           <div className="flex flex-col sm:flex-row items-center gap-4">
-            <span>© {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</span>
+            <span>© {new Date().getFullYear()} {siteConfig.name}. {t.footer.allRightsReserved}</span>
             <span className="hidden sm:inline">•</span>
             <span>{siteConfig.licenseNo}</span>
           </div>
 
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-4 sm:gap-6 flex-wrap justify-center">
+            {/* Embedded Language Switcher */}
+            <LanguageSwitcher direction="up" />
+
             <button
-              onClick={() => openLegal("Privacy Policy & Regulatory Disclosures")}
+              onClick={() => openLegal(t.footer.legalPrivacyTitle)}
               className="hover:text-silver-300 transition-colors cursor-pointer"
             >
-              Privacy
+              {t.footer.privacy}
             </button>
             <button
-              onClick={() => openLegal("Terms of Advisory Engagement")}
+              onClick={() => openLegal(t.footer.legalTermsTitle)}
               className="hover:text-silver-300 transition-colors cursor-pointer"
             >
-              Terms
+              {t.footer.terms}
             </button>
             <button
-              onClick={() => openLegal("Cookie & Tracking Policy")}
+              onClick={() => openLegal(t.footer.legalCookiesTitle)}
               className="hover:text-silver-300 transition-colors cursor-pointer"
             >
-              Cookies
+              {t.footer.cookies}
             </button>
             <button
               onClick={() => scrollTo(0)}
-              aria-label="Back to Top"
+              aria-label={t.footer.backToTop}
               className="p-2 rounded-lg bg-white/[0.04] border border-white/10 hover:text-white transition-colors cursor-pointer"
             >
               <ArrowUp className="w-3.5 h-3.5" />
@@ -303,21 +309,15 @@ export default function Footer() {
               </h3>
               <button
                 onClick={closeLegal}
-                className="p-1 rounded-lg hover:bg-white/10 text-silver-400 hover:text-white"
+                className="p-1 rounded-lg hover:bg-white/10 text-silver-400 hover:text-white cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
             <div className="text-xs leading-relaxed space-y-3">
-              <p>
-                In accordance with international data privacy frameworks (including GDPR) and applicable insurance regulatory guidelines, personal data processed by {siteConfig.name} is handled strictly for risk assessment, multi-carrier policy formulation, underwriting syndication, and claims representation.
-              </p>
-              <p>
-                Your contact details and risk disclosures are shared solely with authorized underwriting insurance syndicates, authorized loss adjusters, and statutory oversight authorities. We do not sell, barter, or distribute your private client information to third-party marketing entities.
-              </p>
-              <p>
-                To exercise your data protection rights, request full record deletion, or inquire about underwriting disclosures, contact our privacy desk directly at {siteConfig.email}.
-              </p>
+              {t.footer.legalDisclosures.map((disclosure, idx) => (
+                <p key={idx}>{disclosure}</p>
+              ))}
             </div>
           </div>
         </div>

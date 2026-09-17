@@ -3,8 +3,10 @@
 import React from "react";
 import { partnerCompanies } from "@/data/siteData";
 import { Building } from "lucide-react";
+import { useLanguage } from "@/components/providers/LanguageProvider";
 
 export default function PartnersMarquee() {
+  const { t } = useLanguage();
   // Duplicate for infinite marquee loop
   const duplicatedPartners = [...partnerCompanies, ...partnerCompanies];
 
@@ -15,10 +17,10 @@ export default function PartnersMarquee() {
     >
       <div className="max-w-7xl mx-auto px-6 mb-8 text-center">
         <p className="text-[11px] font-mono tracking-[0.25em] uppercase text-silver-400">
-          Underwritten by Global Leaders
+          {t.marquee.badge}
         </p>
         <p className="text-xs text-silver-500 mt-1">
-          Comparative quotes and institutional syndication across premier international carriers
+          {t.marquee.subtext}
         </p>
       </div>
 

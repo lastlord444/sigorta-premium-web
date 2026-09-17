@@ -4,9 +4,11 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus, HelpCircle, ArrowUpRight } from "lucide-react";
 import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
-import { faqItems, siteConfig } from "@/data/siteData";
+import { siteConfig } from "@/data/siteData";
+import { useLanguage } from "@/components/providers/LanguageProvider";
 
 export default function FaqSection() {
+  const { t } = useLanguage();
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggleAccordion = (index: number) => {
@@ -23,21 +25,21 @@ export default function FaqSection() {
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs font-mono uppercase tracking-[0.2em] text-silver-300 mb-5">
             <HelpCircle className="w-3.5 h-3.5 text-electric-light" />
-            <span>Knowledge Base</span>
+            <span>{t.faq.badge}</span>
           </div>
 
           <h2 className="font-serif text-3xl sm:text-5xl font-medium text-white mb-4">
-            Frequently Asked Questions
+            {t.faq.title}
           </h2>
 
           <p className="text-silver-400 text-base max-w-xl mx-auto font-sans">
-            Insights on bespoke policy structuring, multi-carrier coverage limits, and rapid claims management.
+            {t.faq.desc}
           </p>
         </div>
 
         {/* ACCORDION LIST */}
         <div className="space-y-4">
-          {faqItems.map((item, idx) => {
+          {t.faq.items.map((item, idx) => {
             const isOpen = openIndex === idx;
             return (
               <div
@@ -84,7 +86,7 @@ export default function FaqSection() {
                       <div className="px-6 pb-6 pt-1 text-silver-400 font-sans text-sm sm:text-base leading-relaxed border-t border-white/[0.04]">
                         <p>{item.answer}</p>
                         <div className="mt-3 flex items-center gap-2 text-xs font-mono text-silver-500">
-                          <span>Coverage Category:</span>
+                          <span>{t.faq.categoryLabel}</span>
                           <span className="text-silver-300">{item.category}</span>
                         </div>
                       </div>
@@ -99,7 +101,7 @@ export default function FaqSection() {
         {/* EXTRA QUESTION FOOTER */}
         <div className="mt-12 text-center p-6 rounded-2xl bg-white/[0.02] border border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4">
           <span className="text-sm text-silver-400">
-            Have a specific scenario or unique underwriting inquiry?
+            {t.faq.extraQuestionText}
           </span>
           <a
             href={`https://wa.me/${siteConfig.whatsappRaw}?text=I%20have%20a%20specific%20inquiry%20regarding%20insurance%20coverage.`}
@@ -109,7 +111,7 @@ export default function FaqSection() {
             className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-emerald-400 hover:text-emerald-300 transition-colors"
           >
             <WhatsAppIcon className="w-4 h-4 text-emerald-400" />
-            <span>Consult Our Advisors on WhatsApp</span>
+            <span>{t.faq.extraQuestionBtn}</span>
             <ArrowUpRight className="w-4 h-4 text-silver-400" />
           </a>
         </div>

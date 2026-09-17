@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import CinematicInsuranceScene from "@/components/sections/CinematicInsuranceScene";
 import { useLenis } from "@/components/providers/SmoothScrollProvider";
+import { useLanguage } from "@/components/providers/LanguageProvider";
 
 interface ScrollStorytellingProps {
   onSelectProductForQuote?: (productId: string) => void;
@@ -20,6 +21,7 @@ export default function ScrollStorytelling({
   onSelectProductForQuote,
 }: ScrollStorytellingProps) {
   const { scrollTo } = useLenis();
+  const { t } = useLanguage();
 
   const handleQuoteClick = (productId: string) => {
     if (onSelectProductForQuote) {
@@ -29,110 +31,80 @@ export default function ScrollStorytelling({
   };
 
   const navItems = [
-    { id: "kasko", order: "01", label: "AUTO", target: "#scene-kasko" },
-    { id: "konut", order: "02", label: "ESTATE", target: "#scene-konut" },
-    { id: "trafik", order: "03", label: "LIABILITY", target: "#scene-trafik" },
-    { id: "saglik", order: "04", label: "HEALTH", target: "#scene-saglik" },
-    { id: "dask", order: "05", label: "DISASTER", target: "#scene-dask" },
-    { id: "isyeri", order: "06", label: "COMMERCIAL", target: "#scene-isyeri" },
+    { id: "kasko", order: "01", label: t.scenes.navPills[0]?.label || "AUTO", target: "#scene-kasko" },
+    { id: "konut", order: "02", label: t.scenes.navPills[1]?.label || "ESTATE", target: "#scene-konut" },
+    { id: "trafik", order: "03", label: t.scenes.navPills[2]?.label || "LIABILITY", target: "#scene-trafik" },
+    { id: "saglik", order: "04", label: t.scenes.navPills[3]?.label || "HEALTH", target: "#scene-saglik" },
+    { id: "dask", order: "05", label: t.scenes.navPills[4]?.label || "DISASTER", target: "#scene-dask" },
+    { id: "isyeri", order: "06", label: t.scenes.navPills[5]?.label || "COMMERCIAL", target: "#scene-isyeri" },
   ];
 
   const scenes = [
     {
       id: "konut",
       order: "02",
-      eyebrow: "02 / LUXURY HOME & ESTATE",
-      title: "Your sanctuary deserves unconditional protection.",
-      description:
-        "Comprehensive coverage safeguarding architectural residences, fine art, private estates, and luxury interiors against catastrophic loss, water intrusion, liability, and structural hazards. 24/7 private concierge restoration included.",
+      eyebrow: t.scenes.estate.eyebrow,
+      title: t.scenes.estate.title,
+      description: t.scenes.estate.description,
       videoSrc: "/videos/konut-dask.mp4",
       poster: "/images/villajpg.jpg",
       alignment: "left" as const,
-      badge: "Private Estate & Residence",
+      badge: t.scenes.estate.badge,
       icon: <Home className="w-4 h-4 text-emerald-400" />,
-      highlights: [
-        "Full replacement cost for prime residential structures",
-        "Fine art, jewelry, and collector's inventory valuation",
-        "24/7 dedicated emergency concierge & rapid restoration",
-        "Comprehensive domestic & personal liability limits",
-      ],
-      ctaText: "Request Estate Coverage Quote",
+      highlights: t.scenes.estate.highlights,
+      ctaText: t.scenes.estate.ctaText,
     },
     {
       id: "trafik",
       order: "03",
-      eyebrow: "03 / MOTOR LIABILITY",
-      title: "Uncompromising security for every mile ahead.",
-      description:
-        "Statutory motor liability upgraded with elevated limits. We benchmark quotes across leading global carriers to guarantee optimal legal indemnification and roadside support.",
+      eyebrow: t.scenes.liability.eyebrow,
+      title: t.scenes.liability.title,
+      description: t.scenes.liability.description,
       videoSrc: undefined,
       alignment: "right" as const,
-      badge: "Mandatory & Excess Liability",
+      badge: t.scenes.liability.badge,
       icon: <ShieldAlert className="w-4 h-4 text-amber-400" />,
-      highlights: [
-        "Full statutory limit alignment with excess indemnity options",
-        "24/7 VIP roadside recovery and nationwide assistance",
-        "Bodily injury and property damage legal indemnification",
-        "Expedited digital policy issuance",
-      ],
-      ctaText: "Request Liability Quote",
+      highlights: t.scenes.liability.highlights,
+      ctaText: t.scenes.liability.ctaText,
     },
     {
       id: "saglik",
       order: "04",
-      eyebrow: "04 / PRIVATE HEALTHCARE",
-      title: "When well-being is at stake, accept no compromises.",
-      description:
-        "Direct access to premier international hospital networks without wait times. Choose your preferred medical specialists and secure comprehensive outpatient and inpatient clinical care.",
+      eyebrow: t.scenes.health.eyebrow,
+      title: t.scenes.health.title,
+      description: t.scenes.health.description,
       videoSrc: undefined,
       alignment: "left" as const,
-      badge: "Individual & Family Executive Health",
+      badge: t.scenes.health.badge,
       icon: <HeartPulse className="w-4 h-4 text-rose-400" />,
-      highlights: [
-        "Unrestricted access to top-tier accredited hospitals",
-        "100% inpatient surgery and comprehensive outpatient care",
-        "Executive annual health screenings & dental coverage",
-        "International treatment and maternity extension options",
-      ],
-      ctaText: "Request Healthcare Quote",
+      highlights: t.scenes.health.highlights,
+      ctaText: t.scenes.health.ctaText,
     },
     {
       id: "dask",
       order: "05",
-      eyebrow: "05 / CATASTROPHE & SEISMIC",
-      title: "Preparedness against nature's unforeseen events.",
-      description:
-        "Compulsory seismic risk underwriting paired with excess disaster insurance. Safeguard your property foundations against seismic shock, tsunami, fire, and structural displacement.",
+      eyebrow: t.scenes.disaster.eyebrow,
+      title: t.scenes.disaster.title,
+      description: t.scenes.disaster.description,
       videoSrc: undefined,
       alignment: "right" as const,
-      badge: "Seismic & Natural Hazard Protection",
+      badge: t.scenes.disaster.badge,
       icon: <Building2 className="w-4 h-4 text-sky-400" />,
-      highlights: [
-        "Maximum statutory pool indemnity limits",
-        "Fast-track post-disaster claim disbursements",
-        "Official compliance for deeds and institutional registry",
-        "Automated renewal and inflation adjustment tracking",
-      ],
-      ctaText: "Inquire Catastrophe Coverage",
+      highlights: t.scenes.disaster.highlights,
+      ctaText: t.scenes.disaster.ctaText,
     },
     {
       id: "isyeri",
       order: "06",
-      eyebrow: "06 / COMMERCIAL PROPERTY",
-      title: "Protect what you have spent years building.",
-      description:
-        "Multi-peril commercial underwriting covering fixed assets, inventory, business interruption, and employer liability. Bespoke solutions from boutique executive suites to multi-site operations.",
+      eyebrow: t.scenes.commercial.eyebrow,
+      title: t.scenes.commercial.title,
+      description: t.scenes.commercial.description,
       videoSrc: undefined,
       alignment: "left" as const,
-      badge: "Corporate Risk Advisory",
+      badge: t.scenes.commercial.badge,
       icon: <Briefcase className="w-4 h-4 text-accent-violet" />,
-      highlights: [
-        "Business interruption & lost revenue reimbursement",
-        "Equipment breakdown, machinery, and inventory coverage",
-        "Third-party, employer, and product liability limits",
-        "Tailored industry-specific risk engineering",
-      ],
-      ctaText: "Request Commercial Quote",
+      highlights: t.scenes.commercial.highlights,
+      ctaText: t.scenes.commercial.ctaText,
     },
   ];
 
@@ -144,10 +116,10 @@ export default function ScrollStorytelling({
           <div>
             <div className="inline-flex items-center gap-2 text-xs font-mono tracking-[0.25em] text-electric-light uppercase mb-2">
               <Shield className="w-3.5 h-3.5" />
-              <span>Coverage Portfolio</span>
+              <span>{t.scenes.headerBadge}</span>
             </div>
             <h2 className="font-serif text-3xl sm:text-5xl font-medium text-white">
-              Precision Underwriting for What Matters Most
+              {t.scenes.headerTitle}
             </h2>
           </div>
 
