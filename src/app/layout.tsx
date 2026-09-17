@@ -4,6 +4,7 @@ import "./globals.css";
 import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
 import CustomCursor from "@/components/ui/CustomCursor";
 import MobileStickyBar from "@/components/ui/MobileStickyBar";
+import FloatingWhatsApp from "@/components/ui/FloatingWhatsApp";
 import { siteConfig } from "@/data/siteData";
 
 const sans = Plus_Jakarta_Sans({
@@ -108,6 +109,7 @@ export default function RootLayout({
           <CustomCursor />
           {children}
           <MobileStickyBar />
+          <FloatingWhatsApp />
         </SmoothScrollProvider>
       </body>
     </html>

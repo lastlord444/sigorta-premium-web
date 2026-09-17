@@ -82,7 +82,18 @@ export default function Navbar() {
           </nav>
 
           {/* RIGHT ACTIONS */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-3">
+            <a
+              href={`https://wa.me/${siteConfig.whatsappRaw}?text=Hello,%20I%20would%20like%20to%20request%20an%20insurance%20quote.`}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp Concierge"
+              className="flex items-center gap-2 text-xs text-emerald-400 hover:text-emerald-300 transition-colors py-2 px-3.5 rounded-full bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/25 cursor-pointer shadow-[0_0_15px_rgba(16,185,129,0.15)] hover:shadow-[0_0_20px_rgba(16,185,129,0.3)]"
+            >
+              <WhatsAppIcon className="w-4 h-4 text-emerald-400" />
+              <span className="font-medium">WhatsApp</span>
+            </a>
+
             <a
               href={`tel:${siteConfig.phoneRaw}`}
               className="hidden xl:flex items-center gap-2 text-xs text-silver-300 hover:text-silver-100 transition-colors py-2 px-3 rounded-full hover:bg-white/[0.04] border border-transparent hover:border-white/10"
