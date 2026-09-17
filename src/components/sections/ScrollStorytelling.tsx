@@ -29,109 +29,110 @@ export default function ScrollStorytelling({
   };
 
   const navItems = [
-    { id: "kasko", order: "01", label: "KASKO", target: "#scene-kasko" },
-    { id: "konut", order: "02", label: "KONUT", target: "#scene-konut" },
-    { id: "trafik", order: "03", label: "TRAFİK", target: "#scene-trafik" },
-    { id: "saglik", order: "04", label: "SAĞLIK", target: "#scene-saglik" },
-    { id: "dask", order: "05", label: "DASK", target: "#scene-dask" },
-    { id: "isyeri", order: "06", label: "İŞYERİ", target: "#scene-isyeri" },
+    { id: "kasko", order: "01", label: "AUTO", target: "#scene-kasko" },
+    { id: "konut", order: "02", label: "ESTATE", target: "#scene-konut" },
+    { id: "trafik", order: "03", label: "LIABILITY", target: "#scene-trafik" },
+    { id: "saglik", order: "04", label: "HEALTH", target: "#scene-saglik" },
+    { id: "dask", order: "05", label: "DISASTER", target: "#scene-dask" },
+    { id: "isyeri", order: "06", label: "COMMERCIAL", target: "#scene-isyeri" },
   ];
 
   const scenes = [
     {
       id: "konut",
       order: "02",
-      eyebrow: "02 / KONUT",
-      title: "Eviniz dört duvardan fazlasıdır.",
+      eyebrow: "02 / LUXURY HOME & ESTATE",
+      title: "Your sanctuary deserves unconditional protection.",
       description:
-        "Evinizi, değerli eşyalarınızı ve anılarınızı yangın, hırsızlık, dahili su sızıntıları ve komşu sorumluluğuna karşı eksiksiz teminat altına alın. Çilingir ve kombi bakım asistanı dahil.",
-      videoSrc: undefined,
+        "Comprehensive coverage safeguarding architectural residences, fine art, private estates, and luxury interiors against catastrophic loss, water intrusion, liability, and structural hazards. 24/7 private concierge restoration included.",
+      videoSrc: "/videos/konut-dask.mp4",
+      poster: "/images/villajpg.jpg",
       alignment: "left" as const,
-      badge: "Tam Kapsamlı Yuva",
+      badge: "Private Estate & Residence",
       icon: <Home className="w-4 h-4 text-emerald-400" />,
       highlights: [
-        "Bina ve eşya tam değer koruması",
-        "Komşu ve kiracı mali sorumluluğu",
-        "7/24 çilingir, camcı ve tesisatçı asistanı",
-        "Elektronik cihaz arıza güvencesi",
+        "Full replacement cost for prime residential structures",
+        "Fine art, jewelry, and collector's inventory valuation",
+        "24/7 dedicated emergency concierge & rapid restoration",
+        "Comprehensive domestic & personal liability limits",
       ],
-      ctaText: "Konut Sigortası Teklifi Al",
+      ctaText: "Request Estate Coverage Quote",
     },
     {
       id: "trafik",
       order: "03",
-      eyebrow: "03 / TRAFİK SİGORTASI",
-      title: "Yola çıktığınız her anda yanınızda.",
+      eyebrow: "03 / MOTOR LIABILITY",
+      title: "Uncompromising security for every mile ahead.",
       description:
-        "Zorunlu mali sorumluluk sigortanızı yalnızca yasal zorunluluk olarak görmeyin. Birden fazla sigorta şirketinden teklifleri karşılaştırarak ihtiyacınıza en uygun teminatlara ulaşın.",
+        "Statutory motor liability upgraded with elevated limits. We benchmark quotes across leading global carriers to guarantee optimal legal indemnification and roadside support.",
       videoSrc: undefined,
       alignment: "right" as const,
-      badge: "Zorunlu Mali Mesuliyet",
+      badge: "Mandatory & Excess Liability",
       icon: <ShieldAlert className="w-4 h-4 text-amber-400" />,
       highlights: [
-        "Yasal üst limitlerle tam uyumlu koruma",
-        "7/24 ücretsiz yol yardım ve çekici",
-        "Maddi ve bedeni üçüncü şahıs teminatı",
-        "Hızlı poliçe tanzimi",
+        "Full statutory limit alignment with excess indemnity options",
+        "24/7 VIP roadside recovery and nationwide assistance",
+        "Bodily injury and property damage legal indemnification",
+        "Expedited digital policy issuance",
       ],
-      ctaText: "Trafik Sigortası Teklifi Al",
+      ctaText: "Request Liability Quote",
     },
     {
       id: "saglik",
       order: "04",
-      eyebrow: "04 / ÖZEL SAĞLIK",
-      title: "Sağlığınız söz konusu olduğunda beklemeyin.",
+      eyebrow: "04 / PRIVATE HEALTHCARE",
+      title: "When well-being is at stake, accept no compromises.",
       description:
-        "Geniş anlaşmalı özel hastane ağlarında sıra beklemeden, doktorunuzu özgürce seçerek tedavi olun. Tamamlayıcı ve Özel Sağlık planlarıyla ailenizin geleceğini koruyun.",
+        "Direct access to premier international hospital networks without wait times. Choose your preferred medical specialists and secure comprehensive outpatient and inpatient clinical care.",
       videoSrc: undefined,
       alignment: "left" as const,
-      badge: "Bireysel & Aile Sağlığı",
+      badge: "Individual & Family Executive Health",
       icon: <HeartPulse className="w-4 h-4 text-rose-400" />,
       highlights: [
-        "Geniş özel hastane ağları",
-        "Yatarak ve ayakta tedavi güvencesi",
-        "Yıllık check-up ve diş bakım seçenekleri",
-        "Doğum ve ek tedavi opsiyonları",
+        "Unrestricted access to top-tier accredited hospitals",
+        "100% inpatient surgery and comprehensive outpatient care",
+        "Executive annual health screenings & dental coverage",
+        "International treatment and maternity extension options",
       ],
-      ctaText: "Sağlık Sigortası Teklifi Al",
+      ctaText: "Request Healthcare Quote",
     },
     {
       id: "dask",
       order: "05",
-      eyebrow: "05 / DASK",
-      title: "Beklenmeyene karşı hazırlıklı olun.",
+      eyebrow: "05 / CATASTROPHE & SEISMIC",
+      title: "Preparedness against nature's unforeseen events.",
       description:
-        "Zorunlu Deprem Sigortası ile binanızı deprem ve deprem kaynaklı risklere karşı güvenceye alın. En güncel metrekare teminatlarıyla poliçenizi yenileyin.",
+        "Compulsory seismic risk underwriting paired with excess disaster insurance. Safeguard your property foundations against seismic shock, tsunami, fire, and structural displacement.",
       videoSrc: undefined,
       alignment: "right" as const,
-      badge: "Zorunlu Deprem Teminatı",
+      badge: "Seismic & Natural Hazard Protection",
       icon: <Building2 className="w-4 h-4 text-sky-400" />,
       highlights: [
-        "Yasal DASK teminat tavanı koruması",
-        "Deprem sonrası doğrudan hasar tazmini",
-        "Abonelik işlemleri için resmi kayıt",
-        "Hızlı sorgulama ve tanzim",
+        "Maximum statutory pool indemnity limits",
+        "Fast-track post-disaster claim disbursements",
+        "Official compliance for deeds and institutional registry",
+        "Automated renewal and inflation adjustment tracking",
       ],
-      ctaText: "DASK Poliçesi Sorgula",
+      ctaText: "Inquire Catastrophe Coverage",
     },
     {
       id: "isyeri",
       order: "06",
-      eyebrow: "06 / İŞYERİ SİGORTASI",
-      title: "Yıllarca kurduğunuz işi tek poliçeyle riske bırakmayın.",
+      eyebrow: "06 / COMMERCIAL PROPERTY",
+      title: "Protect what you have spent years building.",
       description:
-        "İşletmenizin demirbaşlarını, emtiasını, çalışanlarını ve iş durması risklerini çok yönlü teminat paketiyle koruyun. Butik ofislerden büyük ölçekli tesislere özel çözümler.",
+        "Multi-peril commercial underwriting covering fixed assets, inventory, business interruption, and employer liability. Bespoke solutions from boutique executive suites to multi-site operations.",
       videoSrc: undefined,
       alignment: "left" as const,
-      badge: "Kurumsal Risk Yönetimi",
+      badge: "Corporate Risk Advisory",
       icon: <Briefcase className="w-4 h-4 text-accent-violet" />,
       highlights: [
-        "İş durması & ciro kaybı telafisi",
-        "Demirbaş, makine kırılması ve emtia",
-        "Üçüncü şahıs & işveren mali mesuliyet",
-        "Sektöre özel risk analizi",
+        "Business interruption & lost revenue reimbursement",
+        "Equipment breakdown, machinery, and inventory coverage",
+        "Third-party, employer, and product liability limits",
+        "Tailored industry-specific risk engineering",
       ],
-      ctaText: "İşyeri Sigortası Teklifi Al",
+      ctaText: "Request Commercial Quote",
     },
   ];
 
@@ -143,10 +144,10 @@ export default function ScrollStorytelling({
           <div>
             <div className="inline-flex items-center gap-2 text-xs font-mono tracking-[0.25em] text-electric-light uppercase mb-2">
               <Shield className="w-3.5 h-3.5" />
-              <span>Güvence Portföyü</span>
+              <span>Coverage Portfolio</span>
             </div>
             <h2 className="font-serif text-3xl sm:text-5xl font-medium text-white">
-              Değerlerinizi Doğru Teminatla Koruyun
+              Precision Underwriting for What Matters Most
             </h2>
           </div>
 
@@ -177,6 +178,7 @@ export default function ScrollStorytelling({
             title={scene.title}
             description={scene.description}
             videoSrc={scene.videoSrc}
+            poster={scene.poster}
             alignment={scene.alignment}
             badge={scene.badge}
             highlights={scene.highlights}

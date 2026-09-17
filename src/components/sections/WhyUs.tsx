@@ -26,19 +26,18 @@ export default function WhyUs() {
         <div className="max-w-3xl mb-20">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs font-mono uppercase tracking-[0.2em] text-silver-300 mb-6">
             <ShieldCheck className="w-3.5 h-3.5 text-electric-light" />
-            <span>Felsefemiz & Yaklaşımımız</span>
+            <span>Our Philosophy & Approach</span>
           </div>
 
           <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-medium leading-[1.15] text-white">
-            Poliçe satmıyoruz.{" "}
+            We do not sell standard policies.{" "}
             <span className="block italic font-light bg-gradient-to-r from-silver-100 via-silver-300 to-electric-light bg-clip-text text-transparent">
-              Doğru teminatı buluyoruz.
+              We engineer precision protection.
             </span>
           </h2>
 
           <p className="mt-6 text-silver-400 text-base sm:text-lg font-sans leading-relaxed">
-            Klasik acentelerin komisyon odaklı ezberlerinden ayrılıyoruz. Sizin risk haritanızı çıkarıyor, 
-            birden fazla sigorta şirketinin tekliflerini inceleyerek gerçekten ihtiyaç duyduğunuz korumayı inşa ediyoruz.
+            We depart from conventional commission-driven brokerage models. By mapping your holistic exposure profile and conducting rigorous multi-carrier syndicate comparisons, we construct institutional coverage tailored for what you hold dearest.
           </p>
         </div>
 

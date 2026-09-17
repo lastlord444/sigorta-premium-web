@@ -32,20 +32,20 @@ export default function MobileStickyBar() {
             <a
               href={`tel:${siteConfig.phoneRaw}`}
               className="flex-1 min-w-0 h-[52px] min-h-[50px] max-h-[56px] rounded-xl bg-white/[0.06] hover:bg-white/[0.1] active:bg-white/[0.12] border border-white/15 text-silver-100 flex items-center justify-center gap-2 px-3 transition-colors text-sm font-semibold tracking-wide"
-              aria-label={`Hemen Ara: ${siteConfig.phone}`}
+              aria-label={`Call Concierge: ${siteConfig.phone}`}
             >
               <span className="w-7 h-7 min-w-[28px] min-h-[28px] flex items-center justify-center shrink-0">
                 <Phone className="w-5 h-5 text-emerald-400" />
               </span>
-              <span className="text-sm font-semibold truncate">Hemen Ara</span>
+              <span className="text-sm font-semibold truncate">Call Now</span>
             </a>
 
             <a
-              href={`https://wa.me/${siteConfig.whatsappRaw}?text=Merhaba,%20hızlı%20sigorta%20teklifi%20almak%20istiyorum.`}
+              href={`https://wa.me/${siteConfig.whatsappRaw}?text=Hello,%20I%20would%20like%20to%20request%20an%20insurance%20quote.`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex-1 min-w-0 h-[52px] min-h-[50px] max-h-[56px] rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 active:brightness-95 border border-emerald-400/40 text-white flex items-center justify-center gap-2 px-3 shadow-[0_0_20px_rgba(16,185,129,0.3)] transition-all text-sm font-semibold tracking-wide"
-              aria-label="WhatsApp'tan iletişime geç"
+              aria-label="Contact via WhatsApp"
             >
               <span className="w-7 h-7 min-w-[28px] min-h-[28px] flex items-center justify-center shrink-0">
                 <WhatsAppIcon className="w-5 h-5 text-white" />

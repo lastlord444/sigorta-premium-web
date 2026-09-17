@@ -22,12 +22,12 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { label: "Sigortalar", href: "#sigortalar" },
-    { label: "Neden Biz?", href: "#neden-biz" },
-    { label: "Şirketler", href: "#sirketler" },
-    { label: "Hasar Destek", href: "#hasar-destek" },
-    { label: "Hakkımızda", href: "#hakkimizda" },
-    { label: "SSS", href: "#sss" },
+    { label: "Coverage", href: "#sigortalar" },
+    { label: "Philosophy", href: "#neden-biz" },
+    { label: "Underwriters", href: "#sirketler" },
+    { label: "Claims Desk", href: "#hasar-destek" },
+    { label: "About Us", href: "#hakkimizda" },
+    { label: "FAQ", href: "#sss" },
   ];
 
   const handleNavClick = (href: string) => {
@@ -63,7 +63,7 @@ export default function Navbar() {
                 {siteConfig.name}
               </span>
               <span className="text-[10px] tracking-[0.24em] text-silver-400 uppercase font-sans -mt-0.5">
-                Bağımsız Acente
+                Private Advisory
               </span>
             </div>
           </a>
@@ -101,7 +101,7 @@ export default function Navbar() {
               onClick={() => handleNavClick("#teklif-al")}
               className="text-xs px-5 py-2.5"
             >
-              Teklif Al
+              Get a Quote
               <ArrowUpRight className="w-3.5 h-3.5" />
             </MagneticButton>
           </div>
@@ -109,10 +109,10 @@ export default function Navbar() {
           {/* MOBILE CONTROLS (WhatsApp + Hamburger) */}
           <div className="flex lg:hidden items-center gap-2">
             <a
-              href={`https://wa.me/${siteConfig.whatsappRaw}?text=Merhaba,%20hızlı%20sigorta%20teklifi%20almak%20istiyorum.`}
+              href={`https://wa.me/${siteConfig.whatsappRaw}?text=Hello,%20I%20would%20like%20to%20request%20an%20insurance%20quote.`}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="WhatsApp İletişim"
+              aria-label="WhatsApp Contact"
               className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center transition-colors"
             >
               <WhatsAppIcon className="w-[22px] h-[22px] text-emerald-400" />
@@ -120,7 +120,7 @@ export default function Navbar() {
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Menüyü Aç/Kapat"
+              aria-label="Toggle Menu"
               className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl bg-white/[0.05] border border-white/10 text-silver-200 hover:text-white flex items-center justify-center transition-colors focus:outline-none"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -141,7 +141,7 @@ export default function Navbar() {
           >
             <div className="flex flex-col gap-5">
               <p className="text-[11px] tracking-[0.25em] text-silver-400 uppercase font-mono">
-                Navigasyon
+                Navigation
               </p>
               {navLinks.map((link, idx) => (
                 <motion.button
@@ -161,17 +161,17 @@ export default function Navbar() {
             <div className="flex flex-col gap-3 pt-6 border-t border-white/[0.08]">
               <div className="flex items-center gap-2 text-xs text-emerald-400">
                 <CheckCircle2 className="w-4 h-4" />
-                <span>7/24 Kesintisiz Hasar Destek Masası Aktif</span>
+                <span>24/7 Dedicated Claims Desk Active</span>
               </div>
               <a
-                href={`https://wa.me/${siteConfig.whatsappRaw}?text=Merhaba,%20hızlı%20sigorta%20teklifi%20almak%20istiyorum.`}
+                href={`https://wa.me/${siteConfig.whatsappRaw}?text=Hello,%20I%20would%20like%20to%20request%20an%20insurance%20quote.`}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="WhatsApp İletişim"
+                aria-label="WhatsApp Contact"
                 className="flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 text-white font-semibold text-sm shadow-[0_0_15px_rgba(16,185,129,0.3)]"
               >
                 <WhatsAppIcon className="w-4 h-4 text-white" />
-                <span>WhatsApp İletişim</span>
+                <span>WhatsApp Concierge</span>
               </a>
               <a
                 href={`tel:${siteConfig.phoneRaw}`}
@@ -184,7 +184,7 @@ export default function Navbar() {
                 onClick={() => handleNavClick("#teklif-al")}
                 className="w-full py-3.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold text-sm uppercase tracking-wider shadow-[0_0_20px_rgba(0,102,255,0.4)]"
               >
-                Hemen Teklif Al
+                Get a Quote Now
               </button>
             </div>
           </motion.div>

@@ -15,10 +15,10 @@ export default function PartnersMarquee() {
     >
       <div className="max-w-7xl mx-auto px-6 mb-8 text-center">
         <p className="text-[11px] font-mono tracking-[0.25em] uppercase text-silver-400">
-          Sigorta Şirketleri
+          Underwritten by Global Leaders
         </p>
         <p className="text-xs text-silver-500 mt-1">
-          Birden fazla şirketten karşılaştırmalı teklif seçenekleri
+          Comparative quotes and institutional syndication across premier international carriers
         </p>
       </div>
 

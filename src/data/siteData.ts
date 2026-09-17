@@ -37,16 +37,16 @@ export interface FaqItem {
 }
 
 export const siteConfig = {
-  name: "AURA SİGORTA",
-  tagline: "Bağımsız & Premium Sigorta Danışmanlığı",
-  licenseNo: "Bağımsız Sigorta Danışmanlığı",
-  phone: "+90 (850) 308 44 20",
-  phoneRaw: "+908503084420",
-  whatsapp: "+90 (532) 100 20 20",
-  whatsappRaw: "905321002020",
-  email: "destek@aurasigorta.com.tr",
-  address: "Büyükdere Cad. No: 193, Levent Loft, Kat: 14, Beşiktaş / İstanbul",
-  workingHours: "Hafta İçi: 08:30 - 18:30 | 7/24 Hasar Destek Masası",
+  name: "AURA INSURANCE",
+  tagline: "Independent & Bespoke Insurance Advisory",
+  licenseNo: "Licensed Independent Insurance Advisory & Brokerage",
+  phone: "+1 (800) 555-AURA",
+  phoneRaw: "+18005552872",
+  whatsapp: "+1 (555) 019-2020",
+  whatsappRaw: "15550192020",
+  email: "concierge@aurainsurance.com",
+  address: "Financial District, 550 Grand Avenue, Suite 1400",
+  workingHours: "Weekdays: 08:30 - 18:30 | 24/7 Concierge Claims Desk",
   socials: {
     instagram: "https://instagram.com",
     linkedin: "https://linkedin.com",
@@ -59,91 +59,91 @@ export const productsData: InsuranceProduct[] = [
   {
     id: "kasko",
     order: "01",
-    name: "KASKO",
-    headline: "Aracınızı değil, hareket özgürlüğünüzü koruyun.",
-    description: "Kaza, çarpma, doğal afet, yangın ve hırsızlığa karşı aracınızı tam güvenceye alın. İkame araç, orijinal cam değişimi ve yetkili servis güvencesiyle standart poliçelerin ötesine geçin.",
+    name: "COMPREHENSIVE AUTO",
+    headline: "Protect your freedom on every journey.",
+    description: "Full-coverage protection against collision, theft, natural perils, vandalism, and third-party liabilities. Elevate beyond standard policies with agreed-value coverage, prestige loaner vehicles, and OEM certified repair facilities.",
     highlights: [
-      "Orijinal parça & yetkili servis garantisi",
-      "Sınırsız ikame araç seçeneği",
-      "Mini onarım ve çekici asistanı",
-      "Yurtdışı ek teminat olanağı"
+      "OEM replacement parts & certified repair guarantee",
+      "Unlimited prestige loaner vehicle option",
+      "24/7 priority roadside dispatch & towing",
+      "International cross-border coverage extension"
     ],
-    metaBadge: "Genişletilmiş Kasko",
+    metaBadge: "Agreed Value Protection",
     formType: "kasko"
   },
   {
-    id: "trafik",
+    id: "konut",
     order: "02",
-    name: "TRAFİK SİGORTASI",
-    headline: "Yola çıktığınız her anda yanınızda.",
-    description: "Zorunlu mali sorumluluk sigortanızı sadece yasal zorunluluk olarak görmeyin. Birden fazla sigorta şirketinden teklifleri karşılaştırarak bütçenize en uygun teminatlara ulaşın.",
+    name: "ESTATE & PROPERTY",
+    headline: "A home is far more than four walls.",
+    description: "Safeguard your residence, architectural investments, luxury furnishings, and private collections against fire, severe storm, internal water damage, and comprehensive personal liability. Complete with 24/7 emergency artisan support.",
     highlights: [
-      "Yasal üst limitlerle tam uyumlu koruma",
-      "7/24 ücretsiz yol yardım ve çekici",
-      "Maddi ve bedeni üçüncü şahıs teminatı",
-      "Hızlı poliçe tanzimi"
+      "Guaranteed building & contents replacement value",
+      "Global personal & premises liability protection",
+      "24/7 rapid-response emergency home repair concierge",
+      "Smart home systems & valuable electronics coverage"
     ],
-    metaBadge: "Zorunlu Mali Sorumluluk",
+    metaBadge: "Prime Residential Coverage",
+    formType: "konut"
+  },
+  {
+    id: "trafik",
+    order: "03",
+    name: "MOTOR LIABILITY",
+    headline: "Unshakable confidence on every highway.",
+    description: "Far beyond standard statutory minimums. We tailor elevated excess liability limits and comprehensive legal defense packages to ensure complete financial insulation against unexpected multi-party road incidents.",
+    highlights: [
+      "Substantially elevated third-party bodily & property limits",
+      "24/7 complimentary nationwide roadside assistance",
+      "Integrated legal defense & litigation coverage",
+      "Instant digital certificate & automated renewals"
+    ],
+    metaBadge: "Excess Liability Protection",
     formType: "trafik"
   },
   {
     id: "saglik",
-    order: "03",
-    name: "ÖZEL SAĞLIK SİGORTASI",
-    headline: "Sağlığınız söz konusu olduğunda beklemeyin.",
-    description: "Geniş anlaşmalı özel hastane ağlarında sıra beklemeden, doktorunuzu özgürce seçerek tedavi olun. Tamamlayıcı ve Özel Sağlık planlarıyla ailenizin geleceğini koruyun.",
-    highlights: [
-      "Geniş özel hastane ağları",
-      "Yatarak ve ayakta tedavi güvencesi",
-      "Yıllık check-up ve diş bakım seçenekleri",
-      "Doğum ve ek tedavi opsiyonları"
-    ],
-    metaBadge: "Bireysel & Aile Planı",
-    formType: "saglik"
-  },
-  {
-    id: "konut",
     order: "04",
-    name: "KONUT SİGORTASI",
-    headline: "Eviniz dört duvardan fazlasıdır.",
-    description: "Evinizi, değerli eşyalarınızı ve anılarınızı yangın, hırsızlık, su baskını ve dahili su sızıntılarına karşı eksiksiz teminat altına alın. Çilingir ve kombi bakım asistanı dahil.",
+    name: "PRIVATE HEALTH & LIFE",
+    headline: "When health is at stake, compromise is never an option.",
+    description: "Direct priority access to elite private medical centers, top surgical specialists, and world-renowned clinics without waiting lists. Bespoke family wellness, preventive care, and global emergency evacuation.",
     highlights: [
-      "Bina ve eşya tam değer koruması",
-      "Komşu ve kiracı mali sorumluluğu",
-      "7/24 çilingir, camcı ve tesisatçı asistanı",
-      "Elektronik cihaz arıza güvencesi"
+      "Premier global hospital & specialist networks",
+      "Comprehensive inpatient and outpatient medical coverage",
+      "Annual executive wellness & diagnostic screenings",
+      "Worldwide medical concierge & air ambulance dispatch"
     ],
-    metaBadge: "Tam Kapsamlı Yuva",
-    formType: "konut"
+    metaBadge: "Executive Wellness Plan",
+    formType: "saglik"
   },
   {
     id: "dask",
     order: "05",
-    name: "DASK",
-    headline: "Beklenmeyene karşı hazırlıklı olun.",
-    description: "Zorunlu Deprem Sigortası ile binanızı deprem ve deprem kaynaklı risklere karşı güvenceye alın. En güncel metrekare teminatlarıyla poliçenizi yenileyin.",
+    name: "DISASTER & RESILIENCE",
+    headline: "Built to withstand the unexpected.",
+    description: "Robust catastrophic protection insulating your real estate portfolios against earthquake, seismic tremors, flood, and extreme atmospheric phenomena. Backed by institutional reinsurance and rapid claims liquidity.",
     highlights: [
-      "Yasal DASK teminat tavanı koruması",
-      "Deprem sonrası doğrudan hasar tazmini",
-      "Elektrik, su, doğalgaz abonelik uyumlu",
-      "Hızlı sorgulama ve tanzim"
+      "Comprehensive catastrophic & seismic event coverage",
+      "Expedited liquidity payout protocol upon disaster declaration",
+      "Structural reconstruction & temporary accommodation support",
+      "Streamlined institutional underwriting & title verification"
     ],
-    metaBadge: "Zorunlu Deprem Teminatı",
+    metaBadge: "Catastrophe Contingency",
     formType: "dask"
   },
   {
     id: "isyeri",
     order: "06",
-    name: "İŞYERİ SİGORTASI",
-    headline: "Yıllarca kurduğunuz işi tek poliçeyle riske bırakmayın.",
-    description: "İşletmenizin demirbaşlarını, emtiasını, çalışanlarını ve iş durması risklerini çok yönlü teminat paketiyle koruyun. Butik ofislerden büyük ölçekli tesislere özel çözümler.",
+    name: "COMMERCIAL & ENTERPRISE",
+    headline: "Never leave what took decades to build vulnerable.",
+    description: "Multidimensional enterprise risk engineering protecting corporate facilities, machinery, intellectual assets, and key executives. From boutique advisory firms to multi-tier industrial operations.",
     highlights: [
-      "İş durması & ciro kaybı telafisi",
-      "Demirbaş, makine kırılması ve emtia",
-      "Üçüncü şahıs & işveren mali mesuliyet",
-      "Sektöre özel risk analizi"
+      "Business interruption & lost revenue reimbursement",
+      "Machinery breakdown, cyber risk & data restoration",
+      "Comprehensive employer & commercial general liability",
+      "Custom risk audit by certified industry underwriters"
     ],
-    metaBadge: "Kurumsal Risk Yönetimi",
+    metaBadge: "Corporate Risk Advisory",
     formType: "isyeri"
   }
 ];
@@ -152,110 +152,110 @@ export const whyUsAdvantages: AdvantageItem[] = [
   {
     id: "multi-quote",
     number: "01",
-    tag: "ÇOKLU SEÇENEK",
-    title: "Birden fazla şirketten teklif",
-    description: "Tek bir şirkete bağlı kalmadan, birden fazla güvenilir sigorta şirketinin tekliflerini karşılaştırır, bütçenize ve ihtiyacınıza en uygun teminatı sunarız."
+    tag: "MULTI-CARRIER",
+    title: "Comparative Top-Tier Underwriting",
+    description: "We are never beholden to a single carrier. We benchmark quotes across leading global underwriters to engineer optimal coverage tailored to your budget and exact risk profile."
   },
   {
     id: "tailored-coverage",
     number: "02",
-    tag: "ÖZEL KORUMA",
-    title: "İhtiyacınıza uygun teminat seçenekleri",
-    description: "Gereksiz maddeler yerine yaşam tarzınıza ve gerçek risklerinize odaklanan, size özel teminat seçenekleri tasarlarız."
+    tag: "BESPOKE DESIGN",
+    title: "Precision Coverage Architecture",
+    description: "No generic boilerplate. We eliminate unnecessary exclusions and zero in on your authentic lifestyle and asset vulnerabilities."
   },
   {
     id: "full-lifecycle",
     number: "03",
-    tag: "KESİNTİSİZ İLETİŞİM",
-    title: "Poliçe sürecinde destek",
-    description: "Teklif aşamasından poliçe tanzimine, vade takibinden yenileme dönemlerine kadar sürecin her adımında yanınızdayız."
+    tag: "CONCIERGE CARE",
+    title: "Full Policy Lifecycle Advisory",
+    description: "From initial risk assessment and seamless policy bound execution to annual rate audits and effortless renewals, our advisors stand by your side."
   },
   {
     id: "human-claim",
     number: "04",
-    tag: "DOĞRUDAN YÖNLENDİRME",
-    title: "Hasar anında kesintisiz danışmanlık",
-    description: "Kaza ve hasar anında dosyanızı baştan sona takip eden ve gerekli adımları koordine eden uzman danışmanınızla irtibatta olursunuz."
+    tag: "ADVOCACY",
+    title: "Dedicated Claims Advocacy",
+    description: "When an incident occurs, you never deal with automated call centers. Your assigned claims advocate coordinates adjusters, repair logistics, and rapid financial settlements."
   }
 ];
 
 export const metricsData: MetricItem[] = [
   {
-    value: "Çoklu",
-    label: "Şirket Karşılaştırması",
-    sublabel: "Birden fazla şirketten teklif"
+    value: "20+",
+    label: "Underwriter Partners",
+    sublabel: "Independent multi-carrier benchmark"
   },
   {
-    value: "Esnek",
-    label: "Teminat Seçenekleri",
-    sublabel: "İhtiyacınıza uygun koruma"
+    value: "100%",
+    label: "Bespoke Policies",
+    sublabel: "Tailored to your exact risk profile"
   },
   {
-    value: "Birebir",
-    label: "Danışmanlık Desteği",
-    sublabel: "Poliçe sürecinde destek"
+    value: "24/7",
+    label: "Concierge Assistance",
+    sublabel: "Direct emergency dispatch"
   },
   {
-    value: "Kesintisiz",
-    label: "Hasar Yönlendirmesi",
-    sublabel: "Adım adım dosya takibi"
+    value: "< 15m",
+    label: "Rapid Quote Turnaround",
+    sublabel: "Comparative advisory proposal"
   }
 ];
 
 export const partnerCompanies: PartnerCompany[] = [
-  { id: "allianz", name: "Allianz Sigorta", shortName: "ALLIANZ", category: "Sigorta Şirketi" },
-  { id: "anadolu", name: "Anadolu Sigorta", shortName: "ANADOLU", category: "Sigorta Şirketi" },
-  { id: "axa", name: "Axa Sigorta", shortName: "AXA", category: "Sigorta Şirketi" },
-  { id: "aksigorta", name: "Aksigorta", shortName: "AK SİGORTA", category: "Sigorta Şirketi" },
-  { id: "turkiye", name: "Türkiye Sigorta", shortName: "TÜRKİYE SİGORTA", category: "Sigorta Şirketi" },
-  { id: "sompo", name: "Sompo Sigorta", shortName: "SOMPO", category: "Sigorta Şirketi" },
-  { id: "mapfre", name: "Mapfre Sigorta", shortName: "MAPFRE", category: "Sigorta Şirketi" },
-  { id: "hdi", name: "HDI Sigorta", shortName: "HDI", category: "Sigorta Şirketi" },
-  { id: "neova", name: "Neova Katılım", shortName: "NEOVA", category: "Katılım Sigortacılığı" },
-  { id: "quick", name: "Quick Sigorta", shortName: "QUICK", category: "Sigorta Şirketi" },
-  { id: "ray", name: "Ray Sigorta", shortName: "RAY SİGORTA", category: "Sigorta Şirketi" },
-  { id: "zurich", name: "Zurich Sigorta", shortName: "ZURICH", category: "Sigorta Şirketi" },
+  { id: "allianz", name: "Allianz Global", shortName: "ALLIANZ", category: "Global Underwriter" },
+  { id: "axa", name: "AXA Group", shortName: "AXA", category: "International Insurer" },
+  { id: "zurich", name: "Zurich Insurance", shortName: "ZURICH", category: "Corporate & Personal" },
+  { id: "chubb", name: "Chubb Premium", shortName: "CHUBB", category: "High-Value Asset Underwriter" },
+  { id: "swissre", name: "Swiss Re", shortName: "SWISS RE", category: "Reinsurance & Risk" },
+  { id: "munichre", name: "Munich Re", shortName: "MUNICH RE", category: "Catastrophe Risk" },
+  { id: "mapfre", name: "MAPFRE Global", shortName: "MAPFRE", category: "Multi-Line Insurer" },
+  { id: "generali", name: "Generali Group", shortName: "GENERALI", category: "Global Protection" },
+  { id: "sompo", name: "Sompo International", shortName: "SOMPO", category: "Commercial & Specialty" },
+  { id: "travelers", name: "Travelers", shortName: "TRAVELERS", category: "Business & Personal" },
+  { id: "berkshire", name: "Berkshire Hathaway Specialty", shortName: "BH SPECIALTY", category: "Specialty Lines" },
+  { id: "lloyds", name: "Lloyd's Syndicate", shortName: "LLOYD'S", category: "Specialist Underwriters" },
 ];
 
 export const faqItems: FaqItem[] = [
   {
-    question: "Kasko fiyatı nasıl belirlenir?",
-    answer: "Kasko primi; aracınızın marka, model ve kasko değer listesindeki bedeli, sürücünün hasarsızlık kademesi, ikamet edilen il/ilçe, poliçede seçilen muafiyet ve ikame araç gibi ek teminat seçenekleri doğrultusunda belirlenir. Acentemiz birden fazla şirketin tekliflerini tarayarak en avantajlı seçeneği sunar.",
-    category: "Araç Sigortaları"
+    question: "How is a bespoke comprehensive auto insurance premium determined?",
+    answer: "Premiums are calculated based on the vehicle's market or agreed replacement valuation, driver history and claim-free tier, geographic garaging location, and customized add-ons such as dedicated OEM repair clauses and luxury loaner car provisions. Our brokers scan multiple leading underwriters simultaneously to deliver maximum value.",
+    category: "Automotive Coverage"
   },
   {
-    question: "Trafik sigortası zorunlu mu?",
-    answer: "Evet, 2918 sayılı Karayolları Trafik Kanunu uyarınca trafiğe çıkan her motorlu aracın Zorunlu Mali Sorumluluk (Trafik) Sigortası yaptırması yasal bir zorunluluktur. Sigortasız araçlar tespit edildiğinde trafikten men edilir, ceza uygulanır ve olası bir kazada karşı tarafa verilen tüm hasarlar şahsen ödenmek zorunda kalınır.",
-    category: "Araç Sigortaları"
+    question: "What distinguishes comprehensive estate coverage from standard homeowner policies?",
+    answer: "Standard homeowner policies frequently cap payouts for water backup, architectural finishes, and high-value personal assets. Our prime residential policies provide guaranteed replacement cost coverage, elevated liability limits, worldwide protection for fine art and jewelry, and 24/7 concierge restoration support.",
+    category: "Property & Estate"
   },
   {
-    question: "DASK ile konut sigortası arasındaki fark nedir?",
-    answer: "DASK (Zorunlu Deprem Sigortası), yalnızca deprem ve deprem kaynaklı hasarları devlet tarafından belirlenen resmi metrekare tavan bedeline kadar karşılar; evdeki eşyaları kapsamaz. İsteğe bağlı Konut Sigortası ise DASK tavanını aşan bina hasarlarını, yangını, hırsızlığı, dahili su baskınlarını, cam kırılmasını ve değerli eşyalarınızı tam koruma altına alır.",
-    category: "Ev & Mülk"
+    question: "Can I manage and bind my coverage digitally?",
+    answer: "Yes. After reviewing your comparative proposal with your personal advisor via phone, email, or video consultation, policies can be bound instantly through encrypted digital signing and secure payment gateways, complete with immediate certificate generation.",
+    category: "Advisory & Process"
   },
   {
-    question: "Sağlık sigortasında bekleme süresi nedir?",
-    answer: "Özel sağlık sigortalarında poliçe başlangıç tarihinden önce var olan hastalıklar ile bazı planlı ameliyatlar (örneğin safra kesesi, fıtık, katarakt gibi) için şirketlerce 3 ila 12 ay arasında bekleme süresi uygulanır. Acil durumlar ve kazalar ise poliçeniz başladığı ilk andan itibaren bekleme süresi olmaksızın teminat altındadır.",
-    category: "Sağlık"
+    question: "How does private health insurance handle pre-existing conditions and waiting periods?",
+    answer: "Emergency treatments and unexpected accidental injuries are covered immediately upon policy inception. For planned elective procedures and specific historical health conditions, waiting periods vary between 3 to 12 months depending on the carrier plan. We carefully match your medical profile to the most accommodating underwriter.",
+    category: "Health & Wellness"
   },
   {
-    question: "Hasar durumunda ne yapmalıyım?",
-    answer: "Öncelikle güvenliğinizi sağlayın. Trafik kazasında karşı tarafla birlikte 'Kaza Tespit Tutanağı' düzenleyin ve kaza yerinin fotoğraflarını çekin. Ardından 7/24 Hasar Masamızı arayarak ya da WhatsApp hattımızdan bize ulaşarak dosya açılışını başlatın. Anlaşmalı çekici, ikame araç ve eksper yönlendirmesini acenteniz olarak biz üstleniyoruz.",
-    category: "Hasar & Destek"
+    question: "What exact protocol should I follow in the event of a claim?",
+    answer: "First, ensure personal safety and document the scene with photographs or official reports. Then, contact our 24/7 Concierge Claims Desk immediately via phone or WhatsApp. Your dedicated claims advocate will manage adjuster assignments, emergency towing or home remediation, and expedite carrier settlement.",
+    category: "Claims Advocacy"
   },
   {
-    question: "Poliçemi online olarak alabilir miyim?",
-    answer: "Evet. Teklif talebinizi ilettikten sonra uzman danışmanımız sizin için hazırlanan karşılaştırmalı teklif dosyasını WhatsApp veya e-posta ile iletir. Onayınızın ardından 3D Secure güvenli ödeme bağlantısı üzerinden poliçeniz anında tanzim edilir ve e-Devlet sistemine resmi olarak işlenir.",
-    category: "İşlem Kolaylığı"
+    question: "Why work with an independent broker rather than purchasing directly from an insurer?",
+    answer: "Captive agents can only sell their single company's products. As an independent brokerage, our fiduciary loyalty lies entirely with you. We objectively compare policy clauses, negotiate favorable terms across competing underwriters, and vigorously advocate on your behalf during complex claim disputes.",
+    category: "Why Aura"
   }
 ];
 
 export const proposalOptions = [
-  { id: "kasko", label: "Kasko", icon: "CarFront", desc: "Tam güvenceli araç koruması" },
-  { id: "trafik", label: "Trafik Sigortası", icon: "ShieldAlert", desc: "Zorunlu mali mesuliyet" },
-  { id: "saglik", label: "Özel Sağlık", icon: "HeartPulse", desc: "A+ hastane ve doktor güvencesi" },
-  { id: "konut", label: "Konut Sigortası", icon: "Home", desc: "Bina, eşya ve asistan paketi" },
-  { id: "dask", label: "DASK", icon: "Building2", desc: "Zorunlu deprem sigortası" },
-  { id: "isyeri", label: "İşyeri Sigortası", icon: "Briefcase", desc: "Kurumsal işletme koruması" },
-  { id: "diger", label: "Diğer", icon: "Sparkles", desc: "Seyahat, nakliyat, siber risk vb." },
+  { id: "kasko", label: "Auto Comprehensive", icon: "CarFront", desc: "Agreed-value prestige vehicle protection" },
+  { id: "konut", label: "Estate & Property", icon: "Home", desc: "Full replacement home & contents" },
+  { id: "trafik", label: "Motor Liability", icon: "ShieldAlert", desc: "Elevated statutory & excess liability" },
+  { id: "saglik", label: "Private Health", icon: "HeartPulse", desc: "Elite hospital & specialist access" },
+  { id: "dask", label: "Disaster Resilience", icon: "Building2", desc: "Catastrophic & seismic protection" },
+  { id: "isyeri", label: "Enterprise Risk", icon: "Briefcase", desc: "Commercial property & business continuity" },
+  { id: "diger", label: "Specialty Lines", icon: "Sparkles", desc: "Yacht, aviation, cyber, & fine art" },
 ];

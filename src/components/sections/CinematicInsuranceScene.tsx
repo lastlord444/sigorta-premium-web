@@ -134,12 +134,12 @@ export default function CinematicInsuranceScene({
                 onClick={onQuoteClick}
                 className="group inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600 text-white font-semibold text-xs tracking-wider uppercase shadow-[0_0_25px_rgba(0,102,255,0.3)] hover:shadow-[0_0_35px_rgba(0,102,255,0.5)] transition-all cursor-pointer"
               >
-                <span>{ctaText || "Bu Teminat İçin Teklif Al"}</span>
+                <span>{ctaText || "Request Quote for This Coverage"}</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
 
               <span className="text-xs font-mono text-silver-500">
-                Birden fazla şirketten teklif
+                Comparative Multi-Carrier Underwriting
               </span>
             </div>
           </div>
@@ -153,7 +153,7 @@ export default function CinematicInsuranceScene({
           >
             {videoSrc ? (
               /* FULL-BLEED SEAMLESS CINEMATIC VIDEO (NO UI CARD, NO BORDERS, NO SHADOWS) */
-              <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] overflow-hidden">
+              <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] overflow-hidden rounded-2xl border border-white/[0.08] shadow-[0_20px_60px_rgba(0,0,0,0.7)]">
                 <video
                   ref={videoRef}
                   src={videoSrc}
@@ -161,6 +161,7 @@ export default function CinematicInsuranceScene({
                   muted
                   autoPlay
                   playsInline
+                  loop
                   preload="metadata"
                   className="w-full h-full object-cover object-center scale-[1.02] filter brightness-[0.92] contrast-[1.05]"
                 />
@@ -182,7 +183,7 @@ export default function CinematicInsuranceScene({
                 {/* Top minimalist indicator */}
                 <div className="relative z-10 flex items-center justify-between text-xs font-mono text-silver-500">
                   <span className="tracking-[0.2em] uppercase">{eyebrow}</span>
-                  <span className="text-silver-400">Teminat Paketi</span>
+                  <span className="text-silver-400">Coverage Suite</span>
                 </div>
 
                 {/* Center subtle icon & thematic typography */}
@@ -194,13 +195,13 @@ export default function CinematicInsuranceScene({
                     {badge || title}
                   </h4>
                   <p className="text-xs sm:text-sm text-silver-400 max-w-sm font-sans leading-relaxed">
-                    İhtiyacınıza uygun teminat seçenekleriyle güvence altındasınız.
+                    Protected by bespoke underwriting tailored to your risk profile.
                   </p>
                 </div>
 
                 {/* Bottom subtle detail */}
                 <div className="relative z-10 pt-4 border-t border-white/[0.04] flex items-center justify-between text-[11px] font-mono text-silver-500">
-                  <span>Özelleştirilmiş Koruma</span>
+                  <span>Bespoke Protection</span>
                   <span>{order}</span>
                 </div>
               </div>

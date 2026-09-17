@@ -178,16 +178,15 @@ export default function Hero({ onSelectProductForQuote }: HeroProps) {
         >
           {/* CINEMATIC DISPLAY HEADLINE */}
           <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-white font-medium leading-[1.08] mb-6 max-w-4xl drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)]">
-            Hayat sürprizlerle dolu.{" "}
+            Life is unpredictable.{" "}
             <span className="block italic font-light bg-gradient-to-r from-silver-100 via-silver-200 to-electric-light bg-clip-text text-transparent">
-              Güvencen hazır olsun.
+              Your protection is absolute.
             </span>
           </h1>
 
           {/* SUBTITLE */}
           <p className="text-base sm:text-lg md:text-xl text-silver-300 font-sans max-w-2xl font-normal leading-relaxed mb-10 text-balance drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]">
-            Aracınızdan evinize, sağlığınızdan iş yerinize kadar değer verdiğiniz her
-            şeyi doğru teminatlarla koruyun.
+            From fine automobiles and private estates to executive health and commercial ventures, secure everything you value with bespoke multi-carrier underwriting.
           </p>
 
           {/* CTA BUTTONS */}
@@ -198,7 +197,7 @@ export default function Hero({ onSelectProductForQuote }: HeroProps) {
               onClick={() => scrollTo("#teklif-al")}
               className="w-full sm:w-auto text-sm px-9 py-4 font-semibold tracking-wider shadow-[0_0_35px_rgba(0,102,255,0.45)]"
             >
-              Teklif Al
+              Request a Quote
               <ArrowRight className="w-4 h-4 stroke-[2.2]" />
             </MagneticButton>
 
@@ -208,7 +207,7 @@ export default function Hero({ onSelectProductForQuote }: HeroProps) {
               onClick={() => scrollTo("#sigortalar")}
               className="w-full sm:w-auto text-sm px-8 py-4 text-silver-100 bg-black/40 border-white/20 backdrop-blur-md hover:bg-black/60"
             >
-              Sigortaları İncele
+              Explore Coverages
             </MagneticButton>
           </div>
         </div>
@@ -223,15 +222,15 @@ export default function Hero({ onSelectProductForQuote }: HeroProps) {
           className="hidden md:flex absolute inset-0 z-20 max-w-5xl mx-auto px-6 flex-col justify-center items-center text-center opacity-0 pointer-events-none will-change-transform pt-24 pb-8"
         >
           <span className="font-mono text-xs tracking-[0.3em] text-electric-light uppercase font-semibold mb-3">
-            01 / KASKO
+            01 / AUTOMOBILE
           </span>
 
           <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl text-white font-medium leading-[1.15] mb-5 max-w-3xl drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)]">
-            Hareket özgürlüğünüzü güvence altına alın.
+            Uncompromised protection for premier automobiles.
           </h2>
 
           <p className="text-silver-300 text-sm sm:text-base md:text-lg font-sans leading-relaxed max-w-2xl mb-8 drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]">
-            Kaza, çarpma, doğal afet, yangın ve hırsızlığa karşı aracınızı tam güvenceye alın. İhtiyacınıza uygun teminat seçenekleriyle standart poliçelerin ötesine geçin.
+            Full comprehensive coverage against collision, total loss, natural perils, vandalism, and theft. Customized policy structures engineered beyond standard limitations.
           </p>
 
           {/* HIGHLIGHT CHIPS */}
@@ -239,28 +238,28 @@ export default function Hero({ onSelectProductForQuote }: HeroProps) {
             <div className="flex items-center gap-2.5 p-3 rounded-xl bg-black/50 border border-white/10 backdrop-blur-md">
               <CheckCircle2 className="w-4 h-4 text-electric-light shrink-0" />
               <span className="text-xs sm:text-sm text-silver-200 font-sans">
-                Birden fazla şirketten teklif
+                Multi-carrier comparative quotes
               </span>
             </div>
 
             <div className="flex items-center gap-2.5 p-3 rounded-xl bg-black/50 border border-white/10 backdrop-blur-md">
               <CheckCircle2 className="w-4 h-4 text-electric-light shrink-0" />
               <span className="text-xs sm:text-sm text-silver-200 font-sans">
-                İhtiyacınıza uygun teminat seçenekleri
+                Tailored coverage & agreed value
               </span>
             </div>
 
             <div className="flex items-center gap-2.5 p-3 rounded-xl bg-black/50 border border-white/10 backdrop-blur-md">
               <CheckCircle2 className="w-4 h-4 text-electric-light shrink-0" />
               <span className="text-xs sm:text-sm text-silver-200 font-sans">
-                Poliçe sürecinde destek
+                Concierge claims management
               </span>
             </div>
 
             <div className="flex items-center gap-2.5 p-3 rounded-xl bg-black/50 border border-white/10 backdrop-blur-md">
               <CheckCircle2 className="w-4 h-4 text-electric-light shrink-0" />
               <span className="text-xs sm:text-sm text-silver-200 font-sans">
-                Orijinal parça & servis güvencesi
+                OEM certified replacement parts
               </span>
             </div>
           </div>
@@ -270,7 +269,7 @@ export default function Hero({ onSelectProductForQuote }: HeroProps) {
               onClick={handleKaskoQuote}
               className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600 text-white font-semibold text-xs tracking-wider uppercase shadow-[0_0_25px_rgba(0,102,255,0.4)] hover:shadow-[0_0_35px_rgba(0,102,255,0.6)] transition-all cursor-pointer flex items-center gap-2"
             >
-              <span>Kasko Teklifi Al</span>
+              <span>Request Auto Quote</span>
               <ArrowRight className="w-4 h-4" />
             </button>
 
@@ -278,7 +277,7 @@ export default function Hero({ onSelectProductForQuote }: HeroProps) {
               onClick={() => scrollTo("#sigortalar")}
               className="px-6 py-3.5 rounded-xl bg-black/40 border border-white/20 text-silver-200 hover:text-white font-medium text-xs tracking-wider uppercase backdrop-blur-md transition-all cursor-pointer"
             >
-              Diğer Sigortaları Gör
+              Explore All Coverages
             </button>
           </div>
         </div>
@@ -290,11 +289,11 @@ export default function Hero({ onSelectProductForQuote }: HeroProps) {
         >
           <button
             onClick={() => scrollTo("#scene-kasko")}
-            aria-label="Aşağı kaydır"
+            aria-label="Scroll down"
             className="flex flex-col items-center text-silver-400 hover:text-silver-200 transition-colors cursor-pointer group"
           >
             <span className="text-[10px] tracking-[0.25em] uppercase font-mono mb-1 text-silver-400 group-hover:text-silver-300">
-              Kaydırın
+              Scroll
             </span>
             <ChevronDown className="w-4 h-4 animate-bounce text-electric-light" />
           </button>
@@ -310,43 +309,43 @@ export default function Hero({ onSelectProductForQuote }: HeroProps) {
         className="md:hidden relative z-10 w-full py-16 px-6 text-center flex flex-col items-center bg-navy-950 border-t border-white/[0.06]"
       >
         <span className="font-mono text-xs tracking-[0.3em] text-electric-light uppercase font-semibold mb-3">
-          01 / KASKO
+          01 / AUTOMOBILE
         </span>
 
         <h2 className="font-serif text-3xl text-white font-medium leading-[1.2] mb-4 max-w-sm">
-          Hareket özgürlüğünüzü güvence altına alın.
+          Uncompromised protection for premier automobiles.
         </h2>
 
         <p className="text-silver-300 text-sm font-sans leading-relaxed mb-6 max-w-sm">
-          Kaza, çarpma, doğal afet, yangın ve hırsızlığa karşı aracınızı tam güvenceye alın. İhtiyacınıza uygun teminat seçenekleriyle standart poliçelerin ötesine geçin.
+          Full comprehensive coverage against collision, total loss, natural perils, vandalism, and theft. Customized policy structures engineered beyond standard limitations.
         </p>
 
         <div className="grid grid-cols-1 gap-2.5 w-full max-w-sm mb-6 text-left">
           <div className="flex items-center gap-2.5 p-3 rounded-xl bg-white/[0.03] border border-white/10">
             <CheckCircle2 className="w-4 h-4 text-electric-light shrink-0" />
             <span className="text-xs text-silver-200 font-sans">
-              Birden fazla şirketten teklif
+              Multi-carrier comparative quotes
             </span>
           </div>
 
           <div className="flex items-center gap-2.5 p-3 rounded-xl bg-white/[0.03] border border-white/10">
             <CheckCircle2 className="w-4 h-4 text-electric-light shrink-0" />
             <span className="text-xs text-silver-200 font-sans">
-              İhtiyacınıza uygun teminat seçenekleri
+              Tailored coverage & agreed value
             </span>
           </div>
 
           <div className="flex items-center gap-2.5 p-3 rounded-xl bg-white/[0.03] border border-white/10">
             <CheckCircle2 className="w-4 h-4 text-electric-light shrink-0" />
             <span className="text-xs text-silver-200 font-sans">
-              Poliçe sürecinde destek
+              Concierge claims management
             </span>
           </div>
 
           <div className="flex items-center gap-2.5 p-3 rounded-xl bg-white/[0.03] border border-white/10">
             <CheckCircle2 className="w-4 h-4 text-electric-light shrink-0" />
             <span className="text-xs text-silver-200 font-sans">
-              Orijinal parça & servis güvencesi
+              OEM certified replacement parts
             </span>
           </div>
         </div>
@@ -356,7 +355,7 @@ export default function Hero({ onSelectProductForQuote }: HeroProps) {
             onClick={handleKaskoQuote}
             className="w-full py-3.5 rounded-xl bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600 text-white font-semibold text-xs tracking-wider uppercase shadow-[0_0_25px_rgba(0,102,255,0.4)] flex items-center justify-center gap-2"
           >
-            <span>Kasko Teklifi Al</span>
+            <span>Request Auto Quote</span>
             <ArrowRight className="w-4 h-4" />
           </button>
 
@@ -364,7 +363,7 @@ export default function Hero({ onSelectProductForQuote }: HeroProps) {
             onClick={() => scrollTo("#sigortalar")}
             className="w-full py-3 rounded-xl bg-white/[0.05] border border-white/15 text-silver-300 text-xs font-mono uppercase tracking-wider"
           >
-            Diğer Sigortaları Gör
+            Explore All Coverages
           </button>
         </div>
       </div>

@@ -40,20 +40,20 @@ export default function ClaimSupport() {
   const claimSteps = [
     {
       step: "01",
-      title: "Güvenliği Sağlayın & Fotoğraflayın",
-      desc: "Öncelikle can güvenliğinizi sağlayın. Kaza alanını hareket ettirmeden geniş açılı fotoğraflarını çekin ve Kaza Tespit Tutanağı'nı doldurun.",
+      title: "Secure & Document",
+      desc: "Ensure personal safety first. Capture comprehensive, wide-angle incident photography before relocating vehicles or property, and complete standard accident documentation.",
       icon: FileText,
     },
     {
       step: "02",
-      title: "7/24 Masamızı Arayın",
-      desc: "Hasar destek hattımızı veya WhatsApp hattımızı arayarak acente danışmanınıza bilgi verin. Size en yakın yetkili servisi ve ücretsiz çekiciyi yönlendirelim.",
+      title: "Contact 24/7 Concierge Desk",
+      desc: "Call our emergency claims hotline or initiate instant WhatsApp reporting. We immediately coordinate authorized roadside towing and dispatch accredited adjusters.",
       icon: PhoneCall,
     },
     {
       step: "03",
-      title: "Dosya ve Onarım Takibi",
-      desc: "Eksper atanması, dosya açılışı, ikame araç temini ve sigorta şirketi onay sürecini baştan sona acenteniz olarak bizzat takip edelim.",
+      title: "End-to-End Settlement Tracking",
+      desc: "From independent surveyor appointments and loss assessment to replacement vehicles and insurer payouts, our advisory desk personally champions your file.",
       icon: Truck,
     },
   ];
@@ -71,17 +71,16 @@ export default function ClaimSupport() {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-500/10 border border-rose-500/30 text-xs font-mono uppercase tracking-[0.2em] text-rose-300 mb-5">
             <AlertTriangle className="w-3.5 h-3.5 text-rose-400" />
-            <span>7/24 Acil Müdahale & Dosya Takibi</span>
+            <span>24/7 Rapid Response & Claims Concierge</span>
           </div>
 
           <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-medium text-white mb-6">
-            Hasar olduğunda yalnız değilsiniz.
+            When loss occurs, you are never alone.
           </h2>
 
           <p className="text-silver-400 text-base sm:text-lg font-sans leading-relaxed">
-            Poliçe yaptırmanın asıl sebebi hasar günüdür. Kaza, yangın, su baskını
-            veya sağlık acilinde robotlara değil, dosyanızı sahiplenen gerçek uzmanınıza
-            ulaşırsınız.
+            Insurance is proven on the day of a claim. Whether vehicular damage, estate flooding,
+            or medical emergency, you reach a dedicated private advocate—never an automated call queue.
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -90,7 +89,7 @@ export default function ClaimSupport() {
               className="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-rose-600 to-red-700 hover:from-rose-500 hover:to-red-600 text-white font-semibold text-xs uppercase tracking-wider shadow-[0_0_30px_rgba(225,29,72,0.4)] transition-all cursor-pointer flex items-center justify-center gap-2"
             >
               <ShieldAlert className="w-4 h-4" />
-              <span>Acil Hasar Bildir</span>
+              <span>Report an Incident</span>
             </button>
 
             <a
@@ -98,7 +97,7 @@ export default function ClaimSupport() {
               className="w-full sm:w-auto px-8 py-4 rounded-xl bg-white/[0.05] hover:bg-white/[0.1] border border-white/10 text-silver-100 font-medium text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2"
             >
               <PhoneCall className="w-4 h-4 text-emerald-400" />
-              <span>7/24 Hasar Hattı: {siteConfig.phone}</span>
+              <span>24/7 Claims Desk: {siteConfig.phone}</span>
             </a>
           </div>
         </div>
@@ -118,7 +117,7 @@ export default function ClaimSupport() {
                       <Icon className="w-5 h-5" />
                     </div>
                     <span className="font-mono text-xs font-semibold text-silver-500 tracking-widest">
-                      ADIM {step.step}
+                      STEP {step.step}
                     </span>
                   </div>
                   <h3 className="font-serif text-xl text-white font-medium mb-3">
@@ -137,25 +136,25 @@ export default function ClaimSupport() {
         <div className="rounded-3xl bg-gradient-to-r from-blue-950/40 via-navy-900/60 to-indigo-950/40 border border-white/10 p-8 sm:p-10 flex flex-col lg:flex-row items-center justify-between gap-6">
           <div className="flex flex-col text-center lg:text-left">
             <span className="text-xs font-mono tracking-widest text-electric-light uppercase mb-1">
-              ÖNCELİKLİ WHATSAPP DESTEK HATTI
+              PRIORITY CLAIMS CONCIERGE
             </span>
             <h4 className="font-serif text-2xl text-white font-medium">
-              Kaza tutanağı veya hasar fotoğraflarını anında iletin.
+              Submit accident documentation or scene photographs instantly.
             </h4>
             <p className="text-sm text-silver-400 mt-1">
-              Dosyanız anında ilgili sigorta şirketi eksperine yönlendirilir.
+              Your file is routed immediately to the lead loss adjuster and syndicate claims desk.
             </p>
           </div>
 
           <a
-            href={`https://wa.me/${siteConfig.whatsappRaw}?text=Acil%20hasar%20bildirimi%20yapmak%20istiyorum.`}
+            href={`https://wa.me/${siteConfig.whatsappRaw}?text=I%20need%20to%20report%20an%20urgent%20insurance%20claim.`}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="WhatsApp ile Fotoğraf Gönder"
+            aria-label="Send Incident Details via WhatsApp"
             className="w-full sm:w-auto px-8 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-colors flex items-center justify-center gap-2.5 shrink-0 cursor-pointer"
           >
             <WhatsAppIcon className="w-5 h-5 shrink-0 text-white" />
-            <span>WhatsApp ile Fotoğraf Gönder</span>
+            <span>Send Incident Details via WhatsApp</span>
           </a>
         </div>
       </div>
@@ -182,50 +181,49 @@ export default function ClaimSupport() {
                   <div className="flex items-center gap-2 text-rose-400 mb-2">
                     <ShieldAlert className="w-5 h-5" />
                     <span className="font-mono text-xs uppercase tracking-wider">
-                      Acil Hasar Dosyası Başlat
+                      Initiate Incident File
                     </span>
                   </div>
 
                   <h3 className="font-serif text-2xl text-white font-medium">
-                    Hasar Bildirimi
+                    Report an Incident
                   </h3>
 
                   <p className="text-xs text-silver-400 font-sans">
-                    Bilgilerinizi bırakın, hasar operasyon masamız 5 dakika içinde
-                    sizi arayıp süreci yönlendirsin.
+                    Submit essential details and our emergency claims desk will contact you within 5 minutes to direct field response.
                   </p>
 
                   <div>
                     <label className="block text-xs font-mono text-silver-300 mb-1">
-                      Adınız Soyadınız *
+                      Full Name *
                     </label>
                     <input
                       required
                       type="text"
                       value={claimName}
                       onChange={(e) => setClaimName(e.target.value)}
-                      placeholder="Ad Soyad"
+                      placeholder="Full Name"
                       className="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:ring-2 focus:ring-rose-500 focus:outline-none"
                     />
                   </div>
 
                   <div>
                     <label className="block text-xs font-mono text-silver-300 mb-1">
-                      Telefon Numaranız *
+                      Phone Number *
                     </label>
                     <input
                       required
                       type="tel"
                       value={claimPhone}
                       onChange={(e) => setClaimPhone(e.target.value)}
-                      placeholder="05XX XXX XX XX"
+                      placeholder="+1 (555) 000-0000"
                       className="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:ring-2 focus:ring-rose-500 focus:outline-none"
                     />
                   </div>
 
                   <div>
                     <label className="block text-xs font-mono text-silver-300 mb-1">
-                      Hasar Türü
+                      Claim Category
                     </label>
                     <select
                       value={claimType}
@@ -233,32 +231,32 @@ export default function ClaimSupport() {
                       className="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:ring-2 focus:ring-rose-500 focus:outline-none"
                     >
                       <option value="kasko" className="bg-navy-950">
-                        Kasko / Trafik Kazası
+                        Automobile Collision / Theft
                       </option>
                       <option value="konut" className="bg-navy-950">
-                        Konut / Yangın / Su Baskını
+                        Residential / Fire / Water Intrusion
                       </option>
                       <option value="saglik" className="bg-navy-950">
-                        Sağlık Acil Durumu
+                        Medical Emergency
                       </option>
                       <option value="isyeri" className="bg-navy-950">
-                        İşyeri Hasarı
+                        Commercial Property / Business Interruption
                       </option>
                       <option value="diger" className="bg-navy-950">
-                        Diğer
+                        Other Specialty Claim
                       </option>
                     </select>
                   </div>
 
                   <div>
                     <label className="block text-xs font-mono text-silver-300 mb-1">
-                      Kısa Durum Notu (Opsiyonel)
+                      Brief Incident Summary (Optional)
                     </label>
                     <textarea
                       rows={2}
                       value={claimNote}
                       onChange={(e) => setClaimNote(e.target.value)}
-                      placeholder="Kaza yeri, çekici ihtiyacı veya özet durum..."
+                      placeholder="Location, immediate roadside assistance needed, or damages..."
                       className="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:ring-2 focus:ring-rose-500 focus:outline-none"
                     />
                   </div>
@@ -268,7 +266,7 @@ export default function ClaimSupport() {
                     className="w-full py-3.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-semibold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2"
                   >
                     <Send className="w-4 h-4" />
-                    <span>Hasar Masasını Uyar</span>
+                    <span>Alert Claims Desk</span>
                   </button>
                 </form>
               ) : (
@@ -277,17 +275,16 @@ export default function ClaimSupport() {
                     <CheckCircle2 className="w-8 h-8" />
                   </div>
                   <h4 className="font-serif text-2xl text-white font-medium mb-2">
-                    Hasar Çağrısı Alındı
+                    Claims Alert Dispatched
                   </h4>
                   <p className="text-sm text-silver-300 font-sans mb-6">
-                    Hasar uzmanımız {claimPhone} numaranız üzerinden birkaç dakika
-                    içinde sizinle temas kuracaktır. Geçmiş olsun.
+                    Our emergency claims advocate will contact you at {claimPhone} within minutes. You are in safe hands.
                   </p>
                   <button
                     onClick={closeModal}
                     className="px-6 py-2.5 rounded-xl bg-white/10 text-white text-xs uppercase font-mono tracking-wider hover:bg-white/15"
                   >
-                    Kapat
+                    Close
                   </button>
                 </div>
               )}

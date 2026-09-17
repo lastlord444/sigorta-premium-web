@@ -19,36 +19,36 @@ const serif = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: `${siteConfig.name} | Kasko, Trafik, Sağlık ve Konut Sigortası`,
+  title: `${siteConfig.name} | Bespoke Automobile, Estate, Health & Commercial Insurance`,
   description:
-    "Kasko, trafik, sağlık, konut, DASK ve işyeri sigortalarında birden fazla sigorta şirketinden karşılaştırmalı teklif alın. İhtiyacınıza uygun teminat seçenekleri ve danışmanlık desteği.",
+    "Multi-carrier comparative underwriting for high-value automobiles, prime residential estates, private healthcare, and commercial risk. Bespoke advisory with radical transparency.",
   keywords: [
-    "sigorta acentesi",
-    "kasko teklifi",
-    "trafik sigortası fiyatları",
-    "özel sağlık sigortası",
-    "tamamlayıcı sağlık sigortası",
-    "konut sigortası",
-    "DASK sorgulama",
-    "işyeri sigortası",
-    "bağımsız sigorta acentesi",
+    "private client insurance",
+    "luxury auto insurance",
+    "estate insurance",
+    "private healthcare coverage",
+    "commercial risk advisory",
+    "independent insurance broker",
+    "high-value property underwriting",
+    "multi-carrier quote comparison",
+    "catastrophe insurance",
   ],
   authors: [{ name: siteConfig.name }],
-  metadataBase: new URL("https://sigorta-premium-web.vercel.app"),
+  metadataBase: new URL("https://sigorta-premium-portfolio.vercel.app"),
   openGraph: {
-    title: `${siteConfig.name} | Kasko, Trafik, Sağlık ve Konut Sigortası`,
+    title: `${siteConfig.name} | Bespoke Automobile, Estate, Health & Commercial Insurance`,
     description:
-      "Kasko, trafik, sağlık, konut, DASK ve işyeri sigortalarında farklı sigorta şirketlerinden teklif alın.",
-    url: "https://sigorta-premium-web.vercel.app",
+      "Multi-carrier comparative underwriting for fine automobiles, prime estates, executive healthcare, and commercial assets.",
+    url: "https://sigorta-premium-portfolio.vercel.app",
     siteName: siteConfig.name,
-    locale: "tr_TR",
+    locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} | Premium Sigorta Çözümleri`,
+    title: `${siteConfig.name} | Bespoke Private Insurance Advisory`,
     description:
-      "Kasko, trafik, sağlık ve konut sigortalarında birden fazla şirketten anında karşılaştırma.",
+      "Instant comparative underwriting across premier global insurance syndicates.",
   },
   robots: {
     index: true,
@@ -67,15 +67,15 @@ export default function RootLayout({
     "@type": "InsuranceAgency",
     name: siteConfig.name,
     description:
-      "Birden fazla sigorta şirketinden karşılaştırmalı kasko, trafik, sağlık, konut, DASK ve işyeri teklifleri sunan bağımsız sigorta danışmanlığı.",
-    url: "https://sigorta-premium-web.vercel.app",
+      "Independent private client brokerage delivering multi-carrier underwriting across premier international insurance syndicates.",
+    url: "https://sigorta-premium-portfolio.vercel.app",
     telephone: siteConfig.phone,
     email: siteConfig.email,
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Büyükdere Cad. No: 193, Levent Loft, Kat: 14",
-      addressLocality: "Beşiktaş",
-      addressRegion: "İstanbul",
+      streetAddress: "193 Buyukdere Ave, Levent Loft Suite 14",
+      addressLocality: "Besiktas",
+      addressRegion: "Istanbul",
       addressCountry: "TR",
     },
     openingHoursSpecification: [
@@ -92,11 +92,11 @@ export default function RootLayout({
         closes: "18:30",
       },
     ],
-    priceRange: "$$",
+    priceRange: "$$$",
   };
 
   return (
-    <html lang="tr" className={`${sans.variable} ${serif.variable}`}>
+    <html lang="en" className={`${sans.variable} ${serif.variable}`}>
       <head>
         <script
           type="application/ld+json"

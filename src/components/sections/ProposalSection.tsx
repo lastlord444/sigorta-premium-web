@@ -53,13 +53,13 @@ export default function ProposalSection({ initialProduct = "kasko" }: ProposalPr
   }, [initialProduct]);
 
   const insuranceTypes = [
-    { id: "kasko", name: "Kasko", icon: Car, tag: "Tam Güvence" },
-    { id: "trafik", name: "Trafik", icon: ShieldAlert, tag: "Zorunlu Mali" },
-    { id: "saglik", name: "Sağlık", icon: HeartPulse, tag: "Özel & TSS" },
-    { id: "konut", name: "Konut", icon: Home, tag: "Bina & Eşya" },
-    { id: "dask", name: "DASK", icon: Building2, tag: "Zorunlu Deprem" },
-    { id: "isyeri", name: "İşyeri", icon: Briefcase, tag: "Kurumsal Koruma" },
-    { id: "diger", name: "Diğer", icon: Sparkles, tag: "Özel Branşlar" },
+    { id: "kasko", name: "Auto", icon: Car, tag: "Comprehensive" },
+    { id: "trafik", name: "Liability", icon: ShieldAlert, tag: "Third-Party" },
+    { id: "saglik", name: "Health", icon: HeartPulse, tag: "Executive Care" },
+    { id: "konut", name: "Estate", icon: Home, tag: "Home & Art" },
+    { id: "dask", name: "Disaster", icon: Building2, tag: "Catastrophe" },
+    { id: "isyeri", name: "Commercial", icon: Briefcase, tag: "Business Shield" },
+    { id: "diger", name: "Bespoke", icon: Sparkles, tag: "Specialty Lines" },
   ];
 
   const getExtraFieldConfig = () => {
@@ -67,34 +67,34 @@ export default function ProposalSection({ initialProduct = "kasko" }: ProposalPr
       case "kasko":
       case "trafik":
         return {
-          label: "Araç Plakası",
-          placeholder: "Örn: 34 ABC 1234",
-          helper: "Aracınızın ruhsatındaki plaka no",
+          label: "Vehicle Registration / VIN",
+          placeholder: "e.g. 34 ABC 1234 or VIN",
+          helper: "Official vehicle identification or license plate",
         };
       case "saglik":
         return {
-          label: "Doğum Yılı ve Şehir",
-          placeholder: "Örn: 1988, İstanbul",
-          helper: "Yaş grubu ve anlaşmalı hastane bölgesi için",
+          label: "Year of Birth & City / Country",
+          placeholder: "e.g. 1988, London / New York",
+          helper: "For actuarial underwriting and regional hospital tiers",
         };
       case "konut":
       case "dask":
         return {
-          label: "Bina İl / İlçe ve m²",
-          placeholder: "Örn: Kadıköy, 120 m²",
-          helper: "DASK ve konut teminat hesabı için",
+          label: "Property Location & Approx. Sq. Ft.",
+          placeholder: "e.g. Manhattan, NY - 3,200 sq ft",
+          helper: "For structural valuation and replacement cost analysis",
         };
       case "isyeri":
         return {
-          label: "Sektör ve Şehir",
-          placeholder: "Örn: Bilişim / Ofis, Levent İstanbul",
-          helper: "İşletmenizin faaliyet alanı",
+          label: "Industry Sector & Operational City",
+          placeholder: "e.g. Wealth Advisory / Tech HQ, London",
+          helper: "Primary commercial activities & employee scale",
         };
       default:
         return {
-          label: "Talep Detayı / Notunuz",
-          placeholder: "İhtiyaç duyduğunuz teminat hakkında kısa bilgi...",
-          helper: "Yat, ferdi kaza, siber sigorta vb.",
+          label: "Coverage Requirements & Notes",
+          placeholder: "Brief overview of requested protection...",
+          helper: "Superyacht, aviation, fine art collection, cyber, etc.",
         };
     }
   };
@@ -103,25 +103,25 @@ export default function ProposalSection({ initialProduct = "kasko" }: ProposalPr
     const errs: FormErrors = {};
 
     if (!fullName.trim() || fullName.trim().length < 3) {
-      errs.fullName = "Lütfen geçerli bir ad soyad giriniz.";
+      errs.fullName = "Please enter a valid full name.";
     }
 
     const cleanPhone = phone.replace(/[^0-9]/g, "");
     if (!cleanPhone || cleanPhone.length < 10) {
-      errs.phone = "Lütfen en az 10 haneli geçerli bir telefon numarası giriniz.";
+      errs.phone = "Please enter a valid phone number (at least 10 digits).";
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!email.trim() || !emailRegex.test(email)) {
-      errs.email = "Lütfen geçerli bir e-posta adresi giriniz.";
+      errs.email = "Please enter a valid email address.";
     }
 
     if (!extraField.trim()) {
-      errs.extraField = "Lütfen bu alanı doldurunuz.";
+      errs.extraField = "Please complete this required field.";
     }
 
     if (!kvkkAccepted) {
-      errs.kvkk = "Devam etmek için aydınlatma metnini onaylamalısınız.";
+      errs.kvkk = "You must acknowledge the privacy consent to proceed.";
     }
 
     setErrors(errs);
@@ -180,16 +180,16 @@ export default function ProposalSection({ initialProduct = "kasko" }: ProposalPr
         <div className="text-center mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs font-mono uppercase tracking-[0.2em] text-silver-300 mb-5">
             <Clock className="w-3.5 h-3.5 text-electric-light" />
-            <span>Birden Fazla Şirketten Teklif</span>
+            <span>Multi-Carrier Comparative Quote Engine</span>
           </div>
 
           <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-medium text-white mb-4">
-            Teklif almak birkaç dakikanızı alır.
+            Receive comparative proposals in minutes.
           </h2>
 
           <p className="text-silver-400 text-base sm:text-lg max-w-xl mx-auto font-sans">
-            İhtiyacınız olan güvenceyi seçin; danışmanlarımız birden fazla şirketin
-            tekliflerini sizin için hazırlasın.
+            Select your coverage requirement and our private advisory desk will formulate
+            customized underwriting options across leading global syndicates.
           </p>
         </div>
 
@@ -209,10 +209,10 @@ export default function ProposalSection({ initialProduct = "kasko" }: ProposalPr
                 <div>
                   <div className="flex items-center justify-between mb-4">
                     <label className="text-xs font-mono uppercase tracking-widest text-silver-300">
-                      1. Sigorta Türünü Seçin
+                      1. Select Coverage Type
                     </label>
                     <span className="text-[11px] font-mono text-silver-500">
-                      Aktif: {insuranceTypes.find((t) => t.id === selectedType)?.name}
+                      Active: {insuranceTypes.find((t) => t.id === selectedType)?.name}
                     </span>
                   </div>
 
@@ -280,7 +280,7 @@ export default function ProposalSection({ initialProduct = "kasko" }: ProposalPr
                 {/* STEP 3: CONTACT INFORMATION */}
                 <div>
                   <label className="text-xs font-mono uppercase tracking-widest text-silver-300 block mb-4">
-                    3. İletişim Bilgileriniz
+                    3. Contact Information
                   </label>
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -290,7 +290,7 @@ export default function ProposalSection({ initialProduct = "kasko" }: ProposalPr
                         type="text"
                         value={fullName}
                         onChange={(e) => setFullName(e.target.value)}
-                        placeholder="Adınız Soyadınız *"
+                        placeholder="Full Name *"
                         className={`w-full px-4 py-3 rounded-xl bg-white/[0.04] border text-white placeholder-silver-600 text-sm font-sans focus:outline-none focus:ring-2 focus:ring-electric transition-all ${
                           errors.fullName ? "border-rose-500/70" : "border-white/10"
                         }`}
@@ -308,7 +308,7 @@ export default function ProposalSection({ initialProduct = "kasko" }: ProposalPr
                         type="tel"
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
-                        placeholder="Telefon Numaranız (05XX) *"
+                        placeholder="Phone Number *"
                         className={`w-full px-4 py-3 rounded-xl bg-white/[0.04] border text-white placeholder-silver-600 text-sm font-sans focus:outline-none focus:ring-2 focus:ring-electric transition-all ${
                           errors.phone ? "border-rose-500/70" : "border-white/10"
                         }`}
@@ -326,7 +326,7 @@ export default function ProposalSection({ initialProduct = "kasko" }: ProposalPr
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        placeholder="E-posta Adresiniz *"
+                        placeholder="Email Address *"
                         className={`w-full px-4 py-3 rounded-xl bg-white/[0.04] border text-white placeholder-silver-600 text-sm font-sans focus:outline-none focus:ring-2 focus:ring-electric transition-all ${
                           errors.email ? "border-rose-500/70" : "border-white/10"
                         }`}
@@ -340,7 +340,7 @@ export default function ProposalSection({ initialProduct = "kasko" }: ProposalPr
                   </div>
                 </div>
 
-                {/* KVKK / CONSENT CHECKBOX */}
+                {/* PRIVACY / CONSENT CHECKBOX */}
                 <div className="pt-2">
                   <label className="flex items-start gap-3 cursor-pointer group">
                     <input
@@ -350,9 +350,8 @@ export default function ProposalSection({ initialProduct = "kasko" }: ProposalPr
                       className="mt-1 w-4 h-4 rounded border-white/20 bg-white/5 text-electric focus:ring-electric accent-blue-600 cursor-pointer"
                     />
                     <span className="text-xs text-silver-400 group-hover:text-silver-300 font-sans leading-relaxed">
-                      6698 sayılı KVKK uyarınca kişisel verilerimin teklif
-                      hazırlanması ve sigorta poliçesi bilgilendirmesi amacıyla
-                      işlenmesini, aydınlatma metnini okuduğumu kabul ediyorum.
+                      I consent to the processing of my contact information strictly for the
+                      purpose of receiving tailored insurance proposals and risk advisory in compliance with privacy regulations.
                     </span>
                   </label>
                   {errors.kvkk && (
@@ -373,11 +372,11 @@ export default function ProposalSection({ initialProduct = "kasko" }: ProposalPr
                     {isSubmitting ? (
                       <>
                         <RefreshCw className="w-4 h-4 animate-spin" />
-                        <span>Teklifler taranıyor...</span>
+                        <span>Aggregating Underwriters...</span>
                       </>
                     ) : (
                       <>
-                        <span>Ücretsiz Karşılaştırmalı Teklif Al</span>
+                        <span>Receive Comparative Quotes</span>
                         <ArrowRight className="w-4 h-4" />
                       </>
                     )}
@@ -385,7 +384,7 @@ export default function ProposalSection({ initialProduct = "kasko" }: ProposalPr
 
                   <div className="flex items-center gap-2 text-xs text-silver-500 font-mono">
                     <Lock className="w-3.5 h-3.5 text-emerald-400" />
-                    <span>256-Bit SSL Uçtan Uca Şifreli Güvenli Form</span>
+                    <span>256-Bit SSL End-to-End Encrypted Submission</span>
                   </div>
                 </div>
               </motion.form>
@@ -403,29 +402,28 @@ export default function ProposalSection({ initialProduct = "kasko" }: ProposalPr
                 </div>
 
                 <span className="px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 font-mono text-xs text-silver-300 mb-3">
-                  REFERANS KODU: <strong className="text-white">{refCode}</strong>
+                  REFERENCE CODE: <strong className="text-white">{refCode}</strong>
                 </span>
 
                 <h3 className="font-serif text-3xl sm:text-4xl text-white font-medium mb-3">
-                  Talebiniz alındı.
+                  Inquiry Received Successfully.
                 </h3>
 
                 <p className="text-silver-300 text-base max-w-lg mb-8 font-sans leading-relaxed">
-                  En kısa sürede sizinle iletişime geçeceğiz. Danışmanımız
-                  seçtiğiniz <span className="text-electric-light font-medium uppercase">{selectedType}</span> için birden fazla sigorta şirketinden en avantajlı teminat ve prim seçeneklerini derlemektedir.
+                  Our private client desk is currently evaluating underwriting terms from top-tier carriers for your <span className="text-electric-light font-medium uppercase">{selectedType}</span> portfolio. An advisor will contact you shortly.
                 </p>
 
                 {/* FAST DIRECT ACTIONS */}
                 <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
                   <a
-                    href={`https://wa.me/${siteConfig.whatsappRaw}?text=Merhaba,%20${refCode}%20referans%20koduyla%20${selectedType}%20sigortası%20teklifim%20için%20yazıyorum.`}
+                    href={`https://wa.me/${siteConfig.whatsappRaw}?text=Hello,%20I%20am%20inquiring%20about%20reference%20code%20${refCode}%20for%20${selectedType}%20coverage.`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label="WhatsApp'tan Hemen Yazın"
+                    aria-label="Connect via WhatsApp"
                     className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs uppercase tracking-wider transition-colors shadow-[0_0_20px_rgba(16,185,129,0.4)]"
                   >
                     <WhatsAppIcon className="w-4 h-4 shrink-0 text-white" />
-                    <span>WhatsApp'tan Hemen Yazın</span>
+                    <span>Connect via WhatsApp</span>
                   </a>
 
                   <button
@@ -433,7 +431,7 @@ export default function ProposalSection({ initialProduct = "kasko" }: ProposalPr
                     className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white/[0.05] hover:bg-white/[0.1] border border-white/10 text-silver-200 font-medium text-xs uppercase tracking-wider transition-colors"
                   >
                     <RefreshCw className="w-4 h-4" />
-                    Yeni Teklif Talebi Oluştur
+                    Submit Another Inquiry
                   </button>
                 </div>
               </motion.div>

@@ -54,14 +54,13 @@ export default function Footer() {
                   {siteConfig.name}
                 </span>
                 <span className="text-[10px] tracking-[0.24em] text-silver-400 uppercase font-sans">
-                  Bağımsız Sigorta Acentesi
+                  Independent Insurance Brokerage
                 </span>
               </div>
             </a>
 
             <p className="text-sm text-silver-400 font-sans leading-relaxed mb-6 max-w-sm">
-              Gereksiz maddelerden arındırılmış, ihtiyaca özel teminat seçenekleri.
-              Birden fazla sigorta şirketinin teklifleriyle yanınızdayız.
+              Uncompromising coverage structures tailored to high-value assets and individual risk profiles. Comparative multi-carrier syndication.
             </p>
 
             <div className="flex items-center gap-3">
@@ -107,7 +106,7 @@ export default function Footer() {
           {/* PRODUCTS COLUMN */}
           <div className="lg:col-span-2">
             <h4 className="font-mono text-xs uppercase tracking-widest text-white mb-5 font-semibold">
-              Sigortalar
+              Coverages
             </h4>
             <ul className="space-y-2.5 text-sm">
               <li>
@@ -115,7 +114,7 @@ export default function Footer() {
                   onClick={() => scrollTo("#sigortalar")}
                   className="text-silver-400 hover:text-white transition-colors cursor-pointer"
                 >
-                  Kasko Sigortası
+                  Comprehensive Auto
                 </button>
               </li>
               <li>
@@ -123,7 +122,7 @@ export default function Footer() {
                   onClick={() => scrollTo("#sigortalar")}
                   className="text-silver-400 hover:text-white transition-colors cursor-pointer"
                 >
-                  Trafik Sigortası
+                  Motor Liability
                 </button>
               </li>
               <li>
@@ -131,7 +130,7 @@ export default function Footer() {
                   onClick={() => scrollTo("#sigortalar")}
                   className="text-silver-400 hover:text-white transition-colors cursor-pointer"
                 >
-                  Özel Sağlık Sigortası
+                  Executive Healthcare
                 </button>
               </li>
               <li>
@@ -139,7 +138,7 @@ export default function Footer() {
                   onClick={() => scrollTo("#sigortalar")}
                   className="text-silver-400 hover:text-white transition-colors cursor-pointer"
                 >
-                  Konut Sigortası
+                  Estate & Architecture
                 </button>
               </li>
               <li>
@@ -147,7 +146,7 @@ export default function Footer() {
                   onClick={() => scrollTo("#sigortalar")}
                   className="text-silver-400 hover:text-white transition-colors cursor-pointer"
                 >
-                  DASK
+                  Catastrophe / DASK
                 </button>
               </li>
               <li>
@@ -155,7 +154,7 @@ export default function Footer() {
                   onClick={() => scrollTo("#sigortalar")}
                   className="text-silver-400 hover:text-white transition-colors cursor-pointer"
                 >
-                  İşyeri Sigortası
+                  Commercial Property
                 </button>
               </li>
             </ul>
@@ -164,7 +163,7 @@ export default function Footer() {
           {/* CORPORATE & NAVIGATION */}
           <div className="lg:col-span-2">
             <h4 className="font-mono text-xs uppercase tracking-widest text-white mb-5 font-semibold">
-              Kurumsal
+              Practice
             </h4>
             <ul className="space-y-2.5 text-sm">
               <li>
@@ -172,7 +171,7 @@ export default function Footer() {
                   onClick={() => scrollTo("#neden-biz")}
                   className="text-silver-400 hover:text-white transition-colors cursor-pointer"
                 >
-                  Neden Biz?
+                  Why Choose Us
                 </button>
               </li>
               <li>
@@ -180,7 +179,7 @@ export default function Footer() {
                   onClick={() => scrollTo("#sirketler")}
                   className="text-silver-400 hover:text-white transition-colors cursor-pointer"
                 >
-                  Çözüm Ortakları
+                  Global Underwriters
                 </button>
               </li>
               <li>
@@ -188,7 +187,7 @@ export default function Footer() {
                   onClick={() => scrollTo("#hakkimizda")}
                   className="text-silver-400 hover:text-white transition-colors cursor-pointer"
                 >
-                  Hakkımızda
+                  About Our Practice
                 </button>
               </li>
               <li>
@@ -196,7 +195,7 @@ export default function Footer() {
                   onClick={() => scrollTo("#hasar-destek")}
                   className="text-silver-400 hover:text-white transition-colors cursor-pointer"
                 >
-                  Hasar Destek Masası
+                  Claims Concierge
                 </button>
               </li>
               <li>
@@ -204,7 +203,7 @@ export default function Footer() {
                   onClick={() => scrollTo("#sss")}
                   className="text-silver-400 hover:text-white transition-colors cursor-pointer"
                 >
-                  Sıkça Sorulan Sorular
+                  FAQ
                 </button>
               </li>
               <li>
@@ -212,7 +211,7 @@ export default function Footer() {
                   onClick={() => scrollTo("#teklif-al")}
                   className="text-silver-400 hover:text-white transition-colors cursor-pointer"
                 >
-                  Hızlı Teklif
+                  Request Proposal
                 </button>
               </li>
             </ul>
@@ -221,7 +220,7 @@ export default function Footer() {
           {/* CONTACT INFO */}
           <div className="lg:col-span-4">
             <h4 className="font-mono text-xs uppercase tracking-widest text-white mb-5 font-semibold">
-              İletişim & Merkez
+              Headquarters & Inquiries
             </h4>
             <ul className="space-y-3.5 text-sm text-silver-400">
               <li className="flex items-start gap-3">
@@ -259,33 +258,33 @@ export default function Footer() {
         {/* BOTTOM LEGAL & REGULATORY BAR */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-silver-500">
           <div className="flex flex-col sm:flex-row items-center gap-4">
-            <span>© {new Date().getFullYear()} {siteConfig.name}. Tüm hakları saklıdır.</span>
+            <span>© {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</span>
             <span className="hidden sm:inline">•</span>
             <span>{siteConfig.licenseNo}</span>
           </div>
 
           <div className="flex items-center gap-6">
             <button
-              onClick={() => openLegal("KVKK Aydınlatma Metni")}
+              onClick={() => openLegal("Privacy Policy & Regulatory Disclosures")}
               className="hover:text-silver-300 transition-colors cursor-pointer"
             >
-              KVKK
+              Privacy
             </button>
             <button
-              onClick={() => openLegal("Gizlilik Politikası")}
+              onClick={() => openLegal("Terms of Advisory Engagement")}
               className="hover:text-silver-300 transition-colors cursor-pointer"
             >
-              Gizlilik
+              Terms
             </button>
             <button
-              onClick={() => openLegal("Çerez Politikası")}
+              onClick={() => openLegal("Cookie & Tracking Policy")}
               className="hover:text-silver-300 transition-colors cursor-pointer"
             >
-              Çerez Politikası
+              Cookies
             </button>
             <button
               onClick={() => scrollTo(0)}
-              aria-label="Sayfa Başına Dön"
+              aria-label="Back to Top"
               className="p-2 rounded-lg bg-white/[0.04] border border-white/10 hover:text-white transition-colors cursor-pointer"
             >
               <ArrowUp className="w-3.5 h-3.5" />
@@ -311,19 +310,13 @@ export default function Footer() {
             </div>
             <div className="text-xs leading-relaxed space-y-3">
               <p>
-                6698 sayılı Kişisel Verilerin Korunması Kanunu (&ldquo;KVKK&rdquo;) ve ilgili mevzuat
-                uyarınca, veri sorumlusu sıfatıyla {siteConfig.name} tarafından işlenen kişisel verileriniz,
-                yalnızca sigorta poliçesi teklifi oluşturma, risk analizi ve poliçe tanzimi
-                amaçlarıyla sınırlı olarak işlenmektedir.
+                In accordance with international data privacy frameworks (including GDPR) and applicable insurance regulatory guidelines, personal data processed by {siteConfig.name} is handled strictly for risk assessment, multi-carrier policy formulation, underwriting syndication, and claims representation.
               </p>
               <p>
-                Verileriniz; poliçe teklifi talep ettiğiniz yetkili sigorta şirketleri, Sigorta Bilgi ve
-                Gözetim Merkezi (SBM) ve yasal yetkili kamu kurumları dışında üçüncü taraflarla
-                kesinlikle paylaşılmaz ve ticari amaçla satılmaz.
+                Your contact details and risk disclosures are shared solely with authorized underwriting insurance syndicates, authorized loss adjusters, and statutory oversight authorities. We do not sell, barter, or distribute your private client information to third-party marketing entities.
               </p>
               <p>
-                KVKK&apos;nın 11. maddesi kapsamındaki haklarınızı kullanmak için {siteConfig.email} adresimiz
-                üzerinden her zaman acentemizle irtibata geçebilirsiniz.
+                To exercise your data protection rights, request full record deletion, or inquire about underwriting disclosures, contact our privacy desk directly at {siteConfig.email}.
               </p>
             </div>
           </div>
